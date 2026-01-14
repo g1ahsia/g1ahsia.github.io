@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Panlo Enterprise | 服務條款</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --primary-dark: #3730a3;
+            --primary-light: #818cf8;
+            --accent-color: #10b981;
+            --dark-bg: #111827;
+            --dark-card: #1f2937;
+            --dark-text: #f3f4f6;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--primary-color), #7c3aed);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-gradient::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB4PSIwIiB5PSIwIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSgzMCkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSI+PC9yZWN0PjwvcGF0dGVybj48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSI+PC9yZWN0Pjwvc3ZnPg==');
+            opacity: 0.4;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            transform-origin: bottom left;
+            transform: scaleX(1);
+        }
+
+        .lang-switch {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        [lang="en"] .zh-content {
+            display: none;
+        }
+
+        [lang="zh"] .en-content {
+            display: none;
+        }
+
+        .content-section {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-light);
+        }
+
+        .content-section ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .content-section ol {
+            list-style-type: decimal;
+            padding-left: 1.5rem;
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-900 bg-gray-50" lang="zh">
+    <!-- Language Switcher -->
+    <div class="lang-switch">
+        <button id="lang-toggle" class="bg-indigo-600 text-white px-3 py-1 rounded-md text-sm font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-300 transform hover:scale-105">
+            <span class="en-content">中文</span>
+            <span class="zh-content">English</span>
+        </button>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white dark:bg-gray-900 shadow-md sticky top-0 z-40 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html" class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">Panlo Enterprise</a>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="index.html" class="nav-link border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-300">
+                            <span class="zh-content">首頁</span>
+                            <span class="en-content">Home</span>
+                        </a>
+                        <a href="index.html#features" class="nav-link border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-300">
+                            <span class="zh-content">功能</span>
+                            <span class="en-content">Features</span>
+                        </a>
+                        <a href="index.html#download" class="nav-link border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-300">
+                            <span class="zh-content">下載</span>
+                            <span class="en-content">Download</span>
+                        </a>
+                        <a href="index.html#faq" class="nav-link border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-300">
+                            <span class="zh-content">FAQ</span>
+                            <span class="en-content">FAQ</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button type="button" class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 transition-all duration-300" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden sm:hidden">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="index.html" class="border-transparent text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition-all duration-300">
+                    <span class="zh-content">首頁</span>
+                    <span class="en-content">Home</span>
+                </a>
+                <a href="index.html#features" class="border-transparent text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition-all duration-300">
+                    <span class="zh-content">功能</span>
+                    <span class="en-content">Features</span>
+                </a>
+                <a href="index.html#download" class="border-transparent text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition-all duration-300">
+                    <span class="zh-content">下載</span>
+                    <span class="en-content">Download</span>
+                </a>
+                <a href="index.html#faq" class="border-transparent text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition-all duration-300">
+                    <span class="zh-content">FAQ</span>
+                    <span class="en-content">FAQ</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 relative z-10">
+            <div class="text-center">
+                <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+                    <span class="zh-content">服務條款</span>
+                    <span class="en-content">Terms of Service</span>
+                </h1>
+                <p class="mt-4 text-xl text-indigo-100">
+                    <span class="zh-content">最後更新日期：2025年1月</span>
+                    <span class="en-content">Last Updated: January 2025</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms of Service Content -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Introduction -->
+            <div class="content-section">
+                <h2 class="text-2xl font-bold">
+                    <span class="zh-content">條款接受</span>
+                    <span class="en-content">Acceptance of Terms</span>
+                </h2>
+                <p class="text-gray-600">
+                    <span class="zh-content">歡迎使用 Panlo Enterprise。透過存取或使用我們的服務，您同意受這些服務條款（「條款」）的約束。如果您不同意這些條款的任何部分，您可能無法使用我們的服務。這些條款適用於所有訪問者、用戶和其他存取或使用服務的人。</span>
+                    <span class="en-content">Welcome to Panlo Enterprise. By accessing or using our services, you agree to be bound by these Terms of Service ("Terms"). If you do not agree to any part of these Terms, you may not use our services. These Terms apply to all visitors, users, and others who access or use the Service.</span>
+                </p>
+            </div>
+
+            <!-- Description of Service -->
+            <div class="content-section">
+                <h2 class="text-2xl font-bold">
+                    <span class="zh-content">服務說明</span>
+                    <span class="en-content">Description of Service</span>
+                </h2>
+                <p class="text-gray-600">
+                    <span class="zh-content">Panlo Enterprise 是一個企業級 AI 智能工作流程平台，提供自主代理系統、多模態 AI 處理、文件管理和業務流程自動化功能。我們保留隨時修改、暫停或終止服務的權利，恕不另行通知。</span>
+                    <span class="en-content">Panlo Enterprise is an enterprise-grade AI agentic workflow platform that provides autonomous agent systems, multimodal AI processing, document management, and business process automation capabilities. We reserve the right to modify, suspend, or discontinue the Service at any time without notice.</span>
+                </p>
+            </div>
+
+            <!-- User Accounts -->
+            <div class="content-section">
+                <h2 class="text-2xl font-bold">
+                    <span class="zh-content">用戶帳戶</span>
+                    <span class="en-content">User Accounts</span>
+                </h2>
+                <p class="text-gray-600 mb-4">
+                    <span class="zh-content">使用我們的某些服務時，您可能需要建立帳戶。您同意：</span>
+                    <span class="en-content">When using certain features of our services, you may need to create an account. You agree to:</span>
+                </p>
+                <ul class="text-gray-600">
+                    <li>
+                        <span class="zh-content">提供準確、完整和最新的帳戶資訊</span>
+                        <span class="en-content">Provide accurate, complete, and current account information</span>
+                    </li>
+                    <li>
+                        <span class="zh-content">維護帳戶資訊的安全性，包括密碼的保密</span>
+                        <span class="en-content">Maintain the security of your account, including password confidentiality</span>
+                    </li>
+                    <li>
+                        <span class="zh-content">對使用您帳戶進行的所有活動負責</span>
+                        <span class="en-content">Be responsible for all activities that occur under your account</span>
+                    </li>
+                    <li>
+                        <span class="zh-content">如發現任何未經授權使用您帳戶的情況，請立即通知我們</span>
+                        <span class="en-content">Notify us immediately of any unauthorized use of your account</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Acceptable Use -->
+            <div class="content-section">
+                <h2 class="text-2xl font-bold">
+                    <span class="zh-content">可接受的使用</span>
+                    <span class="en-content">Acceptable Use</span>
+                </h2>
+                <p class="text-gray-600 mb-4">
+                    <span class="zh-content">您同意不會以任何方式使用服務：</span>
+                    <span class="en-content">You agree not to use the Service in any way that:</span>
+                </p>
+                <ul class="text-gray-600">
+                    <li>
+                        <span class="zh-content">違反任何適用的法律或法規</span>
+                        <span class="en-content">Violates any applicable law or regulation</span>
+                    </li>
+                    <li>
+                        <span class="zh-content">侵犯他人的智慧財產權或其他權利</span>
+                        <span class="en-content">Infringes on the intellectual property or other rights of others</span>
+                    </li>
+                    <li>
+                        <span class="zh-content">傳輸任何惡意軟體、病毒或有害程式碼</span>
+                        <span class="en-content">Transmits any malware, viruses, or harmful code</span>
+                    </li>
+                    <li>
+                        <span class="zh-content">試圖未經授權存取系統或網路</span>
+                        <span class="en-content">Attempts unauthorized access to systems or networks</span>
+                    </li>
+                    <li>
+                        <span class="zh-content">干擾或破壞服務或伺服器的運作</span>
+                        <span class="en-content">Interferes with or disrupts the operation of the Service or servers</span>
+                    </li>
+                    <li>
+                        <span class="zh-content">冒充任何人或實體，或虛假陳述您與任何人或實體的關聯</span>
+                        <span class="en-content">Impersonates any person or entity, or falsely represents your affiliation with any person or entity</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Intellectual Property -->
+            <div class="content-section">
+                <h2 class="text-2xl font-bold">
+                    <span class="zh-content">智慧財產權</span>
+                    <span class="en-content">Intellectual Property</span>
+                </h2>
+                <p class="text-gray-600">
+                    <span class="zh-content">服務及其原始內容、功能和特性均為 Panlo 及其授權方的專有財產，受國際版權、商標、專利、商業秘密和其他智慧財產權或專有權利法律的保護。未經我們事先書面同意，您不得複製、修改、分發、銷售或出租服務的任何部分。</span>
+                    <span class="en-content">The Service and its original content, features, and functionality are and will remain the exclusive property of Panlo and its licensors. The Service is protected by copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws. You may not copy, modify, distribute, sell, or lease any part of our Service without our prior written consent.</span>
+                </p>
+            </div>
+
+            <!-- User Content -->
+            <div class="content-section">
+                <h2 class="text-2xl font-bold">
+                    <span class="zh-content">用戶內容</span>
+                    <span class="en-content">User Content</span>
+                </h2>
+                <p class="text-gray-600">
+                    <span class="zh-content">您保留您上傳到服務的任何內容的所有權利。透過上傳內容，您授予我們非獨佔、全球性、免版稅的許可，以使用、處理和顯示該內容，僅用於向您提供服務的目的。我們不會將您的內容用於任何其他目的，除非獲得您的明確同意。</span>
+                    <span class="en-content">You retain all rights to any content you upload to the Service. By uploading content, you grant us a non-exclusive, worldwide, royalty-free license to use, process, and display that content solely for the purpose of providing the Service to you. We will not use your content for any other purpose without your explicit consent.</span>
+                </p>
+            </div>
+
+            <!-- Disclaimer of Warranties -->
+            <div class="content-section">
+                <h2 class="text-2xl font-bold">
+                    <span class="zh-content">免責聲明</span>
+                    <span class="en-content">Disclaimer of Warranties</span>
+                </h2>
+                <p class="text-gray-600">
+                    <span class="zh-content">服務按「原樣」和「可用」基礎提供，不提供任何形式的明示或暗示保證。我們不保證服務將不間斷、及時、安全或無錯誤。使用服務的風險由您自行承擔。</span>
+                    <span class="en-content">The Service is provided on an "as is" and "as available" basis without any warranties of any kind, either express or implied. We do not warrant that the Service will be uninterrupted, timely, secure, or error-free. Your use of the Service is at your sole risk.</span>
+                </p>
+            </div>
+
+            <!-- Limitation of Liability -->
+            <div class="content-section">
+                <h2 class="text-2xl font-bold">
+                    <span class="zh-content">責任限制</span>
+                    <span class="en-content">Limitation of Liability</span>
+                </h2>
+                <p class="text-gray-600">
+                    <span class="zh-content">在任何情況下，Panlo、其董事、員工、合作夥伴、代理、供應商或關聯方均不對任何間接、偶然、特殊、後果性或懲罰性損害負責，包括但不限於利潤損失、數據損失、商譽損失或其他無形損失，無論是否基於保證、合約、侵權（包括疏忽）或任何其他法律理論，即使我們已被告知此類損害的可能性。</span>
+                    <span class="en-content">In no event shall Panlo, its directors, employees, partners, agents, suppliers, or affiliates be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, goodwill, or other intangible losses, whether based on warranty, contract, tort (including negligence), or any other legal theory, even if we have been advised of the possibility of such damages.</span>
+                </p>
+            </div>
+
+            <!-- Indemnification -->
+            <div class="content-section">
+                <h2 class="text-2xl font-bold">
+                    <span class="zh-content">賠償</span>
+                    <span class="en-content">Indemnification</span>
+                </h2>
+                <p class="text-gray-600">
+                    <span class="zh-content">您同意為 Panlo 及其關聯方、董事、員工和代理辯護、賠償並使其免受因您使用服務、違反這些條款或侵犯任何第三方權利而引起的任何索賠、損害、義務、損失、責任、費用或債務。</span>
+                    <span class="en-content">You agree to defend, indemnify, and hold harmless Panlo and its affiliates, directors, employees, and agents from any claims, damages, obligations, losses, liabilities, costs, or debt arising from your use of the Service, violation of these Terms, or infringement of any third-party rights.</span>
+                </p>
+            </div>
+
+            <!-- Termination -->
+            <div class="content-section">
+                <h2 class="text-2xl font-bold">
+                    <span class="zh-content">終止</span>
+                    <span class="en-content">Termination</span>
+                </h2>
+                <p class="text-gray-600">
+                    <span class="zh-content">我們可能會因任何原因立即終止或暫停您對服務的存取，恕不另行通知或承擔責任，包括但不限於您違反這些條款的情況。終止後，您使用服務的權利將立即停止。如果您希望終止帳戶，您可以簡單地停止使用服務或聯絡我們。</span>
+                    <span class="en-content">We may terminate or suspend your access to the Service immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach these Terms. Upon termination, your right to use the Service will cease immediately. If you wish to terminate your account, you may simply discontinue using the Service or contact us.</span>
+                </p>
+            </div>
+
+            <!-- Governing Law -->
+            <div class="content-section">
+                <h2 class="text-2xl font-bold">
+                    <span class="zh-content">管轄法律</span>
+                    <span class="en-content">Governing Law</span>
+                </h2>
+                <p class="text-gray-600">
+                    <span class="zh-content">這些條款應根據適用法律進行解釋和管轄，不考慮法律衝突原則。我們未能執行這些條款的任何權利或規定不構成對該等權利的放棄。</span>
+                    <span class="en-content">These Terms shall be governed and construed in accordance with applicable laws, without regard to conflict of law principles. Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights.</span>
+                </p>
+            </div>
+
+            <!-- Changes to Terms -->
+            <div class="content-section">
+                <h2 class="text-2xl font-bold">
+                    <span class="zh-content">條款變更</span>
+                    <span class="en-content">Changes to Terms</span>
+                </h2>
+                <p class="text-gray-600">
+                    <span class="zh-content">我們保留隨時自行決定修改或替換這些條款的權利。如果修訂是重大的，我們將在任何新條款生效前至少提前 30 天通知。什麼構成重大變更將由我們自行決定。在任何此類修訂生效後繼續存取或使用我們的服務，即表示您同意受修訂後的條款約束。</span>
+                    <span class="en-content">We reserve the right to modify or replace these Terms at any time at our sole discretion. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion. By continuing to access or use our Service after any revisions become effective, you agree to be bound by the revised terms.</span>
+                </p>
+            </div>
+
+            <!-- Contact Us -->
+            <div class="content-section">
+                <h2 class="text-2xl font-bold">
+                    <span class="zh-content">聯絡我們</span>
+                    <span class="en-content">Contact Us</span>
+                </h2>
+                <p class="text-gray-600">
+                    <span class="zh-content">如果您對這些服務條款有任何問題，請聯絡我們：</span>
+                    <span class="en-content">If you have any questions about these Terms of Service, please contact us:</span>
+                </p>
+                <p class="text-gray-600 mt-4">
+                    <strong>
+                        <span class="zh-content">電子郵件：</span>
+                        <span class="en-content">Email: </span>
+                    </strong>
+                    <a href="mailto:g1ahsia@gmail.com" class="text-indigo-600 hover:text-indigo-800">g1ahsia@gmail.com</a>
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">Panlo Enterprise</h3>
+                    <p class="text-gray-300">
+                        <span class="zh-content">企業級 AI 智能工作流程平台，透過自主代理系統實現業務流程自動化，提升企業生產力與決策效率。</span>
+                        <span class="en-content">Enterprise-grade AI agentic workflow platform that automates business processes through autonomous agent systems, enhancing enterprise productivity and decision-making efficiency.</span>
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-indigo-300">
+                        <span class="zh-content">快速連結</span>
+                        <span class="en-content">Quick Links</span>
+                    </h3>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="index.html" class="text-gray-300 hover:text-white transition-colors duration-300">
+                                <span class="zh-content">首頁</span>
+                                <span class="en-content">Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html#features" class="text-gray-300 hover:text-white transition-colors duration-300">
+                                <span class="zh-content">功能</span>
+                                <span class="en-content">Features</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html#download" class="text-gray-300 hover:text-white transition-colors duration-300">
+                                <span class="zh-content">下載</span>
+                                <span class="en-content">Download</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="privacy.html" class="text-gray-300 hover:text-white transition-colors duration-300">
+                                <span class="zh-content">隱私權政策</span>
+                                <span class="en-content">Privacy Policy</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="terms.html" class="text-gray-300 hover:text-white transition-colors duration-300">
+                                <span class="zh-content">服務條款</span>
+                                <span class="en-content">Terms of Service</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-indigo-300">
+                        <span class="zh-content">聯絡我們</span>
+                        <span class="en-content">Contact Us</span>
+                    </h3>
+                    <p class="text-gray-300">
+                        <span class="zh-content">如有任何問題或建議，請隨時與我們聯繫。</span>
+                        <span class="en-content">If you have any questions or suggestions, please feel free to contact us.</span>
+                    </p>
+                    <p class="text-gray-300 mt-2">
+                        <span class="zh-content">電子郵件：g1ahsia@gmail.com</span>
+                        <span class="en-content">Email: g1ahsia@gmail.com</span>
+                    </p>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+                <p class="text-gray-300">
+                    &copy; <span id="current-year"></span> Panlo.
+                    <span class="zh-content">保留所有權利。</span>
+                    <span class="en-content">All rights reserved.</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Language switching
+        document.getElementById('lang-toggle').addEventListener('click', function() {
+            const body = document.body;
+            if (body.getAttribute('lang') === 'zh') {
+                body.setAttribute('lang', 'en');
+                localStorage.setItem('pannamitta-lang', 'en');
+            } else {
+                body.setAttribute('lang', 'zh');
+                localStorage.setItem('pannamitta-lang', 'zh');
+            }
+        });
+
+        // Check language setting on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('pannamitta-lang');
+            if (savedLang) {
+                document.body.setAttribute('lang', savedLang);
+            } else {
+                const browserLanguage = navigator.language || navigator.userLanguage;
+                if (browserLanguage.startsWith('zh')) {
+                    document.body.setAttribute('lang', 'zh');
+                } else {
+                    document.body.setAttribute('lang', 'en');
+                }
+            }
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+            document.querySelector('.mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

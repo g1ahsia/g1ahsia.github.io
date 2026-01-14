@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Panlo Enterprise | 隱私權政策</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --primary-dark: #3730a3;
+            --primary-light: #818cf8;
+            --accent-color: #10b981;
+            --dark-bg: #111827;
+            --dark-card: #1f2937;
+            --dark-text: #f3f4f6;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--primary-color), #7c3aed);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-gradient::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB4PSIwIiB5PSIwIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSgzMCkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSI+PC9yZWN0PjwvcGF0dGVybj48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSI+PC9yZWN0Pjwvc3ZnPg==');
+            opacity: 0.4;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            transform-origin: bottom left;
+            transform: scaleX(1);
+        }
+
+        .lang-switch {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        [lang="en"] .zh-content {
+            display: none;
+        }
+
+        [lang="zh"] .en-content {
+            display: none;
+        }
+
+        .content-section {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-light);
+        }
+
+        .content-section ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-900 bg-gray-50" lang="zh">
+    <!-- Language Switcher -->
+    <div class="lang-switch">
+        <button id="lang-toggle" class="bg-indigo-600 text-white px-3 py-1 rounded-md text-sm font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-300 transform hover:scale-105">
+            <span class="en-content">中文</span>
+            <span class="zh-content">English</span>
+        </button>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white dark:bg-gray-900 shadow-md sticky top-0 z-40 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html" class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">Panlo Enterprise</a>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="index.html" class="nav-link border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-300">
+                            <span class="zh-content">首頁</span>
+                            <span class="en-content">Home</span>
+                        </a>
+                        <a href="index.html#features" class="nav-link border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-300">
+                            <span class="zh-content">功能</span>
+                            <span class="en-content">Features</span>
+                        </a>
+                        <a href="index.html#download" class="nav-link border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-300">
+                            <span class="zh-content">下載</span>
+                            <span class="en-content">Download</span>
+                        </a>
+                        <a href="index.html#faq" class="nav-link border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-300">
+                            <span class="zh-content">FAQ</span>
+                            <span class="en-content">FAQ</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button type="button" class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 transition-all duration-300" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden sm:hidden">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="index.html" class="border-transparent text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition-all duration-300">
+                    <span class="zh-content">首頁</span>
+                    <span class="en-content">Home</span>
+                </a>
+                <a href="index.html#features" class="border-transparent text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition-all duration-300">
+                    <span class="zh-content">功能</span>
+                    <span class="en-content">Features</span>
+                </a>
+                <a href="index.html#download" class="border-transparent text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition-all duration-300">
+                    <span class="zh-content">下載</span>
+                    <span class="en-content">Download</span>
+                </a>
+                <a href="index.html#faq" class="border-transparent text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition-all duration-300">
+                    <span class="zh-content">FAQ</span>
+                    <span class="en-content">FAQ</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 relative z-10">
+            <div class="text-center">
+                <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+                    <span class="zh-content">隱私權政策</span>
+                    <span class="en-content">Privacy Policy</span>
+                </h1>
+                <p class="mt-4 text-xl text-indigo-100">
+                    <span class="zh-content">最後更新日期：2025年1月</span>
+                    <span class="en-content">Last Updated: January 2025</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Policy Content -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Introduction -->
+            <div class="content-section">
+                <h2 class="text-2xl font-bold">
+                    <span class="zh-content">簡介</span>
+                    <span class="en-content">Introduction</span>
+                </h2>
+                <p class="text-gray-600">
+                    <span class="zh-content">Panlo Enterprise（以下簡稱「我們」）非常重視您的隱私。本隱私權政策說明我們如何收集、使用、儲存和保護您的個人資訊。使用我們的服務即表示您同意本政策中描述的做法。</span>
+                    <span class="en-content">Panlo Enterprise ("we," "us," or "our") takes your privacy seriously. This Privacy Policy explains how we collect, use, store, and protect your personal information. By using our services, you agree to the practices described in this policy.</span>
+                </p>
+            </div>
+
+            <!-- Information We Collect -->
+            <div class="content-section">
+                <h2 class="text-2xl font-bold">
+                    <span class="zh-content">我們收集的資訊</span>
+                    <span class="en-content">Information We Collect</span>
+                </h2>
+                <p class="text-gray-600 mb-4">
+                    <span class="zh-content">我們可能收集以下類型的資訊：</span>
+                    <span class="en-content">We may collect the following types of information:</span>
+                </p>
+                <ul class="text-gray-600">
+                    <li>
+                        <span class="zh-content"><strong>帳戶資訊：</strong>當您註冊帳戶時提供的姓名、電子郵件地址和其他聯絡資訊。</span>
+                        <span class="en-content"><strong>Account Information:</strong> Name, email address, and other contact information you provide when registering an account.</span>
+                    </li>
+                    <li>
+                        <span class="zh-content"><strong>使用資料：</strong>關於您如何使用我們服務的資訊，包括功能使用情況和互動記錄。</span>
+                        <span class="en-content"><strong>Usage Data:</strong> Information about how you use our services, including feature usage and interaction logs.</span>
+                    </li>
+                    <li>
+                        <span class="zh-content"><strong>裝置資訊：</strong>裝置類型、作業系統版本和應用程式版本等技術資訊。</span>
+                        <span class="en-content"><strong>Device Information:</strong> Technical information such as device type, operating system version, and application version.</span>
+                    </li>
+                    <li>
+                        <span class="zh-content"><strong>內容資料：</strong>您上傳到平台進行處理的檔案和數據。</span>
+                        <span class="en-content"><strong>Content Data:</strong> Files and data you upload to the platform for processing.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- How We Use Your Information -->
+            <div class="content-section">
+                <h2 class="text-2xl font-bold">
+                    <span class="zh-content">我們如何使用您的資訊</span>
+                    <span class="en-content">How We Use Your Information</span>
+                </h2>
+                <p class="text-gray-600 mb-4">
+                    <span class="zh-content">我們使用收集的資訊用於：</span>
+                    <span class="en-content">We use the information we collect to:</span>
+                </p>
+                <ul class="text-gray-600">
+                    <li>
+                        <span class="zh-content">提供、維護和改進我們的服務</span>
+                        <span class="en-content">Provide, maintain, and improve our services</span>
+                    </li>
+                    <li>
+                        <span class="zh-content">處理您的請求和交易</span>
+                        <span class="en-content">Process your requests and transactions</span>
+                    </li>
+                    <li>
+                        <span class="zh-content">向您發送技術通知和支援訊息</span>
+                        <span class="en-content">Send you technical notices and support messages</span>
+                    </li>
+                    <li>
+                        <span class="zh-content">回應您的評論、問題和請求</span>
+                        <span class="en-content">Respond to your comments, questions, and requests</span>
+                    </li>
+                    <li>
+                        <span class="zh-content">監控和分析使用趨勢以改進用戶體驗</span>
+                        <span class="en-content">Monitor and analyze usage trends to improve user experience</span>
+                    </li>
+                    <li>
+                        <span class="zh-content">偵測、調查和防止詐欺或其他非法活動</span>
+                        <span class="en-content">Detect, investigate, and prevent fraudulent or illegal activities</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Data Security -->
+            <div class="content-section">
+                <h2 class="text-2xl font-bold">
+                    <span class="zh-content">資料安全</span>
+                    <span class="en-content">Data Security</span>
+                </h2>
+                <p class="text-gray-600">
+                    <span class="zh-content">我們實施業界標準的安全措施來保護您的資訊，包括：</span>
+                    <span class="en-content">We implement industry-standard security measures to protect your information, including:</span>
+                </p>
+                <ul class="text-gray-600 mt-4">
+                    <li>
+                        <span class="zh-content">傳輸中和靜態資料的端到端加密</span>
+                        <span class="en-content">End-to-end encryption for data in transit and at rest</span>
+                    </li>
+                    <li>
+                        <span class="zh-content">定期安全審計和漏洞評估</span>
+                        <span class="en-content">Regular security audits and vulnerability assessments</span>
+                    </li>
+                    <li>
+                        <span class="zh-content">對敏感系統的存取控制和身份驗證</span>
+                        <span class="en-content">Access controls and authentication for sensitive systems</span>
+                    </li>
+                    <li>
+                        <span class="zh-content">員工安全意識培訓</span>
+                        <span class="en-content">Employee security awareness training</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Data Retention -->
+            <div class="content-section">
+                <h2 class="text-2xl font-bold">
+                    <span class="zh-content">資料保留</span>
+                    <span class="en-content">Data Retention</span>
+                </h2>
+                <p class="text-gray-600">
+                    <span class="zh-content">我們僅在必要時保留您的個人資訊，以實現本隱私權政策中描述的目的，除非法律要求或允許更長的保留期限。當不再需要您的資訊時，我們將安全地刪除或匿名化處理。</span>
+                    <span class="en-content">We retain your personal information only for as long as necessary to fulfill the purposes described in this Privacy Policy, unless a longer retention period is required or permitted by law. When your information is no longer needed, we will securely delete or anonymize it.</span>
+                </p>
+            </div>
+
+            <!-- Your Rights -->
+            <div class="content-section">
+                <h2 class="text-2xl font-bold">
+                    <span class="zh-content">您的權利</span>
+                    <span class="en-content">Your Rights</span>
+                </h2>
+                <p class="text-gray-600 mb-4">
+                    <span class="zh-content">根據適用法律，您可能擁有以下權利：</span>
+                    <span class="en-content">Depending on applicable law, you may have the following rights:</span>
+                </p>
+                <ul class="text-gray-600">
+                    <li>
+                        <span class="zh-content">存取我們持有的您的個人資訊</span>
+                        <span class="en-content">Access the personal information we hold about you</span>
+                    </li>
+                    <li>
+                        <span class="zh-content">更正不準確或不完整的資訊</span>
+                        <span class="en-content">Correct inaccurate or incomplete information</span>
+                    </li>
+                    <li>
+                        <span class="zh-content">請求刪除您的個人資訊</span>
+                        <span class="en-content">Request deletion of your personal information</span>
+                    </li>
+                    <li>
+                        <span class="zh-content">反對或限制某些處理活動</span>
+                        <span class="en-content">Object to or restrict certain processing activities</span>
+                    </li>
+                    <li>
+                        <span class="zh-content">請求以可攜帶格式提供您的資料</span>
+                        <span class="en-content">Request your data in a portable format</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Third-Party Services -->
+            <div class="content-section">
+                <h2 class="text-2xl font-bold">
+                    <span class="zh-content">第三方服務</span>
+                    <span class="en-content">Third-Party Services</span>
+                </h2>
+                <p class="text-gray-600">
+                    <span class="zh-content">我們的服務可能包含指向第三方網站或服務的連結。我們對這些第三方的隱私做法不負責任。我們鼓勵您在向其提供任何個人資訊之前，閱讀您訪問的任何第三方網站或服務的隱私權政策。</span>
+                    <span class="en-content">Our services may contain links to third-party websites or services. We are not responsible for the privacy practices of these third parties. We encourage you to read the privacy policies of any third-party websites or services you visit before providing them with any personal information.</span>
+                </p>
+            </div>
+
+            <!-- Changes to This Policy -->
+            <div class="content-section">
+                <h2 class="text-2xl font-bold">
+                    <span class="zh-content">政策變更</span>
+                    <span class="en-content">Changes to This Policy</span>
+                </h2>
+                <p class="text-gray-600">
+                    <span class="zh-content">我們可能會不時更新本隱私權政策。我們將通過在本頁面上發布新的隱私權政策來通知您任何變更。建議您定期查看本隱私權政策以了解任何變更。</span>
+                    <span class="en-content">We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes.</span>
+                </p>
+            </div>
+
+            <!-- Contact Us -->
+            <div class="content-section">
+                <h2 class="text-2xl font-bold">
+                    <span class="zh-content">聯絡我們</span>
+                    <span class="en-content">Contact Us</span>
+                </h2>
+                <p class="text-gray-600">
+                    <span class="zh-content">如果您對本隱私權政策有任何問題或疑慮，請通過以下方式聯絡我們：</span>
+                    <span class="en-content">If you have any questions or concerns about this Privacy Policy, please contact us at:</span>
+                </p>
+                <p class="text-gray-600 mt-4">
+                    <strong>
+                        <span class="zh-content">電子郵件：</span>
+                        <span class="en-content">Email: </span>
+                    </strong>
+                    <a href="mailto:g1ahsia@gmail.com" class="text-indigo-600 hover:text-indigo-800">g1ahsia@gmail.com</a>
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">Panlo Enterprise</h3>
+                    <p class="text-gray-300">
+                        <span class="zh-content">企業級 AI 智能工作流程平台，透過自主代理系統實現業務流程自動化，提升企業生產力與決策效率。</span>
+                        <span class="en-content">Enterprise-grade AI agentic workflow platform that automates business processes through autonomous agent systems, enhancing enterprise productivity and decision-making efficiency.</span>
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-indigo-300">
+                        <span class="zh-content">快速連結</span>
+                        <span class="en-content">Quick Links</span>
+                    </h3>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="index.html" class="text-gray-300 hover:text-white transition-colors duration-300">
+                                <span class="zh-content">首頁</span>
+                                <span class="en-content">Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html#features" class="text-gray-300 hover:text-white transition-colors duration-300">
+                                <span class="zh-content">功能</span>
+                                <span class="en-content">Features</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html#download" class="text-gray-300 hover:text-white transition-colors duration-300">
+                                <span class="zh-content">下載</span>
+                                <span class="en-content">Download</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="privacy.html" class="text-gray-300 hover:text-white transition-colors duration-300">
+                                <span class="zh-content">隱私權政策</span>
+                                <span class="en-content">Privacy Policy</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="terms.html" class="text-gray-300 hover:text-white transition-colors duration-300">
+                                <span class="zh-content">服務條款</span>
+                                <span class="en-content">Terms of Service</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-indigo-300">
+                        <span class="zh-content">聯絡我們</span>
+                        <span class="en-content">Contact Us</span>
+                    </h3>
+                    <p class="text-gray-300">
+                        <span class="zh-content">如有任何問題或建議，請隨時與我們聯繫。</span>
+                        <span class="en-content">If you have any questions or suggestions, please feel free to contact us.</span>
+                    </p>
+                    <p class="text-gray-300 mt-2">
+                        <span class="zh-content">電子郵件：g1ahsia@gmail.com</span>
+                        <span class="en-content">Email: g1ahsia@gmail.com</span>
+                    </p>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+                <p class="text-gray-300">
+                    &copy; <span id="current-year"></span> Panlo.
+                    <span class="zh-content">保留所有權利。</span>
+                    <span class="en-content">All rights reserved.</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Language switching
+        document.getElementById('lang-toggle').addEventListener('click', function() {
+            const body = document.body;
+            if (body.getAttribute('lang') === 'zh') {
+                body.setAttribute('lang', 'en');
+                localStorage.setItem('pannamitta-lang', 'en');
+            } else {
+                body.setAttribute('lang', 'zh');
+                localStorage.setItem('pannamitta-lang', 'zh');
+            }
+        });
+
+        // Check language setting on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('pannamitta-lang');
+            if (savedLang) {
+                document.body.setAttribute('lang', savedLang);
+            } else {
+                const browserLanguage = navigator.language || navigator.userLanguage;
+                if (browserLanguage.startsWith('zh')) {
+                    document.body.setAttribute('lang', 'zh');
+                } else {
+                    document.body.setAttribute('lang', 'en');
+                }
+            }
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+            document.querySelector('.mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
