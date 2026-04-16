@@ -3,49 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panlo Enterprise - AI Agentic Workflow Platform | 企業級 AI 智能工作流程平台</title>
+    <title>Panlo - AI-Powered Document Intelligence | AI 智能文件助理</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <style>
         :root {
-            --primary-color: #4f46e5;
-            --primary-dark: #3730a3;
-            --primary-light: #818cf8;
-            --accent-color: #10b981;
-            --dark-bg: #111827;
-            --dark-card: #1f2937;
-            --dark-text: #f3f4f6;
+            --primary: #007AFF;
+            --primary-dark: #0055CC;
+            --primary-light: #409CFF;
+            --accent: #34C759;
+            --accent-orange: #FF9500;
+            --accent-red: #FF3B30;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f7;
+            --bg-dark: #1c1c1e;
+            --bg-dark-card: #2c2c2e;
+            --text-primary: #1c1c1e;
+            --text-secondary: #8e8e93;
+            --border-light: #d1d1d6;
+            --border-dark: #48484a;
         }
-        
+
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             scroll-behavior: smooth;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            line-height: 1.6;
         }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
-        }
-        
+
+        /* Hero */
         .hero-gradient {
-            background: linear-gradient(135deg, var(--primary-color), #7c3aed);
+            background: linear-gradient(135deg, #0055CC 0%, #007AFF 25%, #6C5CE7 50%, #A855F7 75%, #007AFF 100%);
+            background-size: 400% 400%;
+            animation: gradient-shift 12s ease infinite;
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero-gradient::before {
             content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 20% 40%, rgba(108,92,231,0.4) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 80% at 80% 20%, rgba(0,122,255,0.3) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 50% at 50% 80%, rgba(168,85,247,0.25) 0%, transparent 50%);
+            animation: aurora 15s ease-in-out infinite alternate;
+        }
+
+        .hero-gradient::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB4PSIwIiB5PSIwIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSgzMCkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSI+PC9yZWN0PjwvcGF0dGVybj48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSI+PC9yZWN0Pjwvc3ZnPg==');
-            opacity: 0.4;
+            opacity: 0.5;
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes aurora {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+            50% { transform: translate(3%, -2%) scale(1.05); opacity: 1; }
+            100% { transform: translate(-2%, 1%) scale(0.98); opacity: 0.8; }
         }
 
         #particles-js {
@@ -56,343 +89,630 @@
             left: 0;
             z-index: 1;
         }
-        
+
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 3;
         }
-        
+
+        /* Feature Cards */
         .feature-card {
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
             overflow: hidden;
+            background: var(--bg-primary);
         }
-        
+
         .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            border-color: var(--primary-light);
         }
-        
-        .feature-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-            transform: scaleX(0);
-            transform-origin: left;
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: transform 0.3s ease;
         }
-        
-        .feature-card:hover::before {
-            transform: scaleX(1);
-        }
-        
-        .feature-icon {
-            transition: all 0.3s ease;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-        }
-        
+
         .feature-card:hover .feature-icon {
-            transform: scale(1.1) rotate(5deg);
+            transform: scale(1.08);
         }
-        
+
+        .icon-blue { background: rgba(0,122,255,0.1); color: var(--primary); }
+        .icon-green { background: rgba(52,199,89,0.1); color: var(--accent); }
+        .icon-orange { background: rgba(255,149,0,0.1); color: var(--accent-orange); }
+        .icon-purple { background: rgba(175,82,222,0.1); color: #AF52DE; }
+        .icon-red { background: rgba(255,59,48,0.1); color: var(--accent-red); }
+        .icon-teal { background: rgba(90,200,250,0.1); color: #5AC8FA; }
+
+        /* Tier cards */
+        .tier-card {
+            border-radius: 16px;
+            border: 1px solid var(--border-light);
+            background: var(--bg-primary);
+            padding: 2rem;
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+        }
+
+        .tier-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .tier-fast .tier-badge { background: rgba(52,199,89,0.12); color: #248A3D; }
+        .tier-balanced .tier-badge { background: rgba(0,122,255,0.12); color: #0055CC; }
+        .tier-reasoning .tier-badge { background: rgba(175,82,222,0.12); color: #8944AB; }
+
+        /* Download cards */
         .download-card {
             transition: all 0.3s ease;
-            position: relative;
+            border-radius: 16px;
+            border: 1px solid var(--border-light);
+            background: var(--bg-primary);
             overflow: hidden;
         }
-        
-        .download-card::after {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, rgba(255,255,255,0) 30%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 70%);
-            transform: rotate(45deg);
-            transition: all 1s ease;
-            opacity: 0;
+
+        .download-card:hover {
+            box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+            transform: translateY(-4px);
         }
-        
-        .download-card:hover::after {
-            opacity: 1;
-            left: 100%;
-            top: 100%;
+
+        /* Buttons */
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
-        
-        .download-button {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(0,122,255,0.3);
         }
-        
-        .download-button::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
-            transform: translate(-50%, -50%) scale(0);
-            transition: transform 0.5s ease;
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.12);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
-        
-        .download-button:hover::before {
-            transform: translate(-50%, -50%) scale(1);
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-1px);
         }
-        
-        .faq-item {
-            transition: all 0.3s ease;
+
+        .btn-download {
+            background: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
-        
+
+        .btn-download:hover {
+            background: var(--primary-dark);
+            box-shadow: 0 4px 16px rgba(0,122,255,0.25);
+        }
+
+        /* FAQ */
+        .faq-item { transition: all 0.3s ease; }
+
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.5s ease, padding 0.5s ease, opacity 0.3s ease;
+            transition: max-height 0.4s ease, padding 0.4s ease, opacity 0.3s ease;
             opacity: 0;
         }
-        
+
         .faq-answer.active {
             max-height: 500px;
-            padding-top: 1rem;
-            padding-bottom: 1rem;
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
             opacity: 1;
         }
-        
-        .faq-icon {
-            transition: transform 0.3s ease;
-        }
-        
+
+        .faq-icon { transition: transform 0.3s ease; }
+
+        /* Language */
         .lang-switch {
             position: fixed;
             top: 1rem;
             right: 1rem;
             z-index: 50;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
-        
-        [lang="en"] .zh-content {
-            display: none;
+
+        [lang="en"] .zh-content { display: none; }
+        [lang="zh"] .en-content { display: none; }
+
+        /* Reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: all 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
-        
-        [lang="zh"] .en-content {
-            display: none;
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
-        
-        .typing-cursor {
-            color: var(--accent-color);
-        }
-        
+
+        /* Scroll indicator */
         .scroll-indicator {
             position: absolute;
             bottom: 2rem;
             left: 50%;
             transform: translateX(-50%);
-            animation: bounce 2s infinite;
+            animation: float 3s ease-in-out infinite;
         }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0) translateX(-50%);
-            }
-            40% {
-                transform: translateY(-20px) translateX(-50%);
-            }
-            60% {
-                transform: translateY(-10px) translateX(-50%);
-            }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(-50%); }
+            50% { transform: translateY(-8px) translateX(-50%); }
         }
-        
+
+        /* Nav */
         .nav-link {
             position: relative;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            padding: 0.25rem 0;
+            transition: color 0.2s ease;
         }
-        
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+        }
+
         .nav-link::after {
             content: '';
             position: absolute;
             width: 100%;
             height: 2px;
-            bottom: 0;
+            bottom: -2px;
             left: 0;
-            background-color: var(--primary-color);
+            background: var(--primary);
             transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease;
+            transition: transform 0.25s ease;
+            border-radius: 1px;
         }
-        
-        .nav-link:hover::after {
-            transform-origin: bottom left;
+
+        .nav-link:hover::after, .nav-link.active::after {
             transform: scaleX(1);
         }
-        
-        .nav-link.active::after {
-            transform: scaleX(1);
-        }
-        
-        .ai-badge {
-            position: relative;
+
+        /* Section badge */
+        .section-badge {
             display: inline-flex;
             align-items: center;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-weight: 500;
-            font-size: 0.875rem;
+            gap: 6px;
+            background: rgba(0,122,255,0.08);
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.8125rem;
+            letter-spacing: 0.02em;
             margin-bottom: 1rem;
         }
-        
-        .ai-badge::before {
+
+        .section-badge::before {
             content: "";
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background-color: white;
+            display: block;
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
             border-radius: 50%;
-            margin-right: 0.5rem;
-            animation: pulse 1.5s infinite;
+            animation: pulse-dot 2s infinite;
         }
-        
-        @keyframes pulse {
-            0% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
-            }
-            70% {
-                transform: scale(1);
-                box-shadow: 0 0 0 5px rgba(255, 255, 255, 0);
-            }
-            100% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-            }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
         }
-        
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-        
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .format-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .format-item {
-            display: flex;
-            flex-direction: column;
+
+        /* Format tags */
+        .format-tag {
+            display: inline-flex;
             align-items: center;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 0.5rem;
+            padding: 6px 14px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.8);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .format-tag:hover {
+            background: rgba(255,255,255,0.14);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        /* Tool pill */
+        .tool-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            background: var(--bg-secondary);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            border: 1px solid var(--border-light);
+        }
+
+        /* Use case card */
+        .use-case-card {
+            border-radius: 14px;
+            padding: 1.5rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-light);
             transition: all 0.3s ease;
         }
-        
-        .format-item:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+
+        .use-case-card:hover {
+            border-color: var(--primary-light);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
         }
-        
-        .format-icon {
-            width: 2rem;
-            height: 2rem;
-            margin-bottom: 0.5rem;
+
+        /* Stat card */
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
         }
-        
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        /* App mockup */
+        .app-mockup {
+            background: #1c1c1e;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .mockup-titlebar {
+            background: #2c2c2e;
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mockup-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .mockup-dot.red { background: #FF5F56; }
+        .mockup-dot.yellow { background: #FFBD2E; }
+        .mockup-dot.green { background: #27C93F; }
+
+        .mockup-body {
+            display: flex;
+            min-height: 320px;
+        }
+
+        .mockup-sidebar {
+            width: 200px;
+            background: #252528;
+            border-right: 1px solid #3a3a3c;
+            padding: 12px 0;
+            flex-shrink: 0;
+        }
+
+        .mockup-sidebar-item {
+            padding: 7px 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+            cursor: default;
+        }
+
+        .mockup-sidebar-item.active {
+            background: rgba(0,122,255,0.15);
+            color: white;
+        }
+
+        .mockup-sidebar-icon {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        .mockup-main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: #1c1c1e;
+        }
+
+        .mockup-chat {
+            flex: 1;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            overflow: hidden;
+        }
+
+        .mockup-msg {
+            max-width: 80%;
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+        .mockup-msg.user {
+            background: var(--primary);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .mockup-msg.ai {
+            background: #2c2c2e;
+            color: rgba(255,255,255,0.85);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .mockup-msg .source-tag {
+            display: inline-block;
+            margin-top: 6px;
+            padding: 2px 8px;
+            background: rgba(0,122,255,0.15);
+            border-radius: 4px;
+            font-size: 10px;
+            color: #409CFF;
+        }
+
+        .mockup-input {
+            padding: 12px 16px;
+            border-top: 1px solid #3a3a3c;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mockup-input-field {
+            flex: 1;
+            background: #2c2c2e;
+            border: 1px solid #3a3a3c;
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .mockup-send-btn {
+            width: 28px;
+            height: 28px;
+            background: var(--primary);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* Feature showcase layout */
+        .feature-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .feature-showcase.reverse {
+            direction: rtl;
+        }
+
+        .feature-showcase.reverse > * {
+            direction: ltr;
+        }
+
+        .feature-showcase-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .feature-showcase, .feature-showcase.reverse {
+                grid-template-columns: 1fr;
+                direction: ltr;
+            }
+            .feature-showcase.reverse > * {
+                direction: ltr;
+            }
+            .mockup-sidebar { width: 140px; }
+            .mockup-body { min-height: 240px; }
+        }
+
+        /* Mini mockup */
+        .mini-mockup {
+            background: #1c1c1e;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .mini-titlebar {
+            background: #2c2c2e;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .mini-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .mini-content {
+            padding: 14px;
+        }
+
+        /* Typing animation for mockup */
+        .typing-dots {
+            display: inline-flex;
+            gap: 3px;
+            align-items: center;
+        }
+
+        .typing-dots span {
+            width: 5px;
+            height: 5px;
+            background: #409CFF;
+            border-radius: 50%;
+            animation: typing-bounce 1.4s ease-in-out infinite;
+        }
+
+        .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typing-bounce {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+            30% { transform: translateY(-4px); opacity: 1; }
+        }
+
+        /* Floating animation for hero mockup */
+        .float-mockup {
+            animation: float-up 6s ease-in-out infinite;
+        }
+
+        @keyframes float-up {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
     </style>
 </head>
-<body class="antialiased text-gray-900 bg-gray-50" lang="zh">
-    <!-- Particles Background -->
-    <div id="particles-js" class="fixed inset-0 z-0 opacity-30 pointer-events-none"></div>
-    
+<body lang="zh">
+    <!-- Particles handled inside hero -->
+
     <!-- Language Switcher -->
     <div class="lang-switch">
-        <button id="lang-toggle" class="bg-indigo-600 text-white px-3 py-1 rounded-md text-sm font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-300 transform hover:scale-105">
+        <button id="lang-toggle" class="bg-white bg-opacity-90 backdrop-filter backdrop-blur-lg text-gray-700 px-3 py-1.5 rounded-lg text-sm font-medium hover:bg-opacity-100 shadow-sm border border-gray-200 transition-all duration-200">
             <span class="en-content">中文</span>
             <span class="zh-content">English</span>
         </button>
     </div>
 
-    <!-- 導航欄 / Navigation Bar -->
-    <nav class="bg-white dark:bg-gray-900 shadow-md sticky top-0 z-40 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex">
-                    <div class="flex-shrink-0 flex items-center">
-                        <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">Panlo Enterprise</span>
+    <!-- Navigation -->
+    <nav class="bg-white bg-opacity-80 backdrop-filter backdrop-blur-xl border-b border-gray-200 border-opacity-50 sticky top-0 z-40 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-14">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center mr-8">
+                        <span class="text-xl font-bold" style="color: var(--primary);">Panlo</span>
                     </div>
-                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-                        <a href="#home" class="nav-link active border-indigo-500 text-gray-900 dark:text-gray-100 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-300">
+                    <div class="hidden sm:flex items-center space-x-6">
+                        <a href="#home" class="nav-link active">
                             <span class="zh-content">首頁</span>
                             <span class="en-content">Home</span>
                         </a>
-                        <a href="#features" class="nav-link border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-300">
+                        <a href="#features" class="nav-link">
                             <span class="zh-content">功能</span>
                             <span class="en-content">Features</span>
                         </a>
-                        <a href="#workflow" class="nav-link border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-300">
-                            <span class="zh-content">智能工作流程</span>
-                            <span class="en-content">Agentic Workflow</span>
+                        <a href="#intelligence" class="nav-link">
+                            <span class="zh-content">智能引擎</span>
+                            <span class="en-content">AI Engine</span>
                         </a>
-                        <a href="#download" class="nav-link border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-300">
+                        <a href="#download" class="nav-link">
                             <span class="zh-content">下載</span>
                             <span class="en-content">Download</span>
                         </a>
-                        <a href="#faq" class="nav-link border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-300">
+                        <a href="#faq" class="nav-link">
                             <span class="zh-content">FAQ</span>
                             <span class="en-content">FAQ</span>
                         </a>
-                        <a href="privacy.html" class="nav-link border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-300">
+                        <a href="privacy.html" class="nav-link">
                             <span class="zh-content">隱私權</span>
                             <span class="en-content">Privacy</span>
                         </a>
-                        <a href="terms.html" class="nav-link border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-300">
+                        <a href="terms.html" class="nav-link">
                             <span class="zh-content">條款</span>
                             <span class="en-content">Terms</span>
                         </a>
                     </div>
                 </div>
-                <div class="hidden sm:ml-6 sm:flex sm:items-center sm:space-x-4">
-                    <!-- Download Buttons -->
-                    <div class="flex items-center space-x-3">
-                        <a href="https://github.com/g1ahsia/panlo-releases/releases/download/v1.2.1/Panlo-1.2.1-universal.dmg" download class="download-button inline-flex items-center px-4 py-2 border border-transparent text-sm font-semibold rounded-lg text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                            <svg class="h-4 w-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                                <path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
-                            </svg>
-                            <span class="zh-content">macOS</span>
-                            <span class="en-content">macOS</span>
-                        </a>
-                        <a href="https://github.com/g1ahsia/panlo-releases/releases/download/v1.2.1/Panlo-Setup-1.2.1.exe" download class="download-button inline-flex items-center px-4 py-2 border border-transparent text-sm font-semibold rounded-lg text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                            <svg class="h-4 w-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                <path fill="currentColor" d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"/>
-                            </svg>
-                            <span class="zh-content">Windows</span>
-                            <span class="en-content">Windows</span>
-                        </a>
-                    </div>
+                <div class="hidden sm:flex items-center space-x-3">
+                    <a href="https://github.com/g1ahsia/panlo-releases/releases/download/v1.2.2/Panlo-1.2.2-universal.dmg" download class="btn-download">
+                        <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+                        macOS
+                    </a>
+                    <a href="https://github.com/g1ahsia/panlo-releases/releases/download/v1.2.2/Panlo-Setup-1.2.2.exe" download class="btn-download">
+                        <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"/></svg>
+                        Windows
+                    </a>
                 </div>
                 <div class="-mr-2 flex items-center sm:hidden">
-                    <button type="button" class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 transition-all duration-300" aria-expanded="false">
-                        <span class="sr-only">
-                            <span class="zh-content">開啟主選單</span>
-                            <span class="en-content">Open main menu</span>
-                        </span>
-                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <button type="button" class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-all duration-200">
+                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
@@ -400,396 +720,733 @@
             </div>
         </div>
 
-        <!-- 行動裝置選單 / Mobile menu -->
-        <div class="mobile-menu hidden sm:hidden">
-            <div class="pt-2 pb-3 space-y-1">
-                <a href="#home" class="bg-indigo-50 dark:bg-indigo-900 border-indigo-500 text-indigo-700 dark:text-indigo-200 block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition-all duration-300">
-                    <span class="zh-content">首頁</span>
-                    <span class="en-content">Home</span>
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden sm:hidden border-t border-gray-100">
+            <div class="py-2 px-4 space-y-1">
+                <a href="#home" class="block py-2 text-sm font-medium text-gray-700">
+                    <span class="zh-content">首頁</span><span class="en-content">Home</span>
                 </a>
-                <a href="#features" class="border-transparent text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition-all duration-300">
-                    <span class="zh-content">功能</span>
-                    <span class="en-content">Features</span>
+                <a href="#features" class="block py-2 text-sm font-medium text-gray-500">
+                    <span class="zh-content">功能</span><span class="en-content">Features</span>
                 </a>
-                <a href="#workflow" class="border-transparent text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition-all duration-300">
-                    <span class="zh-content">智能工作流程</span>
-                    <span class="en-content">Agentic Workflow</span>
+                <a href="#intelligence" class="block py-2 text-sm font-medium text-gray-500">
+                    <span class="zh-content">智能引擎</span><span class="en-content">AI Engine</span>
                 </a>
-                <a href="#download" class="border-transparent text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition-all duration-300">
-                    <span class="zh-content">下載</span>
-                    <span class="en-content">Download</span>
+                <a href="#download" class="block py-2 text-sm font-medium text-gray-500">
+                    <span class="zh-content">下載</span><span class="en-content">Download</span>
                 </a>
-                <a href="#faq" class="border-transparent text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition-all duration-300">
-                    <span class="zh-content">FAQ</span>
-                    <span class="en-content">FAQ</span>
+                <a href="#faq" class="block py-2 text-sm font-medium text-gray-500">
+                    <span class="zh-content">FAQ</span><span class="en-content">FAQ</span>
                 </a>
-                <a href="privacy.html" class="border-transparent text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition-all duration-300">
-                    <span class="zh-content">隱私權</span>
-                    <span class="en-content">Privacy</span>
+                <a href="privacy.html" class="block py-2 text-sm font-medium text-gray-500">
+                    <span class="zh-content">隱私權</span><span class="en-content">Privacy</span>
                 </a>
-                <a href="terms.html" class="border-transparent text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-200 block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition-all duration-300">
-                    <span class="zh-content">條款</span>
-                    <span class="en-content">Terms</span>
+                <a href="terms.html" class="block py-2 text-sm font-medium text-gray-500">
+                    <span class="zh-content">條款</span><span class="en-content">Terms</span>
                 </a>
+                <div class="flex space-x-2 pt-2 pb-1">
+                    <a href="https://github.com/g1ahsia/panlo-releases/releases/download/v1.2.2/Panlo-1.2.2-universal.dmg" download class="btn-download text-sm">macOS</a>
+                    <a href="https://github.com/g1ahsia/panlo-releases/releases/download/v1.2.2/Panlo-Setup-1.2.2.exe" download class="btn-download text-sm">Windows</a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- 首頁區塊 / Home Section -->
+    <!-- Hero Section -->
     <section id="home" class="hero-gradient relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 hero-content">
+        <div id="particles-js"></div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-28 hero-content">
             <div class="text-center">
-                <div class="ai-badge mx-auto">
-                    <span class="zh-content">企業級 AI 平台</span>
-                    <span class="en-content">Enterprise AI Platform</span>
+                <div class="section-badge mx-auto" style="background: rgba(0,122,255,0.15); color: #409CFF;">
+                    <span class="zh-content">AI 文件智能助理</span>
+                    <span class="en-content">AI Document Intelligence</span>
                 </div>
-                <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl">
-                    <span class="block">Panlo Enterprise</span>
-                    <span class="block text-indigo-200">
+                <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl mt-4" style="letter-spacing: -0.02em;">
+                    <span class="block">Panlo</span>
+                    <span class="block mt-2" style="color: rgba(255,255,255,0.6); font-weight: 400; font-size: 0.55em;">
                         <span class="zh-content" id="typing-zh"></span>
                         <span class="en-content" id="typing-en"></span>
                     </span>
                 </h1>
-                <p class="mt-6 text-xl text-indigo-100 max-w-3xl mx-auto">
-                    <span class="zh-content">企業級 AI 智能工作流程平台，透過自主代理系統自動化複雜業務流程，提升團隊生產力與決策效率。</span>
-                    <span class="en-content">Enterprise-grade AI agentic workflow platform that automates complex business processes through autonomous agent systems, enhancing team productivity and decision-making efficiency.</span>
+                <p class="mt-6 text-lg max-w-2xl mx-auto" style="color: rgba(255,255,255,0.6); line-height: 1.7;">
+                    <span class="zh-content">透過語意搜尋、多步驟推理與智能代理系統，讓您的文件擁有對話能力。支援 PDF、文件、試算表、音訊、影片等多種格式，為團隊打造 AI 驅動的知識庫。</span>
+                    <span class="en-content">Give your documents the power of conversation through semantic search, multi-step reasoning, and agentic intelligence. Supports PDF, docs, spreadsheets, audio, video and more — building an AI-powered knowledge base for your team.</span>
                 </p>
-                
-                <!-- Supported Formats -->
-                <div class="mt-8 max-w-4xl mx-auto">
-                    <p class="text-indigo-200 text-sm mb-4">
-                        <span class="zh-content">支援格式與數據源：</span>
-                        <span class="en-content">Supported Formats & Data Sources:</span>
-                    </p>
-                    <div class="format-grid">
-                        <div class="format-item">
-                            <svg class="format-icon text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
-                            </svg>
-                            <span class="text-white text-xs">PDF</span>
-                        </div>
-                        <div class="format-item">
-                            <svg class="format-icon text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
-                            </svg>
-                            <span class="text-white text-xs">
-                                <span class="zh-content">文件</span>
-                                <span class="en-content">Docs</span>
-                            </span>
-                        </div>
-                        <div class="format-item">
-                            <svg class="format-icon text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M19,3H5C3.9,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.9 20.1,3 19,3M19,19H5V5H19V19Z"/>
-                            </svg>
-                            <span class="text-white text-xs">Excel</span>
-                        </div>
-                        <div class="format-item">
-                            <svg class="format-icon text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M9,12A3,3 0 0,0 12,9A3,3 0 0,0 9,6A3,3 0 0,0 6,9A3,3 0 0,0 9,12M9,20L12,14L15,20H9M20,8.69V4H15.31L12,0.69L8.69,4H4V8.69L0.69,12L4,15.31V20H8.69L12,23.31L15.31,20H20V15.31L23.31,12L20,8.69Z"/>
-                            </svg>
-                            <span class="text-white text-xs">
-                                <span class="zh-content">圖片</span>
-                                <span class="en-content">Images</span>
-                            </span>
-                        </div>
-                        <div class="format-item">
-                            <svg class="format-icon text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z"/>
-                            </svg>
-                            <span class="text-white text-xs">
-                                <span class="zh-content">音頻</span>
-                                <span class="en-content">Audio</span>
-                            </span>
-                        </div>
-                        <div class="format-item">
-                            <svg class="format-icon text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M17,10.5V7A1,1 0 0,0 16,6H4A1,1 0 0,0 3,7V17A1,1 0 0,0 4,18H16A1,1 0 0,0 17,17V13.5L21,17.5V6.5L17,10.5Z"/>
-                            </svg>
-                            <span class="text-white text-xs">
-                                <span class="zh-content">視頻</span>
-                                <span class="en-content">Video</span>
-                            </span>
-                        </div>
-                    </div>
+
+                <!-- Supported formats -->
+                <div class="mt-8 flex flex-wrap justify-center gap-2 max-w-2xl mx-auto">
+                    <span class="format-tag">PDF</span>
+                    <span class="format-tag">Word</span>
+                    <span class="format-tag">Excel</span>
+                    <span class="format-tag">PowerPoint</span>
+                    <span class="format-tag">
+                        <span class="zh-content">圖片</span>
+                        <span class="en-content">Images</span>
+                    </span>
+                    <span class="format-tag">
+                        <span class="zh-content">音訊</span>
+                        <span class="en-content">Audio</span>
+                    </span>
+                    <span class="format-tag">
+                        <span class="zh-content">影片</span>
+                        <span class="en-content">Video</span>
+                    </span>
+                    <span class="format-tag">CSV</span>
+                    <span class="format-tag">Email</span>
+                    <span class="format-tag">
+                        <span class="zh-content">程式碼</span>
+                        <span class="en-content">Code</span>
+                    </span>
                 </div>
-                
-                <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#download" class="download-button inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-white hover:bg-indigo-50 md:py-4 md:text-lg md:px-10 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
-                        <span class="zh-content">立即下載</span>
-                        <span class="en-content">Download Now</span>
+
+                <div class="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
+                    <a href="#download" class="btn-primary" style="background: white; color: var(--primary);">
+                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        <span class="zh-content">免費下載</span>
+                        <span class="en-content">Download Free</span>
                     </a>
-                    <a href="#features" class="download-button inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+                    <a href="#features" class="btn-secondary">
                         <span class="zh-content">了解更多</span>
                         <span class="en-content">Learn More</span>
                     </a>
                 </div>
+
+                <!-- Stats -->
+                <div class="mt-16 grid grid-cols-3 gap-4 max-w-xl mx-auto" style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 2rem;">
+                    <div class="stat-item">
+                        <div class="stat-number" style="color: #409CFF;">20+</div>
+                        <div class="stat-label" style="color: rgba(255,255,255,0.4);">
+                            <span class="zh-content">支援格式</span>
+                            <span class="en-content">File Formats</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" style="color: #409CFF;">10+</div>
+                        <div class="stat-label" style="color: rgba(255,255,255,0.4);">
+                            <span class="zh-content">AI 工具</span>
+                            <span class="en-content">AI Tools</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" style="color: #409CFF;">3</div>
+                        <div class="stat-label" style="color: rgba(255,255,255,0.4);">
+                            <span class="zh-content">智能層級</span>
+                            <span class="en-content">AI Tiers</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero App Mockup -->
+                <div class="mt-14 float-mockup">
+                    <div class="app-mockup">
+                        <div class="mockup-titlebar">
+                            <div class="mockup-dot red"></div>
+                            <div class="mockup-dot yellow"></div>
+                            <div class="mockup-dot green"></div>
+                            <span style="font-size: 11px; color: rgba(255,255,255,0.4); margin-left: 8px;">Panlo — Ask Panlo</span>
+                        </div>
+                        <div class="mockup-body">
+                            <div class="mockup-sidebar hidden sm:block">
+                                <div class="mockup-sidebar-item" style="color: rgba(255,255,255,0.3); font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; padding-bottom: 4px;">Spaces</div>
+                                <div class="mockup-sidebar-item active">
+                                    <div class="mockup-sidebar-icon" style="background: #007AFF;"></div>
+                                    Marketing Docs
+                                </div>
+                                <div class="mockup-sidebar-item">
+                                    <div class="mockup-sidebar-icon" style="background: #34C759;"></div>
+                                    Legal Contracts
+                                </div>
+                                <div class="mockup-sidebar-item">
+                                    <div class="mockup-sidebar-icon" style="background: #FF9500;"></div>
+                                    Engineering
+                                </div>
+                                <div class="mockup-sidebar-item" style="margin-top: 12px; color: rgba(255,255,255,0.3); font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; padding-bottom: 4px;">Recent Files</div>
+                                <div class="mockup-sidebar-item">Q1-Report.pdf</div>
+                                <div class="mockup-sidebar-item">Meeting-Notes.mp3</div>
+                                <div class="mockup-sidebar-item">Budget-2026.xlsx</div>
+                            </div>
+                            <div class="mockup-main">
+                                <div class="mockup-chat">
+                                    <div class="mockup-msg user">
+                                        <span class="zh-content">比較 Q1 和 Q2 的營收差異，並列出主要原因</span>
+                                        <span class="en-content">Compare Q1 and Q2 revenue differences and list the main reasons</span>
+                                    </div>
+                                    <div class="mockup-msg ai">
+                                        <span class="zh-content">根據您的文件分析，Q2 營收較 Q1 成長 23%。主要原因包括：<br><br>1. 新產品線貢獻 +15% 營收<br>2. 亞太市場擴張帶來 +12% 成長<br>3. 客戶續約率提升至 94%</span>
+                                        <span class="en-content">Based on your documents, Q2 revenue grew 23% over Q1. Key reasons include:<br><br>1. New product line contributed +15% revenue<br>2. APAC market expansion drove +12% growth<br>3. Customer renewal rate improved to 94%</span>
+                                        <br>
+                                        <span class="source-tag">Q1-Report.pdf</span>
+                                        <span class="source-tag">Q2-Report.pdf</span>
+                                        <span class="source-tag">Sales-Data.xlsx</span>
+                                    </div>
+                                    <div class="mockup-msg ai" style="padding: 10px 14px;">
+                                        <div class="typing-dots"><span></span><span></span><span></span></div>
+                                    </div>
+                                </div>
+                                <div class="mockup-input">
+                                    <div class="mockup-input-field">
+                                        <span class="zh-content">Ask Panlo 任何問題...</span>
+                                        <span class="en-content">Ask Panlo anything...</span>
+                                    </div>
+                                    <div class="mockup-send-btn">
+                                        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="white"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19V5m0 0l-7 7m7-7l7 7"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="scroll-indicator">
-                <svg class="w-6 h-6 text-white animate-bounce" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                    <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                <svg class="w-5 h-5" style="color: rgba(255,255,255,0.3);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
                 </svg>
             </div>
         </div>
     </section>
 
-    <!-- 功能介紹區塊 / Features Section -->
-    <section id="features" class="py-16 bg-gray-50 dark:bg-gray-900 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Features Section -->
+    <section id="features" class="py-20" style="background: var(--bg-secondary);">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <div class="ai-badge mx-auto">
+                <div class="section-badge mx-auto">
                     <span class="zh-content">核心功能</span>
                     <span class="en-content">Core Features</span>
                 </div>
-                <h2 class="mt-1 text-4xl font-extrabold text-gray-900 dark:text-white sm:text-5xl sm:tracking-tight reveal">
-                    <span class="zh-content">為什麼選擇 Panlo Enterprise？</span>
-                    <span class="en-content">Why Choose Panlo Enterprise?</span>
+                <h2 class="text-3xl font-bold sm:text-4xl reveal" style="letter-spacing: -0.02em; color: var(--text-primary);">
+                    <span class="zh-content">您的文件，從此擁有智慧</span>
+                    <span class="en-content">Your Documents, Now Intelligent</span>
                 </h2>
-                <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500 dark:text-gray-300 reveal">
-                    <span class="zh-content">專為企業設計的 AI 智能工作流程平台，整合自主代理系統與多模態 AI 能力，實現業務流程自動化與智能化。</span>
-                    <span class="en-content">Enterprise-designed AI agentic workflow platform that integrates autonomous agent systems with multimodal AI capabilities to automate and intelligentize business processes.</span>
+                <p class="max-w-2xl mt-4 mx-auto text-base reveal" style="color: var(--text-secondary);">
+                    <span class="zh-content">Panlo 結合語意搜尋、多模態處理與智能代理系統，將靜態文件轉化為可對話、可分析、可協作的智慧知識庫。</span>
+                    <span class="en-content">Panlo combines semantic search, multimodal processing, and agentic intelligence to transform static documents into a conversational, analyzable, and collaborative knowledge base.</span>
                 </p>
             </div>
 
-            <div class="mt-16">
-                <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
-                    <div class="pt-6 feature-card relative bg-white dark:bg-gray-800 rounded-lg shadow-md reveal">
-                        <div class="flow-root px-6 pb-8">
-                            <div class="-mt-6">
-                                <div>
-                                    <span class="inline-flex items-center justify-center p-3 feature-icon rounded-md shadow-lg">
-                                        <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-                                        </svg>
-                                    </span>
-                                </div>
-                                <h3 class="mt-8 text-lg font-medium text-gray-900 dark:text-white tracking-tight">
-                                    <span class="zh-content">自主代理系統</span>
-                                    <span class="en-content">Autonomous Agent System</span>
-                                </h3>
-                                <p class="mt-5 text-base text-gray-500 dark:text-gray-300">
-                                    <span class="zh-content">智能代理能夠自主規劃、執行和優化複雜工作流程，無需人工干預即可完成多步驟任務。</span>
-                                    <span class="en-content">Intelligent agents autonomously plan, execute, and optimize complex workflows, completing multi-step tasks without human intervention.</span>
-                                </p>
+            <!-- Feature Showcase 1: Semantic Search -->
+            <div class="mt-16 feature-showcase reveal">
+                <div class="feature-showcase-text">
+                    <div>
+                        <div class="feature-icon icon-green mb-3">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold" style="color: var(--text-primary);">
+                            <span class="zh-content">語意搜尋 — 理解你的意思，而非只是關鍵字</span>
+                            <span class="en-content">Semantic Search — Understands Meaning, Not Just Keywords</span>
+                        </h3>
+                        <p class="mt-3 text-sm" style="color: var(--text-secondary); line-height: 1.7;">
+                            <span class="zh-content">文件上傳後自動轉為向量嵌入，搜尋引擎理解語意與上下文。搜尋「員工福利政策」也能找到提及「年假天數」、「保險方案」的段落。所有結果都附帶引用來源。</span>
+                            <span class="en-content">Documents are automatically converted to vector embeddings. The search engine understands meaning and context — searching "employee benefits policy" also finds paragraphs mentioning "vacation days" and "insurance plans." All results come with cited sources.</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="mini-mockup">
+                    <div class="mini-titlebar">
+                        <div class="mini-dot" style="width:8px;height:8px;border-radius:50%;background:#FF5F56;"></div>
+                        <div class="mini-dot" style="width:8px;height:8px;border-radius:50%;background:#FFBD2E;"></div>
+                        <div class="mini-dot" style="width:8px;height:8px;border-radius:50%;background:#27C93F;"></div>
+                    </div>
+                    <div class="mini-content" style="background: #1c1c1e;">
+                        <div style="background:#2c2c2e;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+                            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,0.4)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                            <span style="font-size:11px;color:rgba(255,255,255,0.8);">
+                                <span class="zh-content">員工福利政策有哪些？</span>
+                                <span class="en-content">What are the employee benefits?</span>
+                            </span>
+                        </div>
+                        <div style="font-size:10px;color:rgba(255,255,255,0.3);margin-bottom:8px;">
+                            <span class="zh-content">找到 3 個相關結果</span>
+                            <span class="en-content">3 relevant results found</span>
+                        </div>
+                        <div style="background:#2c2c2e;border-radius:8px;padding:10px;margin-bottom:8px;border-left:3px solid #34C759;">
+                            <div style="font-size:10px;color:#34C759;margin-bottom:4px;">HR-Policy-2026.pdf <span style="color:rgba(255,255,255,0.3);">p.12</span></div>
+                            <div style="font-size:11px;color:rgba(255,255,255,0.7);line-height:1.4;">
+                                <span class="zh-content">...全職員工享有 15 天年假、健康保險、彈性工作時間...</span>
+                                <span class="en-content">...full-time employees receive 15 vacation days, health insurance, flexible hours...</span>
+                            </div>
+                        </div>
+                        <div style="background:#2c2c2e;border-radius:8px;padding:10px;margin-bottom:8px;border-left:3px solid #007AFF;">
+                            <div style="font-size:10px;color:#007AFF;margin-bottom:4px;">Benefits-Guide.docx <span style="color:rgba(255,255,255,0.3);">p.3</span></div>
+                            <div style="font-size:11px;color:rgba(255,255,255,0.7);line-height:1.4;">
+                                <span class="zh-content">...保險方案涵蓋醫療、牙科及視力，配偶可加保...</span>
+                                <span class="en-content">...insurance coverage includes medical, dental, and vision; spouse can be added...</span>
+                            </div>
+                        </div>
+                        <div style="background:#2c2c2e;border-radius:8px;padding:10px;border-left:3px solid #FF9500;">
+                            <div style="font-size:10px;color:#FF9500;margin-bottom:4px;">Onboarding-Deck.pptx <span style="color:rgba(255,255,255,0.3);">slide 8</span></div>
+                            <div style="font-size:11px;color:rgba(255,255,255,0.7);line-height:1.4;">
+                                <span class="zh-content">...新進人員第一年享有教育訓練補助 $2,000...</span>
+                                <span class="en-content">...new hires receive $2,000 training budget in their first year...</span>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <div class="pt-6 feature-card relative bg-white dark:bg-gray-800 rounded-lg shadow-md reveal" style="transition-delay: 0.2s;">
-                        <div class="flow-root px-6 pb-8">
-                            <div class="-mt-6">
-                                <div>
-                                    <span class="inline-flex items-center justify-center p-3 feature-icon rounded-md shadow-lg">
-                                        <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                                        </svg>
-                                    </span>
+            <!-- Feature Showcase 2: Multimodal -->
+            <div class="mt-20 feature-showcase reverse reveal">
+                <div class="feature-showcase-text">
+                    <div>
+                        <div class="feature-icon icon-orange mb-3">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold" style="color: var(--text-primary);">
+                            <span class="zh-content">多模態處理 — 20+ 格式，一鍵索引</span>
+                            <span class="en-content">Multimodal Processing — 20+ Formats, One-Click Index</span>
+                        </h3>
+                        <p class="mt-3 text-sm" style="color: var(--text-secondary); line-height: 1.7;">
+                            <span class="zh-content">不論是 PDF 報告、Excel 數據、會議錄音或簡報，Panlo 都能自動解析。音訊透過 Whisper 轉錄，影片提取文字，所有內容統一進入語意索引。</span>
+                            <span class="en-content">Whether it's PDF reports, Excel data, meeting recordings, or presentations — Panlo parses them all. Audio is transcribed via Whisper, video text is extracted, and all content enters the unified semantic index.</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="mini-mockup">
+                    <div class="mini-titlebar">
+                        <div class="mini-dot" style="width:8px;height:8px;border-radius:50%;background:#FF5F56;"></div>
+                        <div class="mini-dot" style="width:8px;height:8px;border-radius:50%;background:#FFBD2E;"></div>
+                        <div class="mini-dot" style="width:8px;height:8px;border-radius:50%;background:#27C93F;"></div>
+                        <span style="font-size:10px;color:rgba(255,255,255,0.35);margin-left:6px;">
+                            <span class="zh-content">檔案處理</span>
+                            <span class="en-content">File Processing</span>
+                        </span>
+                    </div>
+                    <div class="mini-content" style="background: #1c1c1e; padding: 14px;">
+                        <div style="display:flex;flex-direction:column;gap:8px;">
+                            <div style="display:flex;align-items:center;gap:10px;background:#2c2c2e;padding:10px 12px;border-radius:8px;">
+                                <div style="width:32px;height:32px;border-radius:6px;background:rgba(255,59,48,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:600;color:#FF3B30;">PDF</div>
+                                <div style="flex:1;min-width:0;">
+                                    <div style="font-size:11px;color:rgba(255,255,255,0.8);">Q1-Report.pdf</div>
+                                    <div style="font-size:10px;color:rgba(255,255,255,0.3);">24 pages &middot; 2.3 MB</div>
                                 </div>
-                                <h3 class="mt-8 text-lg font-medium text-gray-900 dark:text-white tracking-tight">
-                                    <span class="zh-content">企業級安全</span>
-                                    <span class="en-content">Enterprise Security</span>
-                                </h3>
-                                <p class="mt-5 text-base text-gray-500 dark:text-gray-300">
-                                    <span class="zh-content">端到端加密、角色權限管理、審計日誌等企業級安全功能，確保敏感資料與業務流程的安全。</span>
-                                    <span class="en-content">Enterprise-grade security features including end-to-end encryption, role-based access control, and audit logs to ensure sensitive data and business processes are secure.</span>
-                                </p>
+                                <div style="font-size:10px;color:#34C759;">
+                                    <span class="zh-content">已索引</span>
+                                    <span class="en-content">Indexed</span>
+                                </div>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:10px;background:#2c2c2e;padding:10px 12px;border-radius:8px;">
+                                <div style="width:32px;height:32px;border-radius:6px;background:rgba(52,199,89,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:600;color:#34C759;">XLS</div>
+                                <div style="flex:1;min-width:0;">
+                                    <div style="font-size:11px;color:rgba(255,255,255,0.8);">Budget-2026.xlsx</div>
+                                    <div style="font-size:10px;color:rgba(255,255,255,0.3);">3 sheets &middot; 856 KB</div>
+                                </div>
+                                <div style="font-size:10px;color:#34C759;">
+                                    <span class="zh-content">已索引</span>
+                                    <span class="en-content">Indexed</span>
+                                </div>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:10px;background:#2c2c2e;padding:10px 12px;border-radius:8px;">
+                                <div style="width:32px;height:32px;border-radius:6px;background:rgba(0,122,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:600;color:#007AFF;">MP3</div>
+                                <div style="flex:1;min-width:0;">
+                                    <div style="font-size:11px;color:rgba(255,255,255,0.8);">Meeting-Apr-15.mp3</div>
+                                    <div style="font-size:10px;color:rgba(255,255,255,0.3);">45 min &middot; Whisper</div>
+                                </div>
+                                <div style="font-size:10px;color:#FF9500;">
+                                    <span class="zh-content">轉錄中...</span>
+                                    <span class="en-content">Transcribing...</span>
+                                </div>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:10px;background:#2c2c2e;padding:10px 12px;border-radius:8px;">
+                                <div style="width:32px;height:32px;border-radius:6px;background:rgba(175,82,222,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:600;color:#AF52DE;">PPT</div>
+                                <div style="flex:1;min-width:0;">
+                                    <div style="font-size:11px;color:rgba(255,255,255,0.8);">Product-Launch.pptx</div>
+                                    <div style="font-size:10px;color:rgba(255,255,255,0.3);">32 slides &middot; 5.1 MB</div>
+                                </div>
+                                <div style="font-size:10px;color:#34C759;">
+                                    <span class="zh-content">已索引</span>
+                                    <span class="en-content">Indexed</span>
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <div class="pt-6 feature-card relative bg-white dark:bg-gray-800 rounded-lg shadow-md reveal" style="transition-delay: 0.4s;">
-                        <div class="flow-root px-6 pb-8">
-                            <div class="-mt-6">
-                                <div>
-                                    <span class="inline-flex items-center justify-center p-3 feature-icon rounded-md shadow-lg">
-                                        <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                                        </svg>
-                                    </span>
+            <!-- Feature Showcase 3: Spaces & Collaboration -->
+            <div class="mt-20 feature-showcase reveal">
+                <div class="feature-showcase-text">
+                    <div>
+                        <div class="feature-icon icon-purple mb-3">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold" style="color: var(--text-primary);">
+                            <span class="zh-content">智慧空間 — 團隊知識庫，權限分明</span>
+                            <span class="en-content">Smart Spaces — Team Knowledge, Role-Based Access</span>
+                        </h3>
+                        <p class="mt-3 text-sm" style="color: var(--text-secondary); line-height: 1.7;">
+                            <span class="zh-content">以「空間」組織文件，邀請團隊成員加入。擁有者、貢獻者、檢視者三種角色，確保每個人都能存取適當的內容。設定監控資料夾，新檔案自動同步進知識庫。</span>
+                            <span class="en-content">Organize documents in Spaces and invite team members. Owner, Contributor, and Viewer roles ensure everyone accesses the right content. Set up watch folders and new files auto-sync into the knowledge base.</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="mini-mockup">
+                    <div class="mini-titlebar">
+                        <div class="mini-dot" style="width:8px;height:8px;border-radius:50%;background:#FF5F56;"></div>
+                        <div class="mini-dot" style="width:8px;height:8px;border-radius:50%;background:#FFBD2E;"></div>
+                        <div class="mini-dot" style="width:8px;height:8px;border-radius:50%;background:#27C93F;"></div>
+                        <span style="font-size:10px;color:rgba(255,255,255,0.35);margin-left:6px;">
+                            <span class="zh-content">空間管理</span>
+                            <span class="en-content">Space Management</span>
+                        </span>
+                    </div>
+                    <div class="mini-content" style="background:#1c1c1e;padding:14px;">
+                        <div style="display:flex;flex-direction:column;gap:8px;">
+                            <div style="background:#2c2c2e;padding:12px;border-radius:8px;">
+                                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+                                    <div style="display:flex;align-items:center;gap:8px;">
+                                        <div style="width:28px;height:28px;border-radius:6px;background:#007AFF;display:flex;align-items:center;justify-content:center;">
+                                            <svg width="14" height="14" fill="white" viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+                                        </div>
+                                        <div>
+                                            <div style="font-size:12px;color:white;font-weight:600;">Marketing</div>
+                                            <div style="font-size:10px;color:rgba(255,255,255,0.35);">42 files &middot; 3 members</div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <h3 class="mt-8 text-lg font-medium text-gray-900 dark:text-white tracking-tight">
-                                    <span class="zh-content">多模態 AI 處理</span>
-                                    <span class="en-content">Multimodal AI Processing</span>
-                                </h3>
-                                <p class="mt-5 text-base text-gray-500 dark:text-gray-300">
-                                    <span class="zh-content">整合文字、圖像、音頻、視頻等多模態 AI 能力，智能理解與處理各種企業資料格式。</span>
-                                    <span class="en-content">Integrates multimodal AI capabilities for text, images, audio, and video to intelligently understand and process various enterprise data formats.</span>
-                                </p>
+                                <div style="display:flex;gap:4px;">
+                                    <div style="width:22px;height:22px;border-radius:50%;background:#AF52DE;font-size:9px;color:white;display:flex;align-items:center;justify-content:center;">AH</div>
+                                    <div style="width:22px;height:22px;border-radius:50%;background:#FF9500;font-size:9px;color:white;display:flex;align-items:center;justify-content:center;">JL</div>
+                                    <div style="width:22px;height:22px;border-radius:50%;background:#34C759;font-size:9px;color:white;display:flex;align-items:center;justify-content:center;">SK</div>
+                                </div>
+                            </div>
+                            <div style="background:#2c2c2e;padding:12px;border-radius:8px;">
+                                <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                                    <div style="width:28px;height:28px;border-radius:6px;background:#34C759;display:flex;align-items:center;justify-content:center;">
+                                        <svg width="14" height="14" fill="white" viewBox="0 0 24 24"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2Z"/></svg>
+                                    </div>
+                                    <div>
+                                        <div style="font-size:12px;color:white;font-weight:600;">Legal</div>
+                                        <div style="font-size:10px;color:rgba(255,255,255,0.35);">128 files &middot; 5 members</div>
+                                    </div>
+                                </div>
+                                <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                                    <span style="font-size:9px;padding:2px 8px;border-radius:4px;background:rgba(52,199,89,0.15);color:#34C759;">Owner</span>
+                                    <span style="font-size:9px;padding:2px 8px;border-radius:4px;background:rgba(0,122,255,0.15);color:#007AFF;">Contributor &times;2</span>
+                                    <span style="font-size:9px;padding:2px 8px;border-radius:4px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);">Viewer &times;2</span>
+                                </div>
+                            </div>
+                            <div style="background:#2c2c2e;padding:12px;border-radius:8px;">
+                                <div style="display:flex;align-items:center;gap:8px;">
+                                    <div style="width:28px;height:28px;border-radius:6px;background:#FF9500;display:flex;align-items:center;justify-content:center;">
+                                        <svg width="14" height="14" fill="white" viewBox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke="white" fill="none" stroke-width="2"/></svg>
+                                    </div>
+                                    <div>
+                                        <div style="font-size:12px;color:white;font-weight:600;">
+                                            <span class="zh-content">監控資料夾</span>
+                                            <span class="en-content">Watch Folder</span>
+                                        </div>
+                                        <div style="font-size:10px;color:#FF9500;">
+                                            <span class="zh-content">~/Documents/Reports → 自動同步中</span>
+                                            <span class="en-content">~/Documents/Reports → Auto-syncing</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Small feature cards for remaining features -->
+            <div class="mt-20 grid grid-cols-1 gap-5 md:grid-cols-3 reveal">
+                <div class="feature-card p-6">
+                    <div class="feature-icon icon-blue mb-4">
+                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+                    </div>
+                    <h3 class="text-base font-semibold" style="color: var(--text-primary);">
+                        <span class="zh-content">Ask Panlo 對話式 AI</span>
+                        <span class="en-content">Ask Panlo Conversational AI</span>
+                    </h3>
+                    <p class="mt-2 text-sm" style="color: var(--text-secondary);">
+                        <span class="zh-content">直接與您的文件對話，提出問題即可獲得精確答案，並附上引用來源。</span>
+                        <span class="en-content">Talk directly to your documents. Ask questions and get precise answers with cited sources.</span>
+                    </p>
+                </div>
+                <div class="feature-card p-6">
+                    <div class="feature-icon icon-teal mb-4">
+                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                    </div>
+                    <h3 class="text-base font-semibold" style="color: var(--text-primary);">
+                        <span class="zh-content">監控資料夾</span>
+                        <span class="en-content">Watch Folders</span>
+                    </h3>
+                    <p class="mt-2 text-sm" style="color: var(--text-secondary);">
+                        <span class="zh-content">設定監控資料夾，新增或修改的檔案自動上傳並建立索引，知識庫始終最新。</span>
+                        <span class="en-content">Set up watch folders — new or modified files auto-upload and index. Your knowledge base stays current.</span>
+                    </p>
+                </div>
+                <div class="feature-card p-6">
+                    <div class="feature-icon icon-red mb-4">
+                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    </div>
+                    <h3 class="text-base font-semibold" style="color: var(--text-primary);">
+                        <span class="zh-content">自動摘要生成</span>
+                        <span class="en-content">Auto-Summary</span>
+                    </h3>
+                    <p class="mt-2 text-sm" style="color: var(--text-secondary);">
+                        <span class="zh-content">文件上傳後自動生成摘要，快速掌握重點。搭配 AI 深入分析跨文件關聯。</span>
+                        <span class="en-content">Documents are auto-summarized on upload. Combine with AI chat to analyze cross-document relationships.</span>
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 智能工作流程區塊 / Agentic Workflow Section -->
-    <section id="workflow" class="py-16 bg-white dark:bg-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Agentic Intelligence Section -->
+    <section id="intelligence" class="py-20" style="background: var(--bg-primary);">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <div class="ai-badge mx-auto">
-                    <span class="zh-content">智能工作流程</span>
-                    <span class="en-content">Agentic Workflow</span>
+                <div class="section-badge mx-auto">
+                    <span class="zh-content">智能引擎</span>
+                    <span class="en-content">AI Engine</span>
                 </div>
-                <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl reveal">
-                    <span class="zh-content">自主代理驅動的業務自動化</span>
-                    <span class="en-content">Autonomous Agent-Driven Business Automation</span>
+                <h2 class="text-3xl font-bold sm:text-4xl reveal" style="letter-spacing: -0.02em; color: var(--text-primary);">
+                    <span class="zh-content">三層智能，精準匹配每個問題</span>
+                    <span class="en-content">Three-Tier Intelligence for Every Query</span>
                 </h2>
-                <p class="mt-4 text-lg text-gray-500 dark:text-gray-300 max-w-3xl mx-auto reveal">
-                    <span class="zh-content">Panlo Enterprise 的智能代理系統能夠理解複雜業務需求，自主規劃執行路徑，並在執行過程中動態調整策略，實現真正的智能化工作流程自動化。</span>
-                    <span class="en-content">Panlo Enterprise's intelligent agent system understands complex business requirements, autonomously plans execution paths, and dynamically adjusts strategies during execution to achieve true intelligent workflow automation.</span>
+                <p class="max-w-2xl mt-4 mx-auto text-base reveal" style="color: var(--text-secondary);">
+                    <span class="zh-content">Panlo 的智能引擎會自動分類查詢複雜度，將簡單問題交給快速模型，複雜分析交給推理引擎。智慧路由確保最佳效能與成本平衡。</span>
+                    <span class="en-content">Panlo's AI engine automatically classifies query complexity — routing simple questions to fast models and complex analysis to the reasoning engine. Smart routing ensures optimal performance and cost balance.</span>
                 </p>
             </div>
 
-            <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                <!-- Workflow Feature 1 -->
-                <div class="feature-card relative bg-gray-50 dark:bg-gray-900 rounded-lg shadow-md p-6 reveal">
-                    <div class="inline-flex items-center justify-center p-3 feature-icon rounded-md shadow-lg mb-4">
-                        <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                        </svg>
+            <!-- Three Tiers -->
+            <div class="mt-14 grid gap-6 md:grid-cols-3 reveal">
+                <!-- Tier 1: Fast -->
+                <div class="tier-card tier-fast">
+                    <div class="tier-badge mb-4">
+                        <span class="zh-content">快速層</span>
+                        <span class="en-content">Fast Tier</span>
                     </div>
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-3">
-                        <span class="zh-content">任務規劃與分解</span>
-                        <span class="en-content">Task Planning & Decomposition</span>
+                    <h3 class="text-lg font-semibold" style="color: var(--text-primary);">
+                        <span class="zh-content">即時回應</span>
+                        <span class="en-content">Instant Response</span>
                     </h3>
-                    <p class="text-base text-gray-500 dark:text-gray-300">
-                        <span class="zh-content">智能代理能夠將複雜業務目標分解為可執行的子任務，並自動規劃最佳執行順序和資源分配。</span>
-                        <span class="en-content">Intelligent agents decompose complex business goals into executable subtasks and automatically plan optimal execution order and resource allocation.</span>
+                    <p class="mt-2 text-sm" style="color: var(--text-secondary);">
+                        <span class="zh-content">處理 80% 的日常查詢。簡單問答、單一文件搜尋、檔案摘要等，2-5 秒內完成回覆。</span>
+                        <span class="en-content">Handles 80% of daily queries. Simple Q&A, single-doc search, file summaries — all answered within 2-5 seconds.</span>
                     </p>
+                    <div class="mt-4 flex items-center gap-4 text-xs" style="color: var(--text-secondary);">
+                        <span>2-5s</span>
+                        <span class="zh-content">~80% 查詢</span>
+                        <span class="en-content">~80% queries</span>
+                    </div>
                 </div>
 
-                <!-- Workflow Feature 2 -->
-                <div class="feature-card relative bg-gray-50 dark:bg-gray-900 rounded-lg shadow-md p-6 reveal" style="transition-delay: 0.1s;">
-                    <div class="inline-flex items-center justify-center p-3 feature-icon rounded-md shadow-lg mb-4">
-                        <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
+                <!-- Tier 2: Balanced -->
+                <div class="tier-card tier-balanced">
+                    <div class="tier-badge mb-4">
+                        <span class="zh-content">平衡層</span>
+                        <span class="en-content">Balanced Tier</span>
                     </div>
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-3">
-                        <span class="zh-content">動態執行與調整</span>
-                        <span class="en-content">Dynamic Execution & Adaptation</span>
+                    <h3 class="text-lg font-semibold" style="color: var(--text-primary);">
+                        <span class="zh-content">深度分析</span>
+                        <span class="en-content">Deep Analysis</span>
                     </h3>
-                    <p class="text-base text-gray-500 dark:text-gray-300">
-                        <span class="zh-content">代理系統能夠即時監控執行狀態，根據環境變化動態調整策略，確保工作流程的順利完成。</span>
-                        <span class="en-content">Agent systems monitor execution status in real-time and dynamically adjust strategies based on environmental changes to ensure smooth workflow completion.</span>
+                    <p class="mt-2 text-sm" style="color: var(--text-secondary);">
+                        <span class="zh-content">處理中等複雜度的查詢。多文件綜合分析、基本比較、跨來源摘要整合，5-10 秒內完成。</span>
+                        <span class="en-content">Handles medium-complexity queries. Multi-document synthesis, basic comparisons, cross-source summaries — completed in 5-10 seconds.</span>
                     </p>
+                    <div class="mt-4 flex items-center gap-4 text-xs" style="color: var(--text-secondary);">
+                        <span>5-10s</span>
+                        <span class="zh-content">~15% 查詢</span>
+                        <span class="en-content">~15% queries</span>
+                    </div>
                 </div>
 
-                <!-- Workflow Feature 3 -->
-                <div class="feature-card relative bg-gray-50 dark:bg-gray-900 rounded-lg shadow-md p-6 reveal" style="transition-delay: 0.2s;">
-                    <div class="inline-flex items-center justify-center p-3 feature-icon rounded-md shadow-lg mb-4">
-                        <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                        </svg>
+                <!-- Tier 3: Reasoning -->
+                <div class="tier-card tier-reasoning">
+                    <div class="tier-badge mb-4">
+                        <span class="zh-content">推理層</span>
+                        <span class="en-content">Reasoning Tier</span>
                     </div>
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-3">
-                        <span class="zh-content">多代理協作</span>
-                        <span class="en-content">Multi-Agent Collaboration</span>
+                    <h3 class="text-lg font-semibold" style="color: var(--text-primary);">
+                        <span class="zh-content">智能代理推理</span>
+                        <span class="en-content">Agentic Reasoning</span>
                     </h3>
-                    <p class="text-base text-gray-500 dark:text-gray-300">
-                        <span class="zh-content">多個專業代理協同工作，各自負責不同領域的任務，通過智能通信機制實現無縫協作。</span>
-                        <span class="en-content">Multiple specialized agents collaborate, each handling tasks in different domains, achieving seamless cooperation through intelligent communication mechanisms.</span>
+                    <p class="mt-2 text-sm" style="color: var(--text-secondary);">
+                        <span class="zh-content">處理最複雜的分析任務。多步驟推理、工具編排、跨空間分析、決策矩陣生成，由 AI 代理自主完成。</span>
+                        <span class="en-content">Handles the most complex tasks. Multi-step reasoning, tool orchestration, cross-space analysis, and decision matrices — autonomously executed by AI agents.</span>
                     </p>
-                </div>
-
-                <!-- Workflow Feature 4 -->
-                <div class="feature-card relative bg-gray-50 dark:bg-gray-900 rounded-lg shadow-md p-6 reveal" style="transition-delay: 0.3s;">
-                    <div class="inline-flex items-center justify-center p-3 feature-icon rounded-md shadow-lg mb-4">
-                        <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                        </svg>
+                    <div class="mt-4 flex items-center gap-4 text-xs" style="color: var(--text-secondary);">
+                        <span>15-30s</span>
+                        <span class="zh-content">~5% 查詢</span>
+                        <span class="en-content">~5% queries</span>
                     </div>
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-3">
-                        <span class="zh-content">工作流程可視化</span>
-                        <span class="en-content">Workflow Visualization</span>
-                    </h3>
-                    <p class="text-base text-gray-500 dark:text-gray-300">
-                        <span class="zh-content">提供直觀的工作流程可視化界面，實時追蹤代理執行狀態，便於監控和優化業務流程。</span>
-                        <span class="en-content">Provides intuitive workflow visualization interface with real-time agent execution tracking for easy monitoring and business process optimization.</span>
-                    </p>
-                </div>
-
-                <!-- Workflow Feature 5 -->
-                <div class="feature-card relative bg-gray-50 dark:bg-gray-900 rounded-lg shadow-md p-6 reveal" style="transition-delay: 0.4s;">
-                    <div class="inline-flex items-center justify-center p-3 feature-icon rounded-md shadow-lg mb-4">
-                        <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-                        </svg>
-                    </div>
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-3">
-                        <span class="zh-content">持續學習與優化</span>
-                        <span class="en-content">Continuous Learning & Optimization</span>
-                    </h3>
-                    <p class="text-base text-gray-500 dark:text-gray-300">
-                        <span class="zh-content">代理系統從每次執行中學習，不斷優化工作流程策略，提升執行效率和準確性。</span>
-                        <span class="en-content">Agent systems learn from each execution, continuously optimizing workflow strategies to improve execution efficiency and accuracy.</span>
-                    </p>
-                </div>
-
-                <!-- Workflow Feature 6 -->
-                <div class="feature-card relative bg-gray-50 dark:bg-gray-900 rounded-lg shadow-md p-6 reveal" style="transition-delay: 0.5s;">
-                    <div class="inline-flex items-center justify-center p-3 feature-icon rounded-md shadow-lg mb-4">
-                        <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-3">
-                        <span class="zh-content">系統整合能力</span>
-                        <span class="en-content">System Integration</span>
-                    </h3>
-                    <p class="text-base text-gray-500 dark:text-gray-300">
-                        <span class="zh-content">輕鬆整合現有企業系統（CRM、ERP、資料庫等），實現跨系統的自動化工作流程。</span>
-                        <span class="en-content">Easily integrates with existing enterprise systems (CRM, ERP, databases, etc.) to enable cross-system automated workflows.</span>
-                    </p>
                 </div>
             </div>
 
-            <!-- Use Cases Section -->
-            <div class="mt-16 bg-indigo-50 dark:bg-indigo-900 rounded-lg p-8 reveal">
-                <h3 class="text-2xl font-bold text-gray-900 dark:text-white text-center mb-8">
-                    <span class="zh-content">典型應用場景</span>
-                    <span class="en-content">Typical Use Cases</span>
+            <!-- Agent Capabilities -->
+            <div class="mt-16 reveal">
+                <h3 class="text-xl font-semibold text-center mb-8" style="color: var(--text-primary);">
+                    <span class="zh-content">代理工具生態系統</span>
+                    <span class="en-content">Agent Tool Ecosystem</span>
                 </h3>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="bg-white dark:bg-gray-800 rounded-lg p-6">
-                        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
-                            <span class="zh-content">📊 數據分析與報告生成</span>
-                            <span class="en-content">📊 Data Analysis & Report Generation</span>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <span class="tool-pill">
+                        <svg class="h-3.5 w-3.5" style="color: var(--primary);" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                        <span class="zh-content">語意搜尋</span>
+                        <span class="en-content">Semantic Search</span>
+                    </span>
+                    <span class="tool-pill">
+                        <svg class="h-3.5 w-3.5" style="color: var(--accent);" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        <span class="zh-content">文件內容擷取</span>
+                        <span class="en-content">File Content Retrieval</span>
+                    </span>
+                    <span class="tool-pill">
+                        <svg class="h-3.5 w-3.5" style="color: var(--accent-orange);" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                        <span class="zh-content">文件比較</span>
+                        <span class="en-content">Document Comparison</span>
+                    </span>
+                    <span class="tool-pill">
+                        <svg class="h-3.5 w-3.5" style="color: #AF52DE;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                        <span class="zh-content">表格生成</span>
+                        <span class="en-content">Table Generation</span>
+                    </span>
+                    <span class="tool-pill">
+                        <svg class="h-3.5 w-3.5" style="color: var(--accent-red);" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/></svg>
+                        <span class="zh-content">簡報生成</span>
+                        <span class="en-content">PPT Generation</span>
+                    </span>
+                    <span class="tool-pill">
+                        <svg class="h-3.5 w-3.5" style="color: #5AC8FA;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <span class="zh-content">最近檔案</span>
+                        <span class="en-content">Recent Files</span>
+                    </span>
+                    <span class="tool-pill">
+                        <svg class="h-3.5 w-3.5" style="color: var(--primary);" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <span class="zh-content">檔案元資料</span>
+                        <span class="en-content">File Metadata</span>
+                    </span>
+                    <span class="tool-pill">
+                        <svg class="h-3.5 w-3.5" style="color: var(--accent);" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                        <span class="zh-content">計算引擎</span>
+                        <span class="en-content">Calculator</span>
+                    </span>
+                    <span class="tool-pill">
+                        <svg class="h-3.5 w-3.5" style="color: var(--accent-orange);" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                        <span class="zh-content">網路搜尋</span>
+                        <span class="en-content">Web Search</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Key capabilities -->
+            <div class="mt-16 grid gap-6 md:grid-cols-2 reveal">
+                <div class="use-case-card">
+                    <div class="flex items-start gap-4">
+                        <div class="feature-icon icon-blue flex-shrink-0">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm" style="color: var(--text-primary);">
+                                <span class="zh-content">智能意圖分類</span>
+                                <span class="en-content">Smart Intent Classification</span>
+                            </h4>
+                            <p class="mt-1 text-sm" style="color: var(--text-secondary);">
+                                <span class="zh-content">自動分析查詢的複雜度（關鍵字、文件數量、問題長度等），在執行前預估回應時間與成本，並路由到最適合的 AI 模型。</span>
+                                <span class="en-content">Automatically analyzes query complexity (keywords, file count, question length) to estimate response time and cost before execution, routing to the optimal AI model.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="use-case-card">
+                    <div class="flex items-start gap-4">
+                        <div class="feature-icon icon-green flex-shrink-0">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm" style="color: var(--text-primary);">
+                                <span class="zh-content">多步驟推理迴圈</span>
+                                <span class="en-content">Multi-Step Reasoning Loop</span>
+                            </h4>
+                            <p class="mt-1 text-sm" style="color: var(--text-secondary);">
+                                <span class="zh-content">AI 代理自主執行最多 5 輪迭代推理，每輪可呼叫多個工具、驗證結果、調整策略。內建防止無限迴圈與結果壓縮機制。</span>
+                                <span class="en-content">AI agents autonomously execute up to 5 reasoning iterations, calling multiple tools per round, verifying results, and adjusting strategy. Built-in loop detection and result compression.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="use-case-card">
+                    <div class="flex items-start gap-4">
+                        <div class="feature-icon icon-purple flex-shrink-0">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm" style="color: var(--text-primary);">
+                                <span class="zh-content">即時進度透明化</span>
+                                <span class="en-content">Real-Time Progress Visibility</span>
+                            </h4>
+                            <p class="mt-1 text-sm" style="color: var(--text-secondary);">
+                                <span class="zh-content">透過 Socket.io 即時串流，看到 AI 代理正在使用哪些工具、搜尋了哪些文件、每一步的推理結果。完整透明的 AI 思考過程。</span>
+                                <span class="en-content">Via Socket.io live streaming, see which tools the agent is using, which documents it searched, and results at each step. Full transparency into AI reasoning.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="use-case-card">
+                    <div class="flex items-start gap-4">
+                        <div class="feature-icon icon-orange flex-shrink-0">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm" style="color: var(--text-primary);">
+                                <span class="zh-content">多模型供應商支援</span>
+                                <span class="en-content">Multi-Provider Model Support</span>
+                            </h4>
+                            <p class="mt-1 text-sm" style="color: var(--text-secondary);">
+                                <span class="zh-content">支援 OpenAI GPT-4o、Anthropic Claude、Google Gemini 等多家模型供應商，根據任務特性自動選擇最適合的模型。</span>
+                                <span class="en-content">Supports OpenAI GPT-4o, Anthropic Claude, Google Gemini and more. Automatically selects the optimal model based on task characteristics.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Use Cases -->
+            <div class="mt-16 rounded-2xl p-8 reveal" style="background: var(--bg-secondary);">
+                <h3 class="text-xl font-semibold text-center mb-8" style="color: var(--text-primary);">
+                    <span class="zh-content">應用場景</span>
+                    <span class="en-content">Use Cases</span>
+                </h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="use-case-card">
+                        <h4 class="font-semibold text-sm" style="color: var(--text-primary);">
+                            <span class="zh-content">跨文件智能分析</span>
+                            <span class="en-content">Cross-Document Intelligent Analysis</span>
                         </h4>
-                        <p class="text-gray-600 dark:text-gray-300 text-sm">
-                            <span class="zh-content">自動收集多源數據，進行智能分析，並生成結構化業務報告。</span>
-                            <span class="en-content">Automatically collect multi-source data, perform intelligent analysis, and generate structured business reports.</span>
+                        <p class="mt-1 text-sm" style="color: var(--text-secondary);">
+                            <span class="zh-content">「比較這三份合約的付款條件差異」— AI 代理自動搜尋、提取關鍵段落、生成比較表格。</span>
+                            <span class="en-content">"Compare the payment terms across these three contracts" — the AI agent automatically searches, extracts key sections, and generates a comparison table.</span>
                         </p>
                     </div>
-                    <div class="bg-white dark:bg-gray-800 rounded-lg p-6">
-                        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
-                            <span class="zh-content">📧 智能郵件處理與分類</span>
-                            <span class="en-content">📧 Intelligent Email Processing & Classification</span>
+                    <div class="use-case-card">
+                        <h4 class="font-semibold text-sm" style="color: var(--text-primary);">
+                            <span class="zh-content">團隊知識庫建置</span>
+                            <span class="en-content">Team Knowledge Base</span>
                         </h4>
-                        <p class="text-gray-600 dark:text-gray-300 text-sm">
-                            <span class="zh-content">自動處理郵件，提取關鍵信息，並根據內容智能分類和轉發。</span>
-                            <span class="en-content">Automatically process emails, extract key information, and intelligently classify and forward based on content.</span>
+                        <p class="mt-1 text-sm" style="color: var(--text-secondary);">
+                            <span class="zh-content">將部門文件上傳至共享空間，團隊成員可直接透過自然語言提問，快速找到所需資訊。</span>
+                            <span class="en-content">Upload department documents to shared spaces. Team members can ask questions in natural language to quickly find the information they need.</span>
                         </p>
                     </div>
-                    <div class="bg-white dark:bg-gray-800 rounded-lg p-6">
-                        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
-                            <span class="zh-content">📝 文檔審查與合規檢查</span>
-                            <span class="en-content">📝 Document Review & Compliance Checking</span>
+                    <div class="use-case-card">
+                        <h4 class="font-semibold text-sm" style="color: var(--text-primary);">
+                            <span class="zh-content">會議錄音智能分析</span>
+                            <span class="en-content">Meeting Recording Analysis</span>
                         </h4>
-                        <p class="text-gray-600 dark:text-gray-300 text-sm">
-                            <span class="zh-content">自動審查合同、報告等文檔，檢查合規性並標記潛在風險。</span>
-                            <span class="en-content">Automatically review contracts, reports, and other documents, check compliance, and flag potential risks.</span>
+                        <p class="mt-1 text-sm" style="color: var(--text-secondary);">
+                            <span class="zh-content">上傳會議錄音，自動轉錄文字並生成摘要。隨時提問「上次會議決定了什麼？」即可獲得精確回答。</span>
+                            <span class="en-content">Upload meeting recordings for auto-transcription and summary. Ask "What was decided in the last meeting?" anytime for precise answers.</span>
                         </p>
                     </div>
-                    <div class="bg-white dark:bg-gray-800 rounded-lg p-6">
-                        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">
-                            <span class="zh-content">🔄 客戶服務自動化</span>
-                            <span class="en-content">🔄 Customer Service Automation</span>
+                    <div class="use-case-card">
+                        <h4 class="font-semibold text-sm" style="color: var(--text-primary);">
+                            <span class="zh-content">文件審查與合規</span>
+                            <span class="en-content">Document Review & Compliance</span>
                         </h4>
-                        <p class="text-gray-600 dark:text-gray-300 text-sm">
-                            <span class="zh-content">智能處理客戶查詢，自動查詢相關資料並生成個性化回應。</span>
-                            <span class="en-content">Intelligently handle customer inquiries, automatically query relevant data, and generate personalized responses.</span>
+                        <p class="mt-1 text-sm" style="color: var(--text-secondary);">
+                            <span class="zh-content">上傳合約或報告，讓 AI 代理自動審查重要條款、標記潛在風險、並與歷史版本進行比對分析。</span>
+                            <span class="en-content">Upload contracts or reports for the AI agent to automatically review key clauses, flag potential risks, and compare against historical versions.</span>
                         </p>
                     </div>
                 </div>
@@ -797,592 +1454,384 @@
         </div>
     </section>
 
-    <!-- 下載區塊 / Download Section -->
-    <section id="download" class="py-16 bg-gray-50 dark:bg-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Download Section -->
+    <section id="download" class="py-20" style="background: var(--bg-secondary);">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <div class="ai-badge mx-auto">
-                    <span class="zh-content">立即獲取</span>
-                    <span class="en-content">Get It Now</span>
+                <div class="section-badge mx-auto">
+                    <span class="zh-content">立即下載</span>
+                    <span class="en-content">Download</span>
                 </div>
-                <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white reveal">
+                <h2 class="text-3xl font-bold reveal" style="letter-spacing: -0.02em; color: var(--text-primary);">
                     <span class="zh-content">選擇您的平台</span>
                     <span class="en-content">Choose Your Platform</span>
                 </h2>
-                <p class="mt-4 text-lg text-gray-500 dark:text-gray-300 reveal">
-                    <span class="zh-content">支援 macOS 和 Windows 平台，提供企業級部署選項。選擇適合您系統的版本，或聯繫我們了解私有雲和本地部署方案。</span>
-                    <span class="en-content">Supports macOS and Windows platforms with enterprise deployment options. Choose the version that suits your system, or contact us to learn about private cloud and on-premises deployment solutions.</span>
+                <p class="mt-4 text-base reveal" style="color: var(--text-secondary);">
+                    <span class="zh-content">Panlo 是跨平台桌面應用程式，支援 macOS 與 Windows。免費下載，即刻開始。</span>
+                    <span class="en-content">Panlo is a cross-platform desktop app for macOS and Windows. Download free and get started instantly.</span>
                 </p>
             </div>
 
-            <div class="mt-12 grid gap-8 md:grid-cols-2">
-                <!-- macOS Download -->
-                <div class="download-card bg-gray-50 dark:bg-gray-900 overflow-hidden shadow-lg rounded-lg reveal">
-                    <div class="px-4 py-5 sm:p-6">
-                        <div class="flex items-center justify-center h-32">
-                            <svg class="h-24 w-24 text-gray-400 dark:text-gray-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                                <path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
-                            </svg>
-                        </div>
-                        <div class="mt-4 text-center">
-                            <h3 class="text-lg font-medium text-gray-900 dark:text-white">
-                                <span class="zh-content">macOS 版本</span>
-                                <span class="en-content">macOS Version</span>
-                            </h3>
-                            <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
-                                <span class="zh-content">適用於 macOS 10.15 及以上版本</span>
-                                <span class="en-content">Compatible with macOS 10.15 and above</span>
-                            </p>
-                            <div class="mt-6">
-                                <a href="https://github.com/g1ahsia/panlo-releases/releases/download/v1.2.1/Panlo-1.2.1-universal.dmg" download class="download-button inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-300 transform hover:scale-105">
-                                    <svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                    </svg>
-                                    <span class="zh-content">下載 macOS</span>
-                                    <span class="en-content">Download macOS</span>
-                                </a>
-                            </div>
-                            <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">
-                                <span class="zh-content">版本 1.1.0 | 約 230MB</span>
-                                <span class="en-content">Version 1.1.0 | ~230MB</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Windows Download -->
-                <div class="download-card bg-gray-50 dark:bg-gray-900 overflow-hidden shadow-lg rounded-lg reveal" style="transition-delay: 0.2s;">
-                    <div class="px-4 py-5 sm:p-6">
-                        <div class="flex items-center justify-center h-32">
-                            <svg class="h-24 w-24 text-gray-400 dark:text-gray-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                <path fill="currentColor" d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"/>
-                            </svg>
-                        </div>
-                        <div class="mt-4 text-center">
-                            <h3 class="text-lg font-medium text-gray-900 dark:text-white">
-                                <span class="zh-content">Windows 版本</span>
-                                <span class="en-content">Windows Version</span>
-                            </h3>
-                            <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
-                                <span class="zh-content">適用於 Windows 10 及以上版本</span>
-                                <span class="en-content">Compatible with Windows 10 and above</span>
-                            </p>
-                            <div class="mt-6">
-                                <a href="https://github.com/g1ahsia/panlo-releases/releases/download/v1.2.1/Panlo-Setup-1.2.1.exe" download class="download-button inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-300 transform hover:scale-105">
-                                    <svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                    </svg>
-                                    <span class="zh-content">下載 Windows</span>
-                                    <span class="en-content">Download Windows</span>
-                                </a>
-                            </div>
-                            <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">
-                                <span class="zh-content">版本 1.1.0 | 約 128MB</span>
-                                <span class="en-content">Version 1.1.0 | ~128MB</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 常見問題區塊 / FAQ Section -->
-    <section id="faq" class="py-16 bg-gray-50 dark:bg-gray-900">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-2xl mx-auto divide-y-2 divide-gray-200 dark:divide-gray-700">
-                <div class="text-center">
-                    <div class="ai-badge mx-auto">
-                        <span class="zh-content">常見問題</span>
-                        <span class="en-content">FAQ</span>
-                    </div>
-                    <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl text-center mb-8 reveal">
-                        <span class="zh-content">常見問題解答</span>
-                        <span class="en-content">Frequently Asked Questions</span>
-                    </h2>
-                </div>
-                <dl class="mt-6 space-y-6 divide-y divide-gray-200 dark:divide-gray-700 reveal">
-                    <!-- FAQ 項目 / FAQ Items -->
-                    <div class="pt-6 faq-item">
-                        <dt class="text-lg">
-                            <button class="faq-button text-left w-full flex justify-between items-start text-gray-900 dark:text-white focus:outline-none transition-all duration-300">
-                                <span class="font-medium">
-                                    <span class="zh-content">什麼是智能代理工作流程（Agentic Workflow）？</span>
-                                    <span class="en-content">What is Agentic Workflow?</span>
-                                </span>
-                                <span class="ml-6 h-7 flex items-center">
-                                    <svg class="faq-icon h-6 w-6 transform text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </span>
-                            </button>
-                        </dt>
-                        <dd class="faq-answer mt-2 pr-12">
-                            <p class="text-base text-gray-500 dark:text-gray-300">
-                                <span class="zh-content">智能代理工作流程是指由自主 AI 代理系統驅動的自動化業務流程。這些代理能夠理解複雜任務，自主規劃執行路徑，動態調整策略，並在多個代理之間協作完成複雜業務目標。與傳統自動化不同，代理系統具有決策能力和學習能力，能夠處理不確定性和異常情況。</span>
-                                <span class="en-content">Agentic workflow refers to automated business processes driven by autonomous AI agent systems. These agents can understand complex tasks, autonomously plan execution paths, dynamically adjust strategies, and collaborate across multiple agents to achieve complex business goals. Unlike traditional automation, agent systems have decision-making and learning capabilities, enabling them to handle uncertainty and exceptions.</span>
-                            </p>
-                        </dd>
-                    </div>
-
-                    <div class="pt-6 faq-item">
-                        <dt class="text-lg">
-                            <button class="faq-button text-left w-full flex justify-between items-start text-gray-900 dark:text-white focus:outline-none transition-all duration-300">
-                                <span class="font-medium">
-                                    <span class="zh-content">Panlo Enterprise 支援哪些檔案格式和數據源？</span>
-                                    <span class="en-content">What file formats and data sources does Panlo Enterprise support?</span>
-                                </span>
-                                <span class="ml-6 h-7 flex items-center">
-                                    <svg class="faq-icon h-6 w-6 transform text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </span>
-                            </button>
-                        </dt>
-                        <dd class="faq-answer mt-2 pr-12">
-                            <p class="text-base text-gray-500 dark:text-gray-300">
-                                <span class="zh-content">Panlo Enterprise 支援多種檔案格式，包括 PDF、Word、Excel、PowerPoint、圖片（JPG、PNG、GIF 等）、音頻（MP3、WAV、M4A 等）和視頻（MP4、MOV、AVI 等）。此外，還支援連接企業資料庫、CRM 系統、ERP 系統、API 接口等多種數據源，實現跨系統的智能工作流程。</span>
-                                <span class="en-content">Panlo Enterprise supports various file formats including PDF, Word, Excel, PowerPoint, images (JPG, PNG, GIF, etc.), audio (MP3, WAV, M4A, etc.), and video (MP4, MOV, AVI, etc.). Additionally, it supports connections to enterprise databases, CRM systems, ERP systems, API interfaces, and other data sources to enable cross-system intelligent workflows.</span>
-                            </p>
-                        </dd>
-                    </div>
-
-                    <div class="pt-6 faq-item">
-                        <dt class="text-lg">
-                            <button class="faq-button text-left w-full flex justify-between items-start text-gray-900 dark:text-white focus:outline-none transition-all duration-300">
-                                <span class="font-medium">
-                                    <span class="zh-content">Panlo Enterprise 的資料安全如何保障？</span>
-                                    <span class="en-content">How is data security ensured in Panlo Enterprise?</span>
-                                </span>
-                                <span class="ml-6 h-7 flex items-center">
-                                    <svg class="faq-icon h-6 w-6 transform text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </span>
-                            </button>
-                        </dt>
-                        <dd class="faq-answer mt-2 pr-12">
-                            <p class="text-base text-gray-500 dark:text-gray-300">
-                                <span class="zh-content">Panlo Enterprise 提供企業級安全保護，包括端到端加密、角色權限管理（RBAC）、審計日誌、數據隔離、合規性支持（GDPR、SOC 2 等）。支援本地部署和私有雲部署選項，確保敏感企業資料完全在您的控制範圍內。所有數據處理都遵循嚴格的訪問控制和加密標準。</span>
-                                <span class="en-content">Panlo Enterprise provides enterprise-grade security including end-to-end encryption, role-based access control (RBAC), audit logs, data isolation, and compliance support (GDPR, SOC 2, etc.). Supports on-premises and private cloud deployment options, ensuring sensitive enterprise data remains entirely within your control. All data processing follows strict access control and encryption standards.</span>
-                            </p>
-                        </dd>
-                    </div>
-
-                    <div class="pt-6 faq-item">
-                        <dt class="text-lg">
-                            <button class="faq-button text-left w-full flex justify-between items-start text-gray-900 dark:text-white focus:outline-none transition-all duration-300">
-                                <span class="font-medium">
-                                    <span class="zh-content">如何開始使用 Panlo Enterprise 的智能工作流程？</span>
-                                    <span class="en-content">How do I get started with Panlo Enterprise's agentic workflows?</span>
-                                </span>
-                                <span class="ml-6 h-7 flex items-center">
-                                    <svg class="faq-icon h-6 w-6 transform text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </span>
-                            </button>
-                        </dt>
-                        <dd class="faq-answer mt-2 pr-12">
-                            <p class="text-base text-gray-500 dark:text-gray-300">
-                                <span class="zh-content">使用 Panlo Enterprise 非常簡單：1) 部署和配置系統 2) 連接您的數據源（檔案、資料庫、API 等）3) 使用自然語言定義工作流程目標 4) 智能代理自動規劃並執行任務 5) 監控和優化工作流程。您也可以使用可視化界面設計自定義工作流程，或讓代理系統根據業務需求自動生成工作流程。</span>
-                                <span class="en-content">Using Panlo Enterprise is straightforward: 1) Deploy and configure the system 2) Connect your data sources (files, databases, APIs, etc.) 3) Define workflow goals using natural language 4) Intelligent agents automatically plan and execute tasks 5) Monitor and optimize workflows. You can also use the visual interface to design custom workflows or let the agent system automatically generate workflows based on business needs.</span>
-                            </p>
-                        </dd>
-                    </div>
-
-                    <div class="pt-6 faq-item">
-                        <dt class="text-lg">
-                            <button class="faq-button text-left w-full flex justify-between items-start text-gray-900 dark:text-white focus:outline-none transition-all duration-300">
-                                <span class="font-medium">
-                                    <span class="zh-content">Panlo Enterprise 支援哪些部署方式？</span>
-                                    <span class="en-content">What deployment options does Panlo Enterprise support?</span>
-                                </span>
-                                <span class="ml-6 h-7 flex items-center">
-                                    <svg class="faq-icon h-6 w-6 transform text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </span>
-                            </button>
-                        </dt>
-                        <dd class="faq-answer mt-2 pr-12">
-                            <p class="text-base text-gray-500 dark:text-gray-300">
-                                <span class="zh-content">Panlo Enterprise 支援多種部署方式以滿足不同企業需求：本地部署（On-Premises）、私有雲部署、混合雲部署，以及 SaaS 雲端版本。企業可以根據安全要求、合規需求和基礎設施情況選擇最適合的部署方式。我們提供完整的部署指南和技術支持。</span>
-                                <span class="en-content">Panlo Enterprise supports multiple deployment options to meet different enterprise needs: on-premises deployment, private cloud deployment, hybrid cloud deployment, and SaaS cloud version. Enterprises can choose the most suitable deployment method based on security requirements, compliance needs, and infrastructure conditions. We provide complete deployment guides and technical support.</span>
-                            </p>
-                        </dd>
-                    </div>
-                </dl>
-            </div>
-
-            <!-- 聯絡我們 / Contact Us -->
-            <div class="mt-16 bg-indigo-50 dark:bg-indigo-900 rounded-lg p-8 reveal">
-                <div class="text-center">
-                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
-                        <span class="zh-content">還有其他問題？</span>
-                        <span class="en-content">Have more questions?</span>
-                    </h3>
-                    <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
-                        <span class="zh-content">如果您沒有找到問題的答案，請隨時與我們聯繫。</span>
-                        <span class="en-content">If you couldn't find the answer to your question, feel free to contact us.</span>
+            <div class="mt-12 grid gap-6 md:grid-cols-2">
+                <!-- macOS -->
+                <div class="download-card p-8 text-center reveal">
+                    <svg class="h-16 w-16 mx-auto" style="color: var(--text-secondary);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+                    <h3 class="mt-4 text-lg font-semibold" style="color: var(--text-primary);">macOS</h3>
+                    <p class="mt-1 text-sm" style="color: var(--text-secondary);">
+                        <span class="zh-content">Universal (Intel + Apple Silicon)</span>
+                        <span class="en-content">Universal (Intel + Apple Silicon)</span>
                     </p>
                     <div class="mt-6">
-                        <a href="mailto:g1ahsia@gmail.com" class="download-button inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-300 transform hover:scale-105">
-                            <svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
-                            <span class="zh-content">聯絡我們</span>
-                            <span class="en-content">Contact Us</span>
+                        <a href="https://github.com/g1ahsia/panlo-releases/releases/download/v1.2.2/Panlo-1.2.2-universal.dmg" download class="btn-download">
+                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                            <span class="zh-content">下載 macOS 版</span>
+                            <span class="en-content">Download for macOS</span>
                         </a>
                     </div>
+                    <p class="mt-3 text-xs" style="color: var(--text-secondary);">
+                        <span class="zh-content">版本 1.2.2 | macOS 10.15+</span>
+                        <span class="en-content">Version 1.2.2 | macOS 10.15+</span>
+                    </p>
+                </div>
+
+                <!-- Windows -->
+                <div class="download-card p-8 text-center reveal" style="transition-delay: 0.1s;">
+                    <svg class="h-16 w-16 mx-auto" style="color: var(--text-secondary);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"/></svg>
+                    <h3 class="mt-4 text-lg font-semibold" style="color: var(--text-primary);">Windows</h3>
+                    <p class="mt-1 text-sm" style="color: var(--text-secondary);">
+                        <span class="zh-content">64-bit 安裝程式</span>
+                        <span class="en-content">64-bit Installer</span>
+                    </p>
+                    <div class="mt-6">
+                        <a href="https://github.com/g1ahsia/panlo-releases/releases/download/v1.2.2/Panlo-Setup-1.2.2.exe" download class="btn-download">
+                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                            <span class="zh-content">下載 Windows 版</span>
+                            <span class="en-content">Download for Windows</span>
+                        </a>
+                    </div>
+                    <p class="mt-3 text-xs" style="color: var(--text-secondary);">
+                        <span class="zh-content">版本 1.2.2 | Windows 10+</span>
+                        <span class="en-content">Version 1.2.2 | Windows 10+</span>
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 頁尾 / Footer -->
-    <footer class="bg-gray-900 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20" style="background: var(--bg-primary);">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="section-badge mx-auto">
+                    <span class="zh-content">常見問題</span>
+                    <span class="en-content">FAQ</span>
+                </div>
+                <h2 class="text-3xl font-bold mb-10 reveal" style="letter-spacing: -0.02em; color: var(--text-primary);">
+                    <span class="zh-content">常見問題</span>
+                    <span class="en-content">Frequently Asked Questions</span>
+                </h2>
+            </div>
+            <dl class="space-y-4 reveal">
+                <div class="faq-item rounded-xl p-4" style="background: var(--bg-secondary);">
+                    <dt>
+                        <button class="faq-button text-left w-full flex justify-between items-center focus:outline-none">
+                            <span class="font-medium text-sm" style="color: var(--text-primary);">
+                                <span class="zh-content">Panlo 是什麼？與一般文件管理工具有何不同？</span>
+                                <span class="en-content">What is Panlo? How is it different from regular file management tools?</span>
+                            </span>
+                            <svg class="faq-icon h-4 w-4 flex-shrink-0 ml-4" style="color: var(--primary);" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                    </dt>
+                    <dd class="faq-answer">
+                        <p class="text-sm" style="color: var(--text-secondary);">
+                            <span class="zh-content">Panlo 是一款 AI 驅動的文件智能助理桌面應用程式。與一般文件管理工具不同，Panlo 會將您的文件進行向量化處理，讓您可以透過自然語言與文件對話、進行語意搜尋、自動生成摘要。它不只是儲存文件，而是讓文件變得「可對話」，成為您的智慧知識庫。</span>
+                            <span class="en-content">Panlo is an AI-powered document intelligence desktop app. Unlike regular file managers, Panlo vectorizes your documents so you can have natural language conversations with them, perform semantic searches, and auto-generate summaries. It doesn't just store files — it makes them "conversational," turning them into your intelligent knowledge base.</span>
+                        </p>
+                    </dd>
+                </div>
+
+                <div class="faq-item rounded-xl p-4" style="background: var(--bg-secondary);">
+                    <dt>
+                        <button class="faq-button text-left w-full flex justify-between items-center focus:outline-none">
+                            <span class="font-medium text-sm" style="color: var(--text-primary);">
+                                <span class="zh-content">什麼是「三層智能引擎」？</span>
+                                <span class="en-content">What is the "Three-Tier AI Engine"?</span>
+                            </span>
+                            <svg class="faq-icon h-4 w-4 flex-shrink-0 ml-4" style="color: var(--primary);" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                    </dt>
+                    <dd class="faq-answer">
+                        <p class="text-sm" style="color: var(--text-secondary);">
+                            <span class="zh-content">Panlo 會自動分析您的問題複雜度，並路由到最適合的 AI 模型：快速層處理簡單問答（2-5 秒）、平衡層處理多文件分析（5-10 秒）、推理層使用 AI 代理進行複雜的多步驟推理（15-30 秒）。這讓 80% 的日常查詢都能在幾秒內回覆，同時保留處理複雜分析的能力。</span>
+                            <span class="en-content">Panlo automatically analyzes your question's complexity and routes it to the optimal AI model: the Fast tier handles simple Q&A (2-5s), the Balanced tier handles multi-document analysis (5-10s), and the Reasoning tier uses AI agents for complex multi-step reasoning (15-30s). This means 80% of daily queries are answered in seconds, while retaining the power for complex analysis.</span>
+                        </p>
+                    </dd>
+                </div>
+
+                <div class="faq-item rounded-xl p-4" style="background: var(--bg-secondary);">
+                    <dt>
+                        <button class="faq-button text-left w-full flex justify-between items-center focus:outline-none">
+                            <span class="font-medium text-sm" style="color: var(--text-primary);">
+                                <span class="zh-content">Panlo 支援哪些檔案格式？</span>
+                                <span class="en-content">What file formats does Panlo support?</span>
+                            </span>
+                            <svg class="faq-icon h-4 w-4 flex-shrink-0 ml-4" style="color: var(--primary);" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                    </dt>
+                    <dd class="faq-answer">
+                        <p class="text-sm" style="color: var(--text-secondary);">
+                            <span class="zh-content">Panlo 支援 20+ 種檔案格式，包括：文件（PDF、DOC、DOCX、TXT、RTF）、試算表（XLS、XLSX、CSV）、簡報（PPT、PPTX）、圖片（JPEG、PNG、GIF、WEBP）、音訊（MP3、WAV、M4A、FLAC、AAC）、影片（MP4、MOV、AVI、MKV）、電子郵件（EML、MSG）以及程式碼等。音訊檔案會透過 Whisper 自動轉錄。</span>
+                            <span class="en-content">Panlo supports 20+ file formats including: documents (PDF, DOC, DOCX, TXT, RTF), spreadsheets (XLS, XLSX, CSV), presentations (PPT, PPTX), images (JPEG, PNG, GIF, WEBP), audio (MP3, WAV, M4A, FLAC, AAC), video (MP4, MOV, AVI, MKV), emails (EML, MSG), and code files. Audio files are auto-transcribed via Whisper.</span>
+                        </p>
+                    </dd>
+                </div>
+
+                <div class="faq-item rounded-xl p-4" style="background: var(--bg-secondary);">
+                    <dt>
+                        <button class="faq-button text-left w-full flex justify-between items-center focus:outline-none">
+                            <span class="font-medium text-sm" style="color: var(--text-primary);">
+                                <span class="zh-content">我的資料安全嗎？</span>
+                                <span class="en-content">Is my data secure?</span>
+                            </span>
+                            <svg class="faq-icon h-4 w-4 flex-shrink-0 ml-4" style="color: var(--primary);" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                    </dt>
+                    <dd class="faq-answer">
+                        <p class="text-sm" style="color: var(--text-secondary);">
+                            <span class="zh-content">是的。Panlo 採用 JWT 認證、加密 API 金鑰儲存、角色型存取控制（擁有者 / 貢獻者 / 檢視者）。每個組織的資料完全隔離，所有 API 存取都經過伺服器端權限驗證。文件處理在本地端進行，僅上傳必要的向量資料。</span>
+                            <span class="en-content">Yes. Panlo uses JWT authentication, encrypted API key storage, and role-based access control (Owner/Contributor/Viewer). Each organization's data is fully isolated, and all API access is validated server-side. File processing happens locally — only necessary vector data is uploaded.</span>
+                        </p>
+                    </dd>
+                </div>
+
+                <div class="faq-item rounded-xl p-4" style="background: var(--bg-secondary);">
+                    <dt>
+                        <button class="faq-button text-left w-full flex justify-between items-center focus:outline-none">
+                            <span class="font-medium text-sm" style="color: var(--text-primary);">
+                                <span class="zh-content">如何開始使用？</span>
+                                <span class="en-content">How do I get started?</span>
+                            </span>
+                            <svg class="faq-icon h-4 w-4 flex-shrink-0 ml-4" style="color: var(--primary);" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                    </dt>
+                    <dd class="faq-answer">
+                        <p class="text-sm" style="color: var(--text-secondary);">
+                            <span class="zh-content">非常簡單：1) 下載並安裝 Panlo 桌面應用程式 2) 註冊帳號並建立組織 3) 建立空間並上傳文件，或設定監控資料夾自動同步 4) 開始透過 Ask Panlo 與您的文件對話。您也可以邀請團隊成員加入空間進行協作。</span>
+                            <span class="en-content">It's simple: 1) Download and install the Panlo desktop app 2) Sign up and create an organization 3) Create a space and upload documents, or set up watch folders for auto-sync 4) Start talking to your documents via Ask Panlo. You can also invite team members to spaces for collaboration.</span>
+                        </p>
+                    </dd>
+                </div>
+            </dl>
+
+            <!-- Contact -->
+            <div class="mt-12 rounded-2xl p-8 text-center reveal" style="background: var(--bg-secondary);">
+                <h3 class="text-lg font-semibold" style="color: var(--text-primary);">
+                    <span class="zh-content">還有其他問題？</span>
+                    <span class="en-content">Have more questions?</span>
+                </h3>
+                <p class="mt-2 text-sm" style="color: var(--text-secondary);">
+                    <span class="zh-content">歡迎隨時與我們聯繫。</span>
+                    <span class="en-content">Feel free to reach out anytime.</span>
+                </p>
+                <div class="mt-4">
+                    <a href="mailto:g1ahsia@gmail.com" class="btn-primary" style="font-size: 0.875rem; padding: 10px 24px;">
+                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        <span class="zh-content">聯絡我們</span>
+                        <span class="en-content">Contact Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--bg-dark); color: rgba(255,255,255,0.6);">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
-                    <h3 class="text-xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">Panlo Enterprise</h3>
-                    <p class="text-gray-300">
-                        <span class="zh-content">企業級 AI 智能工作流程平台，透過自主代理系統實現業務流程自動化，提升企業生產力與決策效率。</span>
-                        <span class="en-content">Enterprise-grade AI agentic workflow platform that automates business processes through autonomous agent systems, enhancing enterprise productivity and decision-making efficiency.</span>
+                    <h3 class="text-lg font-bold mb-3" style="color: var(--primary);">Panlo</h3>
+                    <p class="text-sm" style="color: rgba(255,255,255,0.4);">
+                        <span class="zh-content">AI 驅動的文件智能助理，透過語意搜尋與智能代理系統，讓您的文件擁有對話能力。</span>
+                        <span class="en-content">AI-powered document intelligence assistant. Give your documents the power of conversation through semantic search and agentic intelligence.</span>
                     </p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4 text-indigo-300">
+                    <h3 class="text-sm font-semibold mb-3" style="color: rgba(255,255,255,0.6);">
                         <span class="zh-content">快速連結</span>
                         <span class="en-content">Quick Links</span>
                     </h3>
-                    <ul class="space-y-2">
-                        <li>
-                            <a href="#home" class="text-gray-300 hover:text-white transition-colors duration-300">
-                                <span class="zh-content">首頁</span>
-                                <span class="en-content">Home</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#features" class="text-gray-300 hover:text-white transition-colors duration-300">
-                                <span class="zh-content">功能</span>
-                                <span class="en-content">Features</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#workflow" class="text-gray-300 hover:text-white transition-colors duration-300">
-                                <span class="zh-content">智能工作流程</span>
-                                <span class="en-content">Agentic Workflow</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#download" class="text-gray-300 hover:text-white transition-colors duration-300">
-                                <span class="zh-content">下載</span>
-                                <span class="en-content">Download</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#faq" class="text-gray-300 hover:text-white transition-colors duration-300">
-                                <span class="zh-content">FAQ</span>
-                                <span class="en-content">FAQ</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="privacy.html" class="text-gray-300 hover:text-white transition-colors duration-300">
-                                <span class="zh-content">隱私權政策</span>
-                                <span class="en-content">Privacy Policy</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="terms.html" class="text-gray-300 hover:text-white transition-colors duration-300">
-                                <span class="zh-content">服務條款</span>
-                                <span class="en-content">Terms of Service</span>
-                            </a>
-                        </li>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#home" class="hover:text-white transition-colors"><span class="zh-content">首頁</span><span class="en-content">Home</span></a></li>
+                        <li><a href="#features" class="hover:text-white transition-colors"><span class="zh-content">功能</span><span class="en-content">Features</span></a></li>
+                        <li><a href="#intelligence" class="hover:text-white transition-colors"><span class="zh-content">智能引擎</span><span class="en-content">AI Engine</span></a></li>
+                        <li><a href="#download" class="hover:text-white transition-colors"><span class="zh-content">下載</span><span class="en-content">Download</span></a></li>
+                        <li><a href="privacy.html" class="hover:text-white transition-colors"><span class="zh-content">隱私權政策</span><span class="en-content">Privacy Policy</span></a></li>
+                        <li><a href="terms.html" class="hover:text-white transition-colors"><span class="zh-content">服務條款</span><span class="en-content">Terms of Service</span></a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4 text-indigo-300">
+                    <h3 class="text-sm font-semibold mb-3" style="color: rgba(255,255,255,0.6);">
                         <span class="zh-content">聯絡我們</span>
-                        <span class="en-content">Contact Us</span>
+                        <span class="en-content">Contact</span>
                     </h3>
-                    <p class="text-gray-300">
-                        <span class="zh-content">如有任何問題或建議，請隨時與我們聯繫。</span>
-                        <span class="en-content">If you have any questions or suggestions, please feel free to contact us.</span>
-                    </p>
-                    <p class="text-gray-300 mt-2">
-                        <span class="zh-content">電子郵件：g1ahsia@gmail.com</span>
-                        <span class="en-content">Email: g1ahsia@gmail.com</span>
+                    <p class="text-sm" style="color: rgba(255,255,255,0.4);">
+                        g1ahsia@gmail.com
                     </p>
                 </div>
             </div>
-            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
-                <p class="text-gray-300">
-                    &copy; <span id="current-year"></span> Panlo. 
-                    <span class="zh-content">保留所有權利。</span>
-                    <span class="en-content">All rights reserved.</span>
-                </p>
+            <div class="mt-8 pt-8 text-center text-xs" style="border-top: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.3);">
+                &copy; <span id="current-year"></span> Panlo.
+                <span class="zh-content">保留所有權利。</span>
+                <span class="en-content">All rights reserved.</span>
             </div>
         </div>
     </footer>
 
     <script>
-        // 設置當前年份 / Set current year
+        // Current year
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // 語言切換 / Language switching
+        // Language switching
         document.getElementById('lang-toggle').addEventListener('click', function() {
             const body = document.body;
             if (body.getAttribute('lang') === 'zh') {
                 body.setAttribute('lang', 'en');
-                localStorage.setItem('pannamitta-lang', 'en');
+                localStorage.setItem('panlo-lang', 'en');
             } else {
                 body.setAttribute('lang', 'zh');
-                localStorage.setItem('pannamitta-lang', 'zh');
+                localStorage.setItem('panlo-lang', 'zh');
             }
         });
 
-        // 載入時檢查語言設置 / Check language setting on load
+        // Language detection on load
         document.addEventListener('DOMContentLoaded', function() {
-            // Get the browser's language
-            const browserLanguage = navigator.language || navigator.userLanguage;
-
-            // Check if the browser language is Chinese (Simplified or Traditional)
-            if (browserLanguage.startsWith('zh')) {
-                // If it's Chinese, set the language to Chinese (zh)
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('zh')) {
                 document.body.setAttribute('lang', 'zh');
-                localStorage.setItem('pannamitta-lang', 'zh'); // Save language preference to localStorage
+                localStorage.setItem('panlo-lang', 'zh');
             } else {
-                // For other languages, set the language to English (en)
                 document.body.setAttribute('lang', 'en');
-                localStorage.setItem('pannamitta-lang', 'en'); // Save language preference to localStorage
+                localStorage.setItem('panlo-lang', 'en');
             }
 
-            // 語言設置 / Language setting
-            const savedLang = localStorage.getItem('pannamitta-lang');
+            const savedLang = localStorage.getItem('panlo-lang');
             if (savedLang) {
                 document.body.setAttribute('lang', savedLang);
             }
-            
-            // 初始化打字效果 / Initialize typing effect
-            const options = {
-                strings: ['企業級 AI 智能工作流程平台', '自主代理驅動的業務自動化', '多模態 AI 處理能力'],
-                typeSpeed: 50,
-                backSpeed: 30,
-                backDelay: 3000,
+
+            // Typed.js
+            new Typed('#typing-zh', {
+                strings: ['AI 智能文件助理', '語意搜尋，理解文件語境', '多步驟推理，深度分析', '團隊協作知識庫'],
+                typeSpeed: 45,
+                backSpeed: 25,
+                backDelay: 2500,
                 loop: true,
                 showCursor: true,
                 cursorChar: '|'
-            };
-            
-            const optionsEn = {
-                strings: ['Enterprise AI Agentic Workflow Platform', 'Autonomous Agent-Driven Automation', 'Multimodal AI Processing'],
-                typeSpeed: 50,
-                backSpeed: 30,
-                backDelay: 3000,
+            });
+
+            new Typed('#typing-en', {
+                strings: ['AI-Powered Document Intelligence', 'Semantic Search That Understands Context', 'Multi-Step Reasoning & Deep Analysis', 'Collaborative Knowledge Base for Teams'],
+                typeSpeed: 40,
+                backSpeed: 20,
+                backDelay: 2500,
                 loop: true,
                 showCursor: true,
                 cursorChar: '|'
-            };
-            
-            new Typed('#typing-zh', options);
-            new Typed('#typing-en', optionsEn);
-            
-            // 初始化粒子效果 / Initialize particles effect
+            });
+
+            // Particles
             particlesJS('particles-js', {
                 "particles": {
-                    "number": {
-                        "value": 80,
-                        "density": {
-                            "enable": true,
-                            "value_area": 800
-                        }
-                    },
-                    "color": {
-                        "value": "#ffffff"
-                    },
-                    "shape": {
-                        "type": "circle",
-                        "stroke": {
-                            "width": 0,
-                            "color": "#000000"
-                        },
-                        "polygon": {
-                            "nb_sides": 5
-                        }
-                    },
-                    "opacity": {
-                        "value": 0.5,
-                        "random": false,
-                        "anim": {
-                            "enable": false,
-                            "speed": 1,
-                            "opacity_min": 0.1,
-                            "sync": false
-                        }
-                    },
-                    "size": {
-                        "value": 3,
-                        "random": true,
-                        "anim": {
-                            "enable": false,
-                            "speed": 40,
-                            "size_min": 0.1,
-                            "sync": false
-                        }
-                    },
-                    "line_linked": {
-                        "enable": true,
-                        "distance": 150,
-                        "color": "#ffffff",
-                        "opacity": 0.4,
-                        "width": 1
-                    },
-                    "move": {
-                        "enable": true,
-                        "speed": 2,
-                        "direction": "none",
-                        "random": false,
-                        "straight": false,
-                        "out_mode": "out",
-                        "bounce": false,
-                        "attract": {
-                            "enable": false,
-                            "rotateX": 600,
-                            "rotateY": 1200
-                        }
-                    }
+                    "number": { "value": 90, "density": { "enable": true, "value_area": 800 } },
+                    "color": { "value": "#ffffff" },
+                    "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" }, "polygon": { "nb_sides": 5 } },
+                    "opacity": { "value": 0.5, "random": false, "anim": { "enable": false, "speed": 1, "opacity_min": 0.1, "sync": false } },
+                    "size": { "value": 3, "random": true, "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false } },
+                    "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.35, "width": 1 },
+                    "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 } }
                 },
                 "interactivity": {
                     "detect_on": "canvas",
                     "events": {
-                        "onhover": {
-                            "enable": true,
-                            "mode": "grab"
-                        },
-                        "onclick": {
-                            "enable": true,
-                            "mode": "push"
-                        },
+                        "onhover": { "enable": true, "mode": "grab" },
+                        "onclick": { "enable": true, "mode": "push" },
                         "resize": true
                     },
                     "modes": {
-                        "grab": {
-                            "distance": 140,
-                            "line_linked": {
-                                "opacity": 1
-                            }
-                        },
-                        "bubble": {
-                            "distance": 400,
-                            "size": 40,
-                            "duration": 2,
-                            "opacity": 8,
-                            "speed": 3
-                        },
-                        "repulse": {
-                            "distance": 200,
-                            "duration": 0.4
-                        },
-                        "push": {
-                            "particles_nb": 4
-                        },
-                        "remove": {
-                            "particles_nb": 2
-                        }
+                        "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
+                        "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 },
+                        "repulse": { "distance": 200, "duration": 0.4 },
+                        "push": { "particles_nb": 4 },
+                        "remove": { "particles_nb": 2 }
                     }
                 },
                 "retina_detect": true
             });
         });
 
-        // 行動裝置選單切換 / Mobile menu toggle
+        // Mobile menu
         document.querySelector('.mobile-menu-button').addEventListener('click', function() {
             document.querySelector('.mobile-menu').classList.toggle('hidden');
         });
 
-        // FAQ 切換 / FAQ toggle
+        // FAQ toggle
         document.querySelectorAll('.faq-button').forEach(button => {
             button.addEventListener('click', function() {
                 const answer = this.parentElement.nextElementSibling;
                 const icon = this.querySelector('.faq-icon');
-                
-                // 切換顯示/隱藏 / Toggle display/hide
                 answer.classList.toggle('active');
                 icon.classList.toggle('-rotate-180');
             });
         });
 
-        // 平滑滾動 / Smooth scrolling
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
                 const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop,
-                        behavior: 'smooth'
-                    });
-                    
-                    // 如果是在行動裝置選單中點擊，則關閉選單 / If clicked in mobile menu, close the menu
+                const target = document.querySelector(targetId);
+                if (target) {
+                    window.scrollTo({ top: target.offsetTop - 56, behavior: 'smooth' });
                     document.querySelector('.mobile-menu').classList.add('hidden');
-                    
-                    // 更新活動導航連結 / Update active navigation link
-                    document.querySelectorAll('.nav-link').forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    document.querySelector(`a[href="${targetId}"]`).classList.add('active');
+                    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                    const navLink = document.querySelector(`a.nav-link[href="${targetId}"]`);
+                    if (navLink) navLink.classList.add('active');
                 }
             });
         });
-        
-        // 滾動顯示動畫 / Scroll reveal animation
+
+        // Scroll reveal
         function revealOnScroll() {
-            const reveals = document.querySelectorAll('.reveal');
-            
-            for (let i = 0; i < reveals.length; i++) {
-                const windowHeight = window.innerHeight;
-                const elementTop = reveals[i].getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add('active');
+            document.querySelectorAll('.reveal').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+                    el.classList.add('active');
                 }
-            }
+            });
         }
-        
         window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll(); // 初始檢查 / Initial check
-        
-        // 導航欄滾動效果 / Navigation bar scroll effect
+        revealOnScroll();
+
+        // Nav scroll effect + active section tracking
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
             if (window.scrollY > 10) {
-                nav.classList.add('bg-opacity-90', 'backdrop-filter', 'backdrop-blur-lg');
+                nav.style.borderColor = 'rgba(0,0,0,0.08)';
             } else {
-                nav.classList.remove('bg-opacity-90', 'backdrop-filter', 'backdrop-blur-lg');
+                nav.style.borderColor = 'rgba(0,0,0,0.03)';
             }
-            
-            // 更新活動導航連結 / Update active navigation link
-            const scrollPosition = window.scrollY;
-            
-            document.querySelectorAll('section').forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (scrollPosition >= sectionTop - 100 && scrollPosition < sectionTop + sectionHeight - 100) {
+
+            document.querySelectorAll('section[id]').forEach(section => {
+                const top = section.offsetTop - 100;
+                const bottom = top + section.clientHeight;
+                if (window.scrollY >= top && window.scrollY < bottom) {
                     const id = section.getAttribute('id');
-                    document.querySelectorAll('.nav-link').forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    document.querySelector(`a[href="#${id}"]`).classList.add('active');
+                    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                    const navLink = document.querySelector(`a.nav-link[href="#${id}"]`);
+                    if (navLink) navLink.classList.add('active');
                 }
             });
         });
     </script>
 </body>
 </html>
-
