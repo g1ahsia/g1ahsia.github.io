@@ -417,20 +417,21 @@
 
         /* App mockup */
         .app-mockup {
-            background: #1c1c1e;
+            background: #f2f2f7;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 25px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
-            max-width: 800px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,0,0,0.08);
+            max-width: 880px;
             margin: 0 auto;
         }
 
         .mockup-titlebar {
-            background: #2c2c2e;
+            background: #f5f5f7;
             padding: 10px 14px;
             display: flex;
             align-items: center;
             gap: 8px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
         }
 
         .mockup-dot {
@@ -445,15 +446,107 @@
 
         .mockup-body {
             display: flex;
-            min-height: 320px;
+            min-height: 340px;
         }
 
+        /* Narrow icon panel (matches real app left-icon-panel) */
+        .mockup-icon-panel {
+            width: 48px;
+            background: #ffffff;
+            border-right: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px 0;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+
+        .mockup-icon-panel .icon-top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .mockup-org-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 7px;
+            background: #007AFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .mockup-nav-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8e8e93;
+            cursor: default;
+            transition: background 0.15s;
+        }
+
+        .mockup-nav-icon.active {
+            background: rgba(0,122,255,0.1);
+            color: #007AFF;
+        }
+
+        .mockup-avatar {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: #AF52DE;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+            color: white;
+        }
+
+        /* Middle panel / sidebar (matches real app left-panel) */
         .mockup-sidebar {
             width: 200px;
-            background: #252528;
-            border-right: 1px solid #3a3a3c;
-            padding: 12px 0;
+            background: #f5f5f7;
+            border-right: 1px solid #e0e0e0;
+            padding: 0;
             flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mockup-space-header {
+            padding: 10px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .mockup-space-header svg {
+            color: #1c1c1e;
+            flex-shrink: 0;
+        }
+
+        .mockup-space-name {
+            font-size: 12px;
+            font-weight: 600;
+            color: #1c1c1e;
+        }
+
+        .mockup-file-list {
+            flex: 1;
+            padding: 8px 0;
+            overflow: hidden;
         }
 
         .mockup-sidebar-item {
@@ -461,33 +554,42 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 12px;
-            color: rgba(255,255,255,0.5);
+            font-size: 11px;
+            color: #6e6e73;
             cursor: default;
         }
 
         .mockup-sidebar-item.active {
-            background: rgba(0,122,255,0.15);
-            color: white;
+            background: rgba(0,122,255,0.08);
+            color: #007AFF;
         }
 
-        .mockup-sidebar-icon {
-            width: 14px;
-            height: 14px;
-            border-radius: 3px;
+        .mockup-sidebar-item .file-icon {
+            width: 16px;
+            height: 16px;
             flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
+        .mockup-sidebar-item .file-meta {
+            font-size: 9px;
+            color: #aeaeb2;
+            margin-left: auto;
+        }
+
+        /* Main content area (matches real app right-panel) */
         .mockup-main {
             flex: 1;
             display: flex;
             flex-direction: column;
-            background: #1c1c1e;
+            background: #ffffff;
         }
 
         .mockup-chat {
             flex: 1;
-            padding: 16px;
+            padding: 16px 20px;
             display: flex;
             flex-direction: column;
             gap: 12px;
@@ -495,58 +597,75 @@
         }
 
         .mockup-msg {
-            max-width: 80%;
             padding: 10px 14px;
-            border-radius: 12px;
+            border-radius: 10px;
             font-size: 11px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .mockup-msg.user {
-            background: var(--primary);
-            color: white;
+            background: #f1f1f1;
+            color: #1c1c1e;
             align-self: flex-end;
-            border-bottom-right-radius: 4px;
+            max-width: 80%;
         }
 
         .mockup-msg.ai {
-            background: #2c2c2e;
-            color: rgba(255,255,255,0.85);
+            background: transparent;
+            color: #1c1c1e;
             align-self: flex-start;
-            border-bottom-left-radius: 4px;
+            width: 100%;
+            padding: 0 0 0 0;
         }
 
         .mockup-msg .source-tag {
             display: inline-block;
             margin-top: 6px;
             padding: 2px 8px;
-            background: rgba(0,122,255,0.15);
+            background: rgba(0,122,255,0.08);
             border-radius: 4px;
             font-size: 10px;
-            color: #409CFF;
+            color: #007AFF;
         }
 
         .mockup-input {
-            padding: 12px 16px;
-            border-top: 1px solid #3a3a3c;
+            padding: 10px 16px 12px;
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .mockup-input-box {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 10px 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
             gap: 8px;
         }
 
-        .mockup-input-field {
-            flex: 1;
-            background: #2c2c2e;
-            border: 1px solid #3a3a3c;
-            border-radius: 8px;
-            padding: 8px 12px;
+        .mockup-input-text {
             font-size: 11px;
-            color: rgba(255,255,255,0.4);
+            color: #aeaeb2;
+        }
+
+        .mockup-input-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .mockup-add-context {
+            font-size: 10px;
+            color: #007AFF;
+            font-weight: 500;
         }
 
         .mockup-send-btn {
-            width: 28px;
-            height: 28px;
+            width: 26px;
+            height: 26px;
             background: var(--primary);
             border-radius: 6px;
             display: flex;
@@ -585,25 +704,27 @@
             .feature-showcase.reverse > * {
                 direction: ltr;
             }
+            .mockup-icon-panel { display: none; }
             .mockup-sidebar { width: 140px; }
-            .mockup-body { min-height: 240px; }
+            .mockup-body { min-height: 260px; }
         }
 
         /* Mini mockup */
         .mini-mockup {
-            background: #1c1c1e;
+            background: #ffffff;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
-            border: 1px solid rgba(255,255,255,0.06);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+            border: 1px solid rgba(0,0,0,0.08);
         }
 
         .mini-titlebar {
-            background: #2c2c2e;
+            background: #f5f5f7;
             padding: 8px 12px;
             display: flex;
             align-items: center;
             gap: 6px;
+            border-bottom: 1px solid #e0e0e0;
         }
 
         .mini-dot {
@@ -626,7 +747,7 @@
         .typing-dots span {
             width: 5px;
             height: 5px;
-            background: #409CFF;
+            background: #007AFF;
             border-radius: 50%;
             animation: typing-bounce 1.4s ease-in-out infinite;
         }
@@ -701,11 +822,11 @@
                     </div>
                 </div>
                 <div class="hidden sm:flex items-center space-x-3">
-                    <a href="https://github.com/g1ahsia/panlo-releases/releases/download/v1.2.2/Panlo-1.2.2-universal.dmg" download class="btn-download">
+                    <a href="https://github.com/g1ahsia/panlo-releases/releases/latest/download/Panlo.dmg" download class="btn-download">
                         <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
                         macOS
                     </a>
-                    <a href="https://github.com/g1ahsia/panlo-releases/releases/download/v1.2.2/Panlo-Setup-1.2.2.exe" download class="btn-download">
+                    <a href="https://github.com/g1ahsia/panlo-releases/releases/latest/download/Panlo-Setup.exe" download class="btn-download">
                         <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"/></svg>
                         Windows
                     </a>
@@ -745,8 +866,8 @@
                     <span class="zh-content">條款</span><span class="en-content">Terms</span>
                 </a>
                 <div class="flex space-x-2 pt-2 pb-1">
-                    <a href="https://github.com/g1ahsia/panlo-releases/releases/download/v1.2.2/Panlo-1.2.2-universal.dmg" download class="btn-download text-sm">macOS</a>
-                    <a href="https://github.com/g1ahsia/panlo-releases/releases/download/v1.2.2/Panlo-Setup-1.2.2.exe" download class="btn-download text-sm">Windows</a>
+                    <a href="https://github.com/g1ahsia/panlo-releases/releases/latest/download/Panlo.dmg" download class="btn-download text-sm">macOS</a>
+                    <a href="https://github.com/g1ahsia/panlo-releases/releases/latest/download/Panlo-Setup.exe" download class="btn-download text-sm">Windows</a>
                 </div>
             </div>
         </div>
@@ -757,46 +878,34 @@
         <div id="particles-js"></div>
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-28 hero-content">
             <div class="text-center">
-                <div class="section-badge mx-auto" style="background: rgba(0,122,255,0.15); color: #409CFF;">
-                    <span class="zh-content">AI 文件智能助理</span>
-                    <span class="en-content">AI Document Intelligence</span>
-                </div>
-                <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl mt-4" style="letter-spacing: -0.02em;">
+                <h1 class="font-bold tracking-tight text-white mt-4" style="letter-spacing: -0.03em; font-size: 4.5rem;">
                     <span class="block">Panlo</span>
-                    <span class="block mt-2" style="color: rgba(255,255,255,0.6); font-weight: 400; font-size: 0.55em;">
+                    <span class="block mt-3" style="color: rgba(255,255,255,0.6); font-weight: 400; font-size: 0.45em;">
                         <span class="zh-content" id="typing-zh"></span>
                         <span class="en-content" id="typing-en"></span>
                     </span>
                 </h1>
-                <p class="mt-6 text-lg max-w-2xl mx-auto" style="color: rgba(255,255,255,0.6); line-height: 1.7;">
-                    <span class="zh-content">透過語意搜尋、多步驟推理與智能代理系統，讓您的文件擁有對話能力。支援 PDF、文件、試算表、音訊、影片等多種格式，為團隊打造 AI 驅動的知識庫。</span>
-                    <span class="en-content">Give your documents the power of conversation through semantic search, multi-step reasoning, and agentic intelligence. Supports PDF, docs, spreadsheets, audio, video and more — building an AI-powered knowledge base for your team.</span>
+                <p class="mt-8 max-w-2xl mx-auto" style="color: rgba(255,255,255,0.65); line-height: 1.6; font-size: 1.5rem;">
+                    <span class="zh-content">以 AI 將靜態文件轉化為可對話、可分析、可執行的知識。</span>
+                    <span class="en-content">Transform static files into conversational, analyzable, and actionable knowledge with AI.</span>
                 </p>
 
                 <!-- Supported formats -->
-                <div class="mt-8 flex flex-wrap justify-center gap-2 max-w-2xl mx-auto">
-                    <span class="format-tag">PDF</span>
-                    <span class="format-tag">Word</span>
-                    <span class="format-tag">Excel</span>
-                    <span class="format-tag">PowerPoint</span>
-                    <span class="format-tag">
-                        <span class="zh-content">圖片</span>
-                        <span class="en-content">Images</span>
-                    </span>
-                    <span class="format-tag">
-                        <span class="zh-content">音訊</span>
-                        <span class="en-content">Audio</span>
-                    </span>
-                    <span class="format-tag">
-                        <span class="zh-content">影片</span>
-                        <span class="en-content">Video</span>
-                    </span>
-                    <span class="format-tag">CSV</span>
-                    <span class="format-tag">Email</span>
-                    <span class="format-tag">
-                        <span class="zh-content">程式碼</span>
-                        <span class="en-content">Code</span>
-                    </span>
+                <p class="mt-8 font-medium" style="color: rgba(255,255,255,0.45); font-size: 1.1rem;">
+                    <span class="zh-content">一個平台，所有格式，即時洞察</span>
+                    <span class="en-content">One platform. All your formats. Instant insight.</span>
+                </p>
+                <div class="mt-3 flex flex-wrap justify-center gap-2 max-w-2xl mx-auto" style="color: rgba(255,255,255,0.5); font-size: 1rem;">
+                    <span>PDF</span><span>&middot;</span>
+                    <span>Word</span><span>&middot;</span>
+                    <span>Excel</span><span>&middot;</span>
+                    <span>PowerPoint</span><span>&middot;</span>
+                    <span><span class="zh-content">圖片</span><span class="en-content">Images</span></span><span>&middot;</span>
+                    <span><span class="zh-content">音訊</span><span class="en-content">Audio</span></span><span>&middot;</span>
+                    <span><span class="zh-content">影片</span><span class="en-content">Video</span></span><span>&middot;</span>
+                    <span>CSV</span><span>&middot;</span>
+                    <span>Email</span><span>&middot;</span>
+                    <span><span class="zh-content">程式碼</span><span class="en-content">Code</span></span>
                 </div>
 
                 <div class="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
@@ -817,14 +926,7 @@
                         <div class="stat-number" style="color: #409CFF;">20+</div>
                         <div class="stat-label" style="color: rgba(255,255,255,0.4);">
                             <span class="zh-content">支援格式</span>
-                            <span class="en-content">File Formats</span>
-                        </div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" style="color: #409CFF;">10+</div>
-                        <div class="stat-label" style="color: rgba(255,255,255,0.4);">
-                            <span class="zh-content">AI 工具</span>
-                            <span class="en-content">AI Tools</span>
+                            <span class="en-content">Formats</span>
                         </div>
                     </div>
                     <div class="stat-item">
@@ -832,6 +934,13 @@
                         <div class="stat-label" style="color: rgba(255,255,255,0.4);">
                             <span class="zh-content">智能層級</span>
                             <span class="en-content">AI Tiers</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" style="color: #409CFF;">&infin;</div>
+                        <div class="stat-label" style="color: rgba(255,255,255,0.4);">
+                            <span class="zh-content">可擴展性</span>
+                            <span class="en-content">Scalable</span>
                         </div>
                     </div>
                 </div>
@@ -843,28 +952,77 @@
                             <div class="mockup-dot red"></div>
                             <div class="mockup-dot yellow"></div>
                             <div class="mockup-dot green"></div>
-                            <span style="font-size: 11px; color: rgba(255,255,255,0.4); margin-left: 8px;">Panlo — Ask Panlo</span>
+                            <span style="flex:1;"></span>
+                            <!-- Title bar right buttons -->
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;"><rect x="3" y="4" width="7" height="16" rx="2"/><rect x="13" y="4" width="8" height="16" rx="2"/></svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="1.5" style="opacity:0.6;"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
                         </div>
                         <div class="mockup-body">
-                            <div class="mockup-sidebar hidden sm:block">
-                                <div class="mockup-sidebar-item" style="color: rgba(255,255,255,0.3); font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; padding-bottom: 4px;">Spaces</div>
-                                <div class="mockup-sidebar-item active">
-                                    <div class="mockup-sidebar-icon" style="background: #007AFF;"></div>
-                                    Marketing Docs
+                            <!-- Icon Panel (real app has this) -->
+                            <div class="mockup-icon-panel hidden sm:flex" style="flex-direction:column;justify-content:space-between;">
+                                <div class="icon-top" style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+                                    <div class="mockup-org-icon">P</div>
+                                    <div class="mockup-nav-icon active">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+                                    </div>
+                                    <div class="mockup-nav-icon">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                                    </div>
                                 </div>
-                                <div class="mockup-sidebar-item">
-                                    <div class="mockup-sidebar-icon" style="background: #34C759;"></div>
-                                    Legal Contracts
+                                <div style="display:flex;flex-direction:column;align-items:center;">
+                                    <div class="mockup-avatar">AH</div>
                                 </div>
-                                <div class="mockup-sidebar-item">
-                                    <div class="mockup-sidebar-icon" style="background: #FF9500;"></div>
-                                    Engineering
-                                </div>
-                                <div class="mockup-sidebar-item" style="margin-top: 12px; color: rgba(255,255,255,0.3); font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; padding-bottom: 4px;">Recent Files</div>
-                                <div class="mockup-sidebar-item">Q1-Report.pdf</div>
-                                <div class="mockup-sidebar-item">Meeting-Notes.mp3</div>
-                                <div class="mockup-sidebar-item">Budget-2026.xlsx</div>
                             </div>
+                            <!-- Middle Panel: Space + Files -->
+                            <div class="mockup-sidebar hidden sm:flex" style="flex-direction:column;">
+                                <div class="mockup-space-header">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+                                    <span class="mockup-space-name">Marketing Docs</span>
+                                </div>
+                                <div class="mockup-file-list">
+                                    <div class="mockup-sidebar-item" style="padding:5px 14px;font-size:9px;color:#aeaeb2;text-transform:uppercase;letter-spacing:0.05em;">
+                                        <span class="zh-content">資料夾</span>
+                                        <span class="en-content">Folders</span>
+                                    </div>
+                                    <div class="mockup-sidebar-item active">
+                                        <span class="file-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#007AFF" stroke="none"><path d="M10 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2z"/></svg></span>
+                                        Q1 Reports
+                                        <span class="file-meta">5</span>
+                                    </div>
+                                    <div class="mockup-sidebar-item">
+                                        <span class="file-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FF9500" stroke="none"><path d="M10 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2z"/></svg></span>
+                                        Campaigns
+                                        <span class="file-meta">12</span>
+                                    </div>
+                                    <div class="mockup-sidebar-item" style="padding:5px 14px;font-size:9px;color:#aeaeb2;text-transform:uppercase;letter-spacing:0.05em;margin-top:6px;">
+                                        <span class="zh-content">檔案</span>
+                                        <span class="en-content">Files</span>
+                                    </div>
+                                    <div class="mockup-sidebar-item">
+                                        <span class="file-icon" style="font-size:8px;font-weight:600;color:#FF3B30;">PDF</span>
+                                        Q1-Report.pdf
+                                    </div>
+                                    <div class="mockup-sidebar-item">
+                                        <span class="file-icon" style="font-size:8px;font-weight:600;color:#34C759;">XLS</span>
+                                        Sales-Data.xlsx
+                                    </div>
+                                    <div class="mockup-sidebar-item">
+                                        <span class="file-icon" style="font-size:8px;font-weight:600;color:#007AFF;">MP3</span>
+                                        Meeting-Notes.mp3
+                                    </div>
+                                </div>
+                                <!-- Progress bar -->
+                                <div style="padding:8px 14px;border-top:1px solid #e0e0e0;">
+                                    <div style="height:3px;background:#e0e0e0;border-radius:2px;overflow:hidden;">
+                                        <div style="width:100%;height:100%;background:#34C759;border-radius:2px;"></div>
+                                    </div>
+                                    <div style="font-size:8px;color:#aeaeb2;margin-top:3px;">
+                                        <span class="zh-content">6 個檔案已索引</span>
+                                        <span class="en-content">6 files indexed</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Right Panel: Chat -->
                             <div class="mockup-main">
                                 <div class="mockup-chat">
                                     <div class="mockup-msg user">
@@ -872,24 +1030,36 @@
                                         <span class="en-content">Compare Q1 and Q2 revenue differences and list the main reasons</span>
                                     </div>
                                     <div class="mockup-msg ai">
-                                        <span class="zh-content">根據您的文件分析，Q2 營收較 Q1 成長 23%。主要原因包括：<br><br>1. 新產品線貢獻 +15% 營收<br>2. 亞太市場擴張帶來 +12% 成長<br>3. 客戶續約率提升至 94%</span>
-                                        <span class="en-content">Based on your documents, Q2 revenue grew 23% over Q1. Key reasons include:<br><br>1. New product line contributed +15% revenue<br>2. APAC market expansion drove +12% growth<br>3. Customer renewal rate improved to 94%</span>
+                                        <span class="zh-content">根據您的文件分析，Q2 營收較 Q1 成長 23%。主要原因包括：<br><br><strong>1. 新產品線貢獻</strong> — +15% 營收<br><strong>2. 亞太市場擴張</strong> — +12% 成長<br><strong>3. 客戶續約率</strong> — 提升至 94%</span>
+                                        <span class="en-content">Based on your documents, Q2 revenue grew 23% over Q1. Key reasons include:<br><br><strong>1. New product line</strong> — +15% revenue<br><strong>2. APAC expansion</strong> — +12% growth<br><strong>3. Customer renewal</strong> — improved to 94%</span>
                                         <br>
                                         <span class="source-tag">Q1-Report.pdf</span>
                                         <span class="source-tag">Q2-Report.pdf</span>
                                         <span class="source-tag">Sales-Data.xlsx</span>
                                     </div>
-                                    <div class="mockup-msg ai" style="padding: 10px 14px;">
+                                    <div class="mockup-msg ai" style="padding: 10px 0;">
                                         <div class="typing-dots"><span></span><span></span><span></span></div>
                                     </div>
                                 </div>
+                                <div style="text-align:center;padding:0 16px 2px;"><span style="font-size:9px;color:#aeaeb2;">
+                                    <span class="zh-content">Panlo 可能會出錯，請以引用來源為準。</span>
+                                    <span class="en-content">Panlo can make mistakes. Please check cited sources.</span>
+                                </span></div>
                                 <div class="mockup-input">
-                                    <div class="mockup-input-field">
-                                        <span class="zh-content">Ask Panlo 任何問題...</span>
-                                        <span class="en-content">Ask Panlo anything...</span>
-                                    </div>
-                                    <div class="mockup-send-btn">
-                                        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="white"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19V5m0 0l-7 7m7-7l7 7"/></svg>
+                                    <div class="mockup-input-box">
+                                        <div class="mockup-input-text">
+                                            <span class="zh-content">詢問任何關於您的檔案...</span>
+                                            <span class="en-content">Ask anything about your files...</span>
+                                        </div>
+                                        <div class="mockup-input-bottom">
+                                            <span class="mockup-add-context">
+                                                <span class="zh-content">+ 新增上下文</span>
+                                                <span class="en-content">+ Add Context</span>
+                                            </span>
+                                            <div class="mockup-send-btn">
+                                                <svg width="14" height="14" fill="white" viewBox="0 0 24 24"><path d="M3.4 20.6l17.2-8.6L3.4 3.4v6.7l11.1 1.3-11.1 1.3z"/></svg>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -913,13 +1083,13 @@
                     <span class="zh-content">核心功能</span>
                     <span class="en-content">Core Features</span>
                 </div>
-                <h2 class="text-3xl font-bold sm:text-4xl reveal" style="letter-spacing: -0.02em; color: var(--text-primary);">
-                    <span class="zh-content">您的文件，從此擁有智慧</span>
-                    <span class="en-content">Your Documents, Now Intelligent</span>
+                <h2 class="text-3xl font-bold sm:text-5xl reveal" style="letter-spacing: -0.03em; color: var(--text-primary);">
+                    <span class="zh-content">企業知識，一問即答</span>
+                    <span class="en-content">Enterprise Knowledge, Instant Answers</span>
                 </h2>
-                <p class="max-w-2xl mt-4 mx-auto text-base reveal" style="color: var(--text-secondary);">
-                    <span class="zh-content">Panlo 結合語意搜尋、多模態處理與智能代理系統，將靜態文件轉化為可對話、可分析、可協作的智慧知識庫。</span>
-                    <span class="en-content">Panlo combines semantic search, multimodal processing, and agentic intelligence to transform static documents into a conversational, analyzable, and collaborative knowledge base.</span>
+                <p class="max-w-2xl mt-4 mx-auto text-lg reveal" style="color: var(--text-secondary);">
+                    <span class="zh-content">語意搜尋、多模態處理、智能代理 — 靜態文件變身可對話的企業知識庫。</span>
+                    <span class="en-content">Semantic search, multimodal processing, agentic workflows — static files become your enterprise knowledge base.</span>
                 </p>
             </div>
 
@@ -930,13 +1100,13 @@
                         <div class="feature-icon icon-green mb-3">
                             <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                         </div>
-                        <h3 class="text-xl font-semibold" style="color: var(--text-primary);">
-                            <span class="zh-content">語意搜尋 — 理解你的意思，而非只是關鍵字</span>
-                            <span class="en-content">Semantic Search — Understands Meaning, Not Just Keywords</span>
+                        <h3 class="text-2xl font-bold" style="color: var(--text-primary);">
+                            <span class="zh-content">語意搜尋</span>
+                            <span class="en-content">Semantic Search</span>
                         </h3>
-                        <p class="mt-3 text-sm" style="color: var(--text-secondary); line-height: 1.7;">
-                            <span class="zh-content">文件上傳後自動轉為向量嵌入，搜尋引擎理解語意與上下文。搜尋「員工福利政策」也能找到提及「年假天數」、「保險方案」的段落。所有結果都附帶引用來源。</span>
-                            <span class="en-content">Documents are automatically converted to vector embeddings. The search engine understands meaning and context — searching "employee benefits policy" also finds paragraphs mentioning "vacation days" and "insurance plans." All results come with cited sources.</span>
+                        <p class="mt-2 text-base" style="color: var(--text-secondary); line-height: 1.6;">
+                            <span class="zh-content">理解語意，而非只是關鍵字。所有結果附帶引用來源。</span>
+                            <span class="en-content">Understands meaning, not just keywords. Every result comes with cited sources.</span>
                         </p>
                     </div>
                 </div>
@@ -946,37 +1116,50 @@
                         <div class="mini-dot" style="width:8px;height:8px;border-radius:50%;background:#FFBD2E;"></div>
                         <div class="mini-dot" style="width:8px;height:8px;border-radius:50%;background:#27C93F;"></div>
                     </div>
-                    <div class="mini-content" style="background: #1c1c1e;">
-                        <div style="background:#2c2c2e;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;margin-bottom:12px;">
-                            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,0.4)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                            <span style="font-size:11px;color:rgba(255,255,255,0.8);">
+                    <div class="mini-content" style="background:#ffffff;">
+                        <!-- Chat: user message -->
+                        <div style="background:#f1f1f1;border-radius:10px;padding:10px 12px;margin-left:auto;max-width:85%;margin-bottom:12px;">
+                            <span style="font-size:11px;color:#1c1c1e;">
                                 <span class="zh-content">員工福利政策有哪些？</span>
                                 <span class="en-content">What are the employee benefits?</span>
                             </span>
                         </div>
-                        <div style="font-size:10px;color:rgba(255,255,255,0.3);margin-bottom:8px;">
-                            <span class="zh-content">找到 3 個相關結果</span>
-                            <span class="en-content">3 relevant results found</span>
-                        </div>
-                        <div style="background:#2c2c2e;border-radius:8px;padding:10px;margin-bottom:8px;border-left:3px solid #34C759;">
-                            <div style="font-size:10px;color:#34C759;margin-bottom:4px;">HR-Policy-2026.pdf <span style="color:rgba(255,255,255,0.3);">p.12</span></div>
-                            <div style="font-size:11px;color:rgba(255,255,255,0.7);line-height:1.4;">
-                                <span class="zh-content">...全職員工享有 15 天年假、健康保險、彈性工作時間...</span>
-                                <span class="en-content">...full-time employees receive 15 vacation days, health insurance, flexible hours...</span>
+                        <!-- Chat: AI response with cited sources -->
+                        <div style="margin-bottom:10px;">
+                            <div style="font-size:11px;color:#1c1c1e;line-height:1.6;margin-bottom:8px;">
+                                <span class="zh-content">根據您的文件，以下是員工福利政策的重點：</span>
+                                <span class="en-content">Based on your documents, here are the key employee benefits:</span>
+                            </div>
+                            <div style="background:#f5f5f7;border-radius:8px;padding:10px;margin-bottom:6px;border-left:3px solid #34C759;">
+                                <div style="font-size:10px;color:#34C759;font-weight:600;margin-bottom:3px;">HR-Policy-2026.pdf <span style="color:#aeaeb2;font-weight:400;">p.12</span></div>
+                                <div style="font-size:11px;color:#3a3a3c;line-height:1.4;">
+                                    <span class="zh-content">...全職員工享有 15 天年假、健康保險、彈性工作時間...</span>
+                                    <span class="en-content">...full-time employees receive 15 vacation days, health insurance, flexible hours...</span>
+                                </div>
+                            </div>
+                            <div style="background:#f5f5f7;border-radius:8px;padding:10px;margin-bottom:6px;border-left:3px solid #007AFF;">
+                                <div style="font-size:10px;color:#007AFF;font-weight:600;margin-bottom:3px;">Benefits-Guide.docx <span style="color:#aeaeb2;font-weight:400;">p.3</span></div>
+                                <div style="font-size:11px;color:#3a3a3c;line-height:1.4;">
+                                    <span class="zh-content">...保險方案涵蓋醫療、牙科及視力，配偶可加保...</span>
+                                    <span class="en-content">...insurance coverage includes medical, dental, and vision; spouse can be added...</span>
+                                </div>
+                            </div>
+                            <div style="background:#f5f5f7;border-radius:8px;padding:10px;border-left:3px solid #FF9500;">
+                                <div style="font-size:10px;color:#FF9500;font-weight:600;margin-bottom:3px;">Onboarding-Deck.pptx <span style="color:#aeaeb2;font-weight:400;">slide 8</span></div>
+                                <div style="font-size:11px;color:#3a3a3c;line-height:1.4;">
+                                    <span class="zh-content">...新進人員第一年享有教育訓練補助 $2,000...</span>
+                                    <span class="en-content">...new hires receive $2,000 training budget in their first year...</span>
+                                </div>
                             </div>
                         </div>
-                        <div style="background:#2c2c2e;border-radius:8px;padding:10px;margin-bottom:8px;border-left:3px solid #007AFF;">
-                            <div style="font-size:10px;color:#007AFF;margin-bottom:4px;">Benefits-Guide.docx <span style="color:rgba(255,255,255,0.3);">p.3</span></div>
-                            <div style="font-size:11px;color:rgba(255,255,255,0.7);line-height:1.4;">
-                                <span class="zh-content">...保險方案涵蓋醫療、牙科及視力，配偶可加保...</span>
-                                <span class="en-content">...insurance coverage includes medical, dental, and vision; spouse can be added...</span>
-                            </div>
-                        </div>
-                        <div style="background:#2c2c2e;border-radius:8px;padding:10px;border-left:3px solid #FF9500;">
-                            <div style="font-size:10px;color:#FF9500;margin-bottom:4px;">Onboarding-Deck.pptx <span style="color:rgba(255,255,255,0.3);">slide 8</span></div>
-                            <div style="font-size:11px;color:rgba(255,255,255,0.7);line-height:1.4;">
-                                <span class="zh-content">...新進人員第一年享有教育訓練補助 $2,000...</span>
-                                <span class="en-content">...new hires receive $2,000 training budget in their first year...</span>
+                        <!-- Input bar -->
+                        <div style="background:#ffffff;border:1px solid #e0e0e0;border-radius:10px;padding:8px 10px;box-shadow:0 1px 4px rgba(0,0,0,0.04);display:flex;align-items:center;justify-content:space-between;margin-top:8px;">
+                            <span style="font-size:10px;color:#aeaeb2;">
+                                <span class="zh-content">詢問任何問題...</span>
+                                <span class="en-content">Ask anything...</span>
+                            </span>
+                            <div style="width:22px;height:22px;background:#007AFF;border-radius:5px;display:flex;align-items:center;justify-content:center;">
+                                <svg width="11" height="11" fill="white" viewBox="0 0 24 24"><path d="M3.4 20.6l17.2-8.6L3.4 3.4v6.7l11.1 1.3-11.1 1.3z"/></svg>
                             </div>
                         </div>
                     </div>
@@ -990,13 +1173,13 @@
                         <div class="feature-icon icon-orange mb-3">
                             <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                         </div>
-                        <h3 class="text-xl font-semibold" style="color: var(--text-primary);">
-                            <span class="zh-content">多模態處理 — 20+ 格式，一鍵索引</span>
-                            <span class="en-content">Multimodal Processing — 20+ Formats, One-Click Index</span>
+                        <h3 class="text-2xl font-bold" style="color: var(--text-primary);">
+                            <span class="zh-content">20+ 格式，統一索引</span>
+                            <span class="en-content">20+ Formats, One Index</span>
                         </h3>
-                        <p class="mt-3 text-sm" style="color: var(--text-secondary); line-height: 1.7;">
-                            <span class="zh-content">不論是 PDF 報告、Excel 數據、會議錄音或簡報，Panlo 都能自動解析。音訊透過 Whisper 轉錄，影片提取文字，所有內容統一進入語意索引。</span>
-                            <span class="en-content">Whether it's PDF reports, Excel data, meeting recordings, or presentations — Panlo parses them all. Audio is transcribed via Whisper, video text is extracted, and all content enters the unified semantic index.</span>
+                        <p class="mt-2 text-base" style="color: var(--text-secondary); line-height: 1.6;">
+                            <span class="zh-content">PDF、Excel、簡報、會議錄音 — 自動解析，統一進入語意索引。</span>
+                            <span class="en-content">PDFs, spreadsheets, presentations, meeting recordings — auto-parsed into one unified semantic index.</span>
                         </p>
                     </div>
                 </div>
@@ -1005,56 +1188,75 @@
                         <div class="mini-dot" style="width:8px;height:8px;border-radius:50%;background:#FF5F56;"></div>
                         <div class="mini-dot" style="width:8px;height:8px;border-radius:50%;background:#FFBD2E;"></div>
                         <div class="mini-dot" style="width:8px;height:8px;border-radius:50%;background:#27C93F;"></div>
-                        <span style="font-size:10px;color:rgba(255,255,255,0.35);margin-left:6px;">
+                        <span style="font-size:10px;color:#aeaeb2;margin-left:6px;">
                             <span class="zh-content">檔案處理</span>
                             <span class="en-content">File Processing</span>
                         </span>
                     </div>
-                    <div class="mini-content" style="background: #1c1c1e; padding: 14px;">
-                        <div style="display:flex;flex-direction:column;gap:8px;">
-                            <div style="display:flex;align-items:center;gap:10px;background:#2c2c2e;padding:10px 12px;border-radius:8px;">
-                                <div style="width:32px;height:32px;border-radius:6px;background:rgba(255,59,48,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:600;color:#FF3B30;">PDF</div>
+                    <div class="mini-content" style="background:#f5f5f7;padding:14px;">
+                        <!-- Space header -->
+                        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #e0e0e0;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1c1c1e" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+                            <span style="font-size:11px;font-weight:600;color:#1c1c1e;">Engineering</span>
+                            <span style="font-size:9px;color:#aeaeb2;margin-left:auto;">4
+                                <span class="zh-content">個檔案</span>
+                                <span class="en-content">files</span>
+                            </span>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:6px;">
+                            <div style="display:flex;align-items:center;gap:10px;background:#ffffff;padding:10px 12px;border-radius:8px;border:1px solid #e5e5e5;">
+                                <div style="width:32px;height:32px;border-radius:6px;background:rgba(255,59,48,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;font-weight:700;color:#FF3B30;">PDF</div>
                                 <div style="flex:1;min-width:0;">
-                                    <div style="font-size:11px;color:rgba(255,255,255,0.8);">Q1-Report.pdf</div>
-                                    <div style="font-size:10px;color:rgba(255,255,255,0.3);">24 pages &middot; 2.3 MB</div>
+                                    <div style="font-size:11px;color:#1c1c1e;font-weight:500;">Q1-Report.pdf</div>
+                                    <div style="font-size:10px;color:#aeaeb2;">24 pages &middot; 2.3 MB</div>
                                 </div>
-                                <div style="font-size:10px;color:#34C759;">
+                                <div style="font-size:9px;color:#34C759;font-weight:600;background:rgba(52,199,89,0.08);padding:2px 6px;border-radius:4px;">
                                     <span class="zh-content">已索引</span>
                                     <span class="en-content">Indexed</span>
                                 </div>
                             </div>
-                            <div style="display:flex;align-items:center;gap:10px;background:#2c2c2e;padding:10px 12px;border-radius:8px;">
-                                <div style="width:32px;height:32px;border-radius:6px;background:rgba(52,199,89,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:600;color:#34C759;">XLS</div>
+                            <div style="display:flex;align-items:center;gap:10px;background:#ffffff;padding:10px 12px;border-radius:8px;border:1px solid #e5e5e5;">
+                                <div style="width:32px;height:32px;border-radius:6px;background:rgba(52,199,89,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;font-weight:700;color:#34C759;">XLS</div>
                                 <div style="flex:1;min-width:0;">
-                                    <div style="font-size:11px;color:rgba(255,255,255,0.8);">Budget-2026.xlsx</div>
-                                    <div style="font-size:10px;color:rgba(255,255,255,0.3);">3 sheets &middot; 856 KB</div>
+                                    <div style="font-size:11px;color:#1c1c1e;font-weight:500;">Budget-2026.xlsx</div>
+                                    <div style="font-size:10px;color:#aeaeb2;">3 sheets &middot; 856 KB</div>
                                 </div>
-                                <div style="font-size:10px;color:#34C759;">
+                                <div style="font-size:9px;color:#34C759;font-weight:600;background:rgba(52,199,89,0.08);padding:2px 6px;border-radius:4px;">
                                     <span class="zh-content">已索引</span>
                                     <span class="en-content">Indexed</span>
                                 </div>
                             </div>
-                            <div style="display:flex;align-items:center;gap:10px;background:#2c2c2e;padding:10px 12px;border-radius:8px;">
-                                <div style="width:32px;height:32px;border-radius:6px;background:rgba(0,122,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:600;color:#007AFF;">MP3</div>
+                            <div style="display:flex;align-items:center;gap:10px;background:#ffffff;padding:10px 12px;border-radius:8px;border:1px solid #e5e5e5;">
+                                <div style="width:32px;height:32px;border-radius:6px;background:rgba(0,122,255,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;font-weight:700;color:#007AFF;">MP3</div>
                                 <div style="flex:1;min-width:0;">
-                                    <div style="font-size:11px;color:rgba(255,255,255,0.8);">Meeting-Apr-15.mp3</div>
-                                    <div style="font-size:10px;color:rgba(255,255,255,0.3);">45 min &middot; Whisper</div>
+                                    <div style="font-size:11px;color:#1c1c1e;font-weight:500;">Meeting-Apr-15.mp3</div>
+                                    <div style="font-size:10px;color:#aeaeb2;">45 min &middot; Whisper</div>
                                 </div>
-                                <div style="font-size:10px;color:#FF9500;">
+                                <div style="font-size:9px;color:#FF9500;font-weight:600;background:rgba(255,149,0,0.08);padding:2px 6px;border-radius:4px;">
                                     <span class="zh-content">轉錄中...</span>
                                     <span class="en-content">Transcribing...</span>
                                 </div>
                             </div>
-                            <div style="display:flex;align-items:center;gap:10px;background:#2c2c2e;padding:10px 12px;border-radius:8px;">
-                                <div style="width:32px;height:32px;border-radius:6px;background:rgba(175,82,222,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:600;color:#AF52DE;">PPT</div>
+                            <div style="display:flex;align-items:center;gap:10px;background:#ffffff;padding:10px 12px;border-radius:8px;border:1px solid #e5e5e5;">
+                                <div style="width:32px;height:32px;border-radius:6px;background:rgba(175,82,222,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;font-weight:700;color:#AF52DE;">PPT</div>
                                 <div style="flex:1;min-width:0;">
-                                    <div style="font-size:11px;color:rgba(255,255,255,0.8);">Product-Launch.pptx</div>
-                                    <div style="font-size:10px;color:rgba(255,255,255,0.3);">32 slides &middot; 5.1 MB</div>
+                                    <div style="font-size:11px;color:#1c1c1e;font-weight:500;">Product-Launch.pptx</div>
+                                    <div style="font-size:10px;color:#aeaeb2;">32 slides &middot; 5.1 MB</div>
                                 </div>
-                                <div style="font-size:10px;color:#34C759;">
+                                <div style="font-size:9px;color:#34C759;font-weight:600;background:rgba(52,199,89,0.08);padding:2px 6px;border-radius:4px;">
                                     <span class="zh-content">已索引</span>
                                     <span class="en-content">Indexed</span>
                                 </div>
+                            </div>
+                        </div>
+                        <!-- Progress bar at bottom -->
+                        <div style="margin-top:10px;">
+                            <div style="height:3px;background:#e0e0e0;border-radius:2px;overflow:hidden;">
+                                <div style="width:75%;height:100%;background:linear-gradient(90deg,#34C759,#FF9500);border-radius:2px;transition:width 1s;"></div>
+                            </div>
+                            <div style="font-size:9px;color:#aeaeb2;margin-top:4px;">
+                                <span class="zh-content">正在索引 3/4 個檔案...</span>
+                                <span class="en-content">Indexing 3/4 files...</span>
                             </div>
                         </div>
                     </div>
@@ -1068,13 +1270,13 @@
                         <div class="feature-icon icon-purple mb-3">
                             <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                         </div>
-                        <h3 class="text-xl font-semibold" style="color: var(--text-primary);">
-                            <span class="zh-content">智慧空間 — 團隊知識庫，權限分明</span>
-                            <span class="en-content">Smart Spaces — Team Knowledge, Role-Based Access</span>
+                        <h3 class="text-2xl font-bold" style="color: var(--text-primary);">
+                            <span class="zh-content">團隊空間，權限分明</span>
+                            <span class="en-content">Team Spaces, Role-Based Access</span>
                         </h3>
-                        <p class="mt-3 text-sm" style="color: var(--text-secondary); line-height: 1.7;">
-                            <span class="zh-content">以「空間」組織文件，邀請團隊成員加入。擁有者、貢獻者、檢視者三種角色，確保每個人都能存取適當的內容。設定監控資料夾，新檔案自動同步進知識庫。</span>
-                            <span class="en-content">Organize documents in Spaces and invite team members. Owner, Contributor, and Viewer roles ensure everyone accesses the right content. Set up watch folders and new files auto-sync into the knowledge base.</span>
+                        <p class="mt-2 text-base" style="color: var(--text-secondary); line-height: 1.6;">
+                            <span class="zh-content">以「空間」組織知識，三級權限管控。監控資料夾自動同步，知識庫始終最新。</span>
+                            <span class="en-content">Organize knowledge in Spaces with three-tier permissions. Watch folders auto-sync — your knowledge base stays current.</span>
                         </p>
                     </div>
                 </div>
@@ -1083,22 +1285,23 @@
                         <div class="mini-dot" style="width:8px;height:8px;border-radius:50%;background:#FF5F56;"></div>
                         <div class="mini-dot" style="width:8px;height:8px;border-radius:50%;background:#FFBD2E;"></div>
                         <div class="mini-dot" style="width:8px;height:8px;border-radius:50%;background:#27C93F;"></div>
-                        <span style="font-size:10px;color:rgba(255,255,255,0.35);margin-left:6px;">
+                        <span style="font-size:10px;color:#aeaeb2;margin-left:6px;">
                             <span class="zh-content">空間管理</span>
-                            <span class="en-content">Space Management</span>
+                            <span class="en-content">Select Space</span>
                         </span>
                     </div>
-                    <div class="mini-content" style="background:#1c1c1e;padding:14px;">
+                    <div class="mini-content" style="background:#ffffff;padding:14px;">
                         <div style="display:flex;flex-direction:column;gap:8px;">
-                            <div style="background:#2c2c2e;padding:12px;border-radius:8px;">
+                            <!-- Space card: Marketing -->
+                            <div style="background:#f5f5f7;padding:12px;border-radius:10px;border:1px solid #e5e5e5;">
                                 <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
                                     <div style="display:flex;align-items:center;gap:8px;">
-                                        <div style="width:28px;height:28px;border-radius:6px;background:#007AFF;display:flex;align-items:center;justify-content:center;">
-                                            <svg width="14" height="14" fill="white" viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+                                        <div style="width:28px;height:28px;border-radius:7px;background:#007AFF;display:flex;align-items:center;justify-content:center;">
+                                            <svg width="14" height="14" fill="white" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
                                         </div>
                                         <div>
-                                            <div style="font-size:12px;color:white;font-weight:600;">Marketing</div>
-                                            <div style="font-size:10px;color:rgba(255,255,255,0.35);">42 files &middot; 3 members</div>
+                                            <div style="font-size:12px;color:#1c1c1e;font-weight:600;">Marketing</div>
+                                            <div style="font-size:10px;color:#aeaeb2;">42 files &middot; 3 members</div>
                                         </div>
                                     </div>
                                 </div>
@@ -1108,29 +1311,31 @@
                                     <div style="width:22px;height:22px;border-radius:50%;background:#34C759;font-size:9px;color:white;display:flex;align-items:center;justify-content:center;">SK</div>
                                 </div>
                             </div>
-                            <div style="background:#2c2c2e;padding:12px;border-radius:8px;">
+                            <!-- Space card: Legal -->
+                            <div style="background:#f5f5f7;padding:12px;border-radius:10px;border:1px solid #e5e5e5;">
                                 <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
-                                    <div style="width:28px;height:28px;border-radius:6px;background:#34C759;display:flex;align-items:center;justify-content:center;">
+                                    <div style="width:28px;height:28px;border-radius:7px;background:#34C759;display:flex;align-items:center;justify-content:center;">
                                         <svg width="14" height="14" fill="white" viewBox="0 0 24 24"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2Z"/></svg>
                                     </div>
                                     <div>
-                                        <div style="font-size:12px;color:white;font-weight:600;">Legal</div>
-                                        <div style="font-size:10px;color:rgba(255,255,255,0.35);">128 files &middot; 5 members</div>
+                                        <div style="font-size:12px;color:#1c1c1e;font-weight:600;">Legal</div>
+                                        <div style="font-size:10px;color:#aeaeb2;">128 files &middot; 5 members</div>
                                     </div>
                                 </div>
                                 <div style="display:flex;gap:6px;flex-wrap:wrap;">
-                                    <span style="font-size:9px;padding:2px 8px;border-radius:4px;background:rgba(52,199,89,0.15);color:#34C759;">Owner</span>
-                                    <span style="font-size:9px;padding:2px 8px;border-radius:4px;background:rgba(0,122,255,0.15);color:#007AFF;">Contributor &times;2</span>
-                                    <span style="font-size:9px;padding:2px 8px;border-radius:4px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);">Viewer &times;2</span>
+                                    <span style="font-size:9px;padding:2px 8px;border-radius:4px;background:rgba(52,199,89,0.1);color:#34C759;font-weight:500;">Owner</span>
+                                    <span style="font-size:9px;padding:2px 8px;border-radius:4px;background:rgba(0,122,255,0.1);color:#007AFF;font-weight:500;">Contributor &times;2</span>
+                                    <span style="font-size:9px;padding:2px 8px;border-radius:4px;background:rgba(0,0,0,0.04);color:#8e8e93;font-weight:500;">Viewer &times;2</span>
                                 </div>
                             </div>
-                            <div style="background:#2c2c2e;padding:12px;border-radius:8px;">
+                            <!-- Watch folder -->
+                            <div style="background:#f5f5f7;padding:12px;border-radius:10px;border:1px solid #e5e5e5;">
                                 <div style="display:flex;align-items:center;gap:8px;">
-                                    <div style="width:28px;height:28px;border-radius:6px;background:#FF9500;display:flex;align-items:center;justify-content:center;">
-                                        <svg width="14" height="14" fill="white" viewBox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke="white" fill="none" stroke-width="2"/></svg>
+                                    <div style="width:28px;height:28px;border-radius:7px;background:#FF9500;display:flex;align-items:center;justify-content:center;">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
                                     </div>
                                     <div>
-                                        <div style="font-size:12px;color:white;font-weight:600;">
+                                        <div style="font-size:12px;color:#1c1c1e;font-weight:600;">
                                             <span class="zh-content">監控資料夾</span>
                                             <span class="en-content">Watch Folder</span>
                                         </div>
@@ -1142,6 +1347,14 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- New Space button -->
+                        <div style="margin-top:10px;display:flex;align-items:center;justify-content:center;gap:4px;padding:8px;border:1px dashed #c7c7cc;border-radius:8px;cursor:default;">
+                            <svg width="14" height="14" fill="#007AFF" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                            <span style="font-size:10px;color:#007AFF;font-weight:500;">
+                                <span class="zh-content">新增空間</span>
+                                <span class="en-content">New Space</span>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1152,39 +1365,39 @@
                     <div class="feature-icon icon-blue mb-4">
                         <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
                     </div>
-                    <h3 class="text-base font-semibold" style="color: var(--text-primary);">
-                        <span class="zh-content">Ask Panlo 對話式 AI</span>
-                        <span class="en-content">Ask Panlo Conversational AI</span>
+                    <h3 class="text-base font-bold" style="color: var(--text-primary);">
+                        <span class="zh-content">對話式 AI</span>
+                        <span class="en-content">Conversational AI</span>
                     </h3>
                     <p class="mt-2 text-sm" style="color: var(--text-secondary);">
-                        <span class="zh-content">直接與您的文件對話，提出問題即可獲得精確答案，並附上引用來源。</span>
-                        <span class="en-content">Talk directly to your documents. Ask questions and get precise answers with cited sources.</span>
+                        <span class="zh-content">與文件對話，精確答案附引用來源。</span>
+                        <span class="en-content">Talk to your docs. Precise answers with citations.</span>
                     </p>
                 </div>
                 <div class="feature-card p-6">
                     <div class="feature-icon icon-teal mb-4">
                         <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
                     </div>
-                    <h3 class="text-base font-semibold" style="color: var(--text-primary);">
+                    <h3 class="text-base font-bold" style="color: var(--text-primary);">
                         <span class="zh-content">監控資料夾</span>
                         <span class="en-content">Watch Folders</span>
                     </h3>
                     <p class="mt-2 text-sm" style="color: var(--text-secondary);">
-                        <span class="zh-content">設定監控資料夾，新增或修改的檔案自動上傳並建立索引，知識庫始終最新。</span>
-                        <span class="en-content">Set up watch folders — new or modified files auto-upload and index. Your knowledge base stays current.</span>
+                        <span class="zh-content">新檔案自動上傳索引，知識庫始終最新。</span>
+                        <span class="en-content">New files auto-upload and index. Always current.</span>
                     </p>
                 </div>
                 <div class="feature-card p-6">
                     <div class="feature-icon icon-red mb-4">
                         <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                     </div>
-                    <h3 class="text-base font-semibold" style="color: var(--text-primary);">
-                        <span class="zh-content">自動摘要生成</span>
+                    <h3 class="text-base font-bold" style="color: var(--text-primary);">
+                        <span class="zh-content">自動摘要</span>
                         <span class="en-content">Auto-Summary</span>
                     </h3>
                     <p class="mt-2 text-sm" style="color: var(--text-secondary);">
-                        <span class="zh-content">文件上傳後自動生成摘要，快速掌握重點。搭配 AI 深入分析跨文件關聯。</span>
-                        <span class="en-content">Documents are auto-summarized on upload. Combine with AI chat to analyze cross-document relationships.</span>
+                        <span class="zh-content">上傳即生成摘要，AI 分析跨文件關聯。</span>
+                        <span class="en-content">Summaries on upload. AI analyzes cross-doc relationships.</span>
                     </p>
                 </div>
             </div>
@@ -1196,16 +1409,16 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <div class="section-badge mx-auto">
-                    <span class="zh-content">智能引擎</span>
-                    <span class="en-content">AI Engine</span>
+                    <span class="zh-content">智能代理引擎</span>
+                    <span class="en-content">Agentic AI Engine</span>
                 </div>
-                <h2 class="text-3xl font-bold sm:text-4xl reveal" style="letter-spacing: -0.02em; color: var(--text-primary);">
-                    <span class="zh-content">三層智能，精準匹配每個問題</span>
-                    <span class="en-content">Three-Tier Intelligence for Every Query</span>
+                <h2 class="text-3xl font-bold sm:text-5xl reveal" style="letter-spacing: -0.03em; color: var(--text-primary);">
+                    <span class="zh-content">智能代理，自主完成工作流</span>
+                    <span class="en-content">Agentic Workflows That Work for You</span>
                 </h2>
-                <p class="max-w-2xl mt-4 mx-auto text-base reveal" style="color: var(--text-secondary);">
-                    <span class="zh-content">Panlo 的智能引擎會自動分類查詢複雜度，將簡單問題交給快速模型，複雜分析交給推理引擎。智慧路由確保最佳效能與成本平衡。</span>
-                    <span class="en-content">Panlo's AI engine automatically classifies query complexity — routing simple questions to fast models and complex analysis to the reasoning engine. Smart routing ensures optimal performance and cost balance.</span>
+                <p class="max-w-2xl mt-4 mx-auto text-lg reveal" style="color: var(--text-secondary);">
+                    <span class="zh-content">三層智能路由，AI 代理自主推理、調用工具、完成複雜分析任務。</span>
+                    <span class="en-content">Three-tier smart routing. AI agents autonomously reason, orchestrate tools, and complete complex tasks.</span>
                 </p>
             </div>
 
@@ -1222,8 +1435,8 @@
                         <span class="en-content">Instant Response</span>
                     </h3>
                     <p class="mt-2 text-sm" style="color: var(--text-secondary);">
-                        <span class="zh-content">處理 80% 的日常查詢。簡單問答、單一文件搜尋、檔案摘要等，2-5 秒內完成回覆。</span>
-                        <span class="en-content">Handles 80% of daily queries. Simple Q&A, single-doc search, file summaries — all answered within 2-5 seconds.</span>
+                        <span class="zh-content">80% 日常查詢，2-5 秒回覆。</span>
+                        <span class="en-content">80% of queries. 2-5 second responses.</span>
                     </p>
                     <div class="mt-4 flex items-center gap-4 text-xs" style="color: var(--text-secondary);">
                         <span>2-5s</span>
@@ -1243,8 +1456,8 @@
                         <span class="en-content">Deep Analysis</span>
                     </h3>
                     <p class="mt-2 text-sm" style="color: var(--text-secondary);">
-                        <span class="zh-content">處理中等複雜度的查詢。多文件綜合分析、基本比較、跨來源摘要整合，5-10 秒內完成。</span>
-                        <span class="en-content">Handles medium-complexity queries. Multi-document synthesis, basic comparisons, cross-source summaries — completed in 5-10 seconds.</span>
+                        <span class="zh-content">多文件綜合分析，5-10 秒完成。</span>
+                        <span class="en-content">Multi-doc synthesis. 5-10 seconds.</span>
                     </p>
                     <div class="mt-4 flex items-center gap-4 text-xs" style="color: var(--text-secondary);">
                         <span>5-10s</span>
@@ -1264,8 +1477,8 @@
                         <span class="en-content">Agentic Reasoning</span>
                     </h3>
                     <p class="mt-2 text-sm" style="color: var(--text-secondary);">
-                        <span class="zh-content">處理最複雜的分析任務。多步驟推理、工具編排、跨空間分析、決策矩陣生成，由 AI 代理自主完成。</span>
-                        <span class="en-content">Handles the most complex tasks. Multi-step reasoning, tool orchestration, cross-space analysis, and decision matrices — autonomously executed by AI agents.</span>
+                        <span class="zh-content">多步驟推理、工具編排、跨空間分析，AI 代理自主完成。</span>
+                        <span class="en-content">Multi-step reasoning, tool orchestration, cross-space analysis. Fully autonomous.</span>
                     </p>
                     <div class="mt-4 flex items-center gap-4 text-xs" style="color: var(--text-secondary);">
                         <span>15-30s</span>
@@ -1277,7 +1490,7 @@
 
             <!-- Agent Capabilities -->
             <div class="mt-16 reveal">
-                <h3 class="text-xl font-semibold text-center mb-8" style="color: var(--text-primary);">
+                <h3 class="text-2xl font-bold text-center mb-8" style="color: var(--text-primary);">
                     <span class="zh-content">代理工具生態系統</span>
                     <span class="en-content">Agent Tool Ecosystem</span>
                 </h3>
@@ -1338,13 +1551,13 @@
                             <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                         </div>
                         <div>
-                            <h4 class="font-semibold text-sm" style="color: var(--text-primary);">
+                            <h4 class="font-bold text-sm" style="color: var(--text-primary);">
                                 <span class="zh-content">智能意圖分類</span>
-                                <span class="en-content">Smart Intent Classification</span>
+                                <span class="en-content">Smart Intent Routing</span>
                             </h4>
                             <p class="mt-1 text-sm" style="color: var(--text-secondary);">
-                                <span class="zh-content">自動分析查詢的複雜度（關鍵字、文件數量、問題長度等），在執行前預估回應時間與成本，並路由到最適合的 AI 模型。</span>
-                                <span class="en-content">Automatically analyzes query complexity (keywords, file count, question length) to estimate response time and cost before execution, routing to the optimal AI model.</span>
+                                <span class="zh-content">自動分析複雜度，路由到最適合的模型。</span>
+                                <span class="en-content">Auto-classifies complexity and routes to the optimal model.</span>
                             </p>
                         </div>
                     </div>
@@ -1355,13 +1568,13 @@
                             <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
                         </div>
                         <div>
-                            <h4 class="font-semibold text-sm" style="color: var(--text-primary);">
+                            <h4 class="font-bold text-sm" style="color: var(--text-primary);">
                                 <span class="zh-content">多步驟推理迴圈</span>
-                                <span class="en-content">Multi-Step Reasoning Loop</span>
+                                <span class="en-content">Multi-Step Reasoning</span>
                             </h4>
                             <p class="mt-1 text-sm" style="color: var(--text-secondary);">
-                                <span class="zh-content">AI 代理自主執行最多 5 輪迭代推理，每輪可呼叫多個工具、驗證結果、調整策略。內建防止無限迴圈與結果壓縮機制。</span>
-                                <span class="en-content">AI agents autonomously execute up to 5 reasoning iterations, calling multiple tools per round, verifying results, and adjusting strategy. Built-in loop detection and result compression.</span>
+                                <span class="zh-content">最多 5 輪迭代推理，自動調用工具、驗證結果、調整策略。</span>
+                                <span class="en-content">Up to 5 reasoning iterations. Auto-invokes tools, verifies, adjusts.</span>
                             </p>
                         </div>
                     </div>
@@ -1372,13 +1585,13 @@
                             <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
                         </div>
                         <div>
-                            <h4 class="font-semibold text-sm" style="color: var(--text-primary);">
+                            <h4 class="font-bold text-sm" style="color: var(--text-primary);">
                                 <span class="zh-content">即時進度透明化</span>
-                                <span class="en-content">Real-Time Progress Visibility</span>
+                                <span class="en-content">Real-Time Transparency</span>
                             </h4>
                             <p class="mt-1 text-sm" style="color: var(--text-secondary);">
-                                <span class="zh-content">透過 Socket.io 即時串流，看到 AI 代理正在使用哪些工具、搜尋了哪些文件、每一步的推理結果。完整透明的 AI 思考過程。</span>
-                                <span class="en-content">Via Socket.io live streaming, see which tools the agent is using, which documents it searched, and results at each step. Full transparency into AI reasoning.</span>
+                                <span class="zh-content">即時看到 AI 正在使用哪些工具、搜尋哪些文件。</span>
+                                <span class="en-content">See every tool call and document search as it happens.</span>
                             </p>
                         </div>
                     </div>
@@ -1389,13 +1602,13 @@
                             <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                         </div>
                         <div>
-                            <h4 class="font-semibold text-sm" style="color: var(--text-primary);">
-                                <span class="zh-content">多模型供應商支援</span>
-                                <span class="en-content">Multi-Provider Model Support</span>
+                            <h4 class="font-bold text-sm" style="color: var(--text-primary);">
+                                <span class="zh-content">多模型供應商</span>
+                                <span class="en-content">Multi-Provider Models</span>
                             </h4>
                             <p class="mt-1 text-sm" style="color: var(--text-secondary);">
-                                <span class="zh-content">支援 OpenAI GPT-4o、Anthropic Claude、Google Gemini 等多家模型供應商，根據任務特性自動選擇最適合的模型。</span>
-                                <span class="en-content">Supports OpenAI GPT-4o, Anthropic Claude, Google Gemini and more. Automatically selects the optimal model based on task characteristics.</span>
+                                <span class="zh-content">GPT-4o、Claude、Gemini — 根據任務自動選擇最佳模型。</span>
+                                <span class="en-content">GPT-4o, Claude, Gemini — auto-selects the best model per task.</span>
                             </p>
                         </div>
                     </div>
@@ -1404,49 +1617,49 @@
 
             <!-- Use Cases -->
             <div class="mt-16 rounded-2xl p-8 reveal" style="background: var(--bg-secondary);">
-                <h3 class="text-xl font-semibold text-center mb-8" style="color: var(--text-primary);">
-                    <span class="zh-content">應用場景</span>
-                    <span class="en-content">Use Cases</span>
+                <h3 class="text-2xl font-bold text-center mb-8" style="color: var(--text-primary);">
+                    <span class="zh-content">企業應用場景</span>
+                    <span class="en-content">Enterprise Use Cases</span>
                 </h3>
                 <div class="grid md:grid-cols-2 gap-4">
                     <div class="use-case-card">
-                        <h4 class="font-semibold text-sm" style="color: var(--text-primary);">
+                        <h4 class="font-bold text-sm" style="color: var(--text-primary);">
                             <span class="zh-content">跨文件智能分析</span>
-                            <span class="en-content">Cross-Document Intelligent Analysis</span>
+                            <span class="en-content">Cross-Document Analysis</span>
                         </h4>
                         <p class="mt-1 text-sm" style="color: var(--text-secondary);">
-                            <span class="zh-content">「比較這三份合約的付款條件差異」— AI 代理自動搜尋、提取關鍵段落、生成比較表格。</span>
-                            <span class="en-content">"Compare the payment terms across these three contracts" — the AI agent automatically searches, extracts key sections, and generates a comparison table.</span>
+                            <span class="zh-content">「比較這三份合約的付款條件」— 自動搜尋、提取、生成比較表。</span>
+                            <span class="en-content">"Compare payment terms across three contracts" — auto-search, extract, compare.</span>
                         </p>
                     </div>
                     <div class="use-case-card">
-                        <h4 class="font-semibold text-sm" style="color: var(--text-primary);">
-                            <span class="zh-content">團隊知識庫建置</span>
+                        <h4 class="font-bold text-sm" style="color: var(--text-primary);">
+                            <span class="zh-content">團隊知識庫</span>
                             <span class="en-content">Team Knowledge Base</span>
                         </h4>
                         <p class="mt-1 text-sm" style="color: var(--text-secondary);">
-                            <span class="zh-content">將部門文件上傳至共享空間，團隊成員可直接透過自然語言提問，快速找到所需資訊。</span>
-                            <span class="en-content">Upload department documents to shared spaces. Team members can ask questions in natural language to quickly find the information they need.</span>
+                            <span class="zh-content">共享空間 + 自然語言提問，團隊知識隨問即答。</span>
+                            <span class="en-content">Shared spaces + natural language queries. Instant team knowledge.</span>
                         </p>
                     </div>
                     <div class="use-case-card">
-                        <h4 class="font-semibold text-sm" style="color: var(--text-primary);">
-                            <span class="zh-content">會議錄音智能分析</span>
-                            <span class="en-content">Meeting Recording Analysis</span>
+                        <h4 class="font-bold text-sm" style="color: var(--text-primary);">
+                            <span class="zh-content">會議錄音分析</span>
+                            <span class="en-content">Meeting Analysis</span>
                         </h4>
                         <p class="mt-1 text-sm" style="color: var(--text-secondary);">
-                            <span class="zh-content">上傳會議錄音，自動轉錄文字並生成摘要。隨時提問「上次會議決定了什麼？」即可獲得精確回答。</span>
-                            <span class="en-content">Upload meeting recordings for auto-transcription and summary. Ask "What was decided in the last meeting?" anytime for precise answers.</span>
+                            <span class="zh-content">上傳錄音，自動轉錄 + 摘要。隨時提問。</span>
+                            <span class="en-content">Upload recordings. Auto-transcribe + summarize. Ask anytime.</span>
                         </p>
                     </div>
                     <div class="use-case-card">
-                        <h4 class="font-semibold text-sm" style="color: var(--text-primary);">
+                        <h4 class="font-bold text-sm" style="color: var(--text-primary);">
                             <span class="zh-content">文件審查與合規</span>
-                            <span class="en-content">Document Review & Compliance</span>
+                            <span class="en-content">Compliance & Review</span>
                         </h4>
                         <p class="mt-1 text-sm" style="color: var(--text-secondary);">
-                            <span class="zh-content">上傳合約或報告，讓 AI 代理自動審查重要條款、標記潛在風險、並與歷史版本進行比對分析。</span>
-                            <span class="en-content">Upload contracts or reports for the AI agent to automatically review key clauses, flag potential risks, and compare against historical versions.</span>
+                            <span class="zh-content">AI 代理自動審查條款、標記風險、比對歷史版本。</span>
+                            <span class="en-content">AI agents review clauses, flag risks, compare historical versions.</span>
                         </p>
                     </div>
                 </div>
@@ -1462,13 +1675,13 @@
                     <span class="zh-content">立即下載</span>
                     <span class="en-content">Download</span>
                 </div>
-                <h2 class="text-3xl font-bold reveal" style="letter-spacing: -0.02em; color: var(--text-primary);">
-                    <span class="zh-content">選擇您的平台</span>
-                    <span class="en-content">Choose Your Platform</span>
+                <h2 class="text-3xl font-bold sm:text-4xl reveal" style="letter-spacing: -0.03em; color: var(--text-primary);">
+                    <span class="zh-content">立即開始</span>
+                    <span class="en-content">Get Started</span>
                 </h2>
-                <p class="mt-4 text-base reveal" style="color: var(--text-secondary);">
-                    <span class="zh-content">Panlo 是跨平台桌面應用程式，支援 macOS 與 Windows。免費下載，即刻開始。</span>
-                    <span class="en-content">Panlo is a cross-platform desktop app for macOS and Windows. Download free and get started instantly.</span>
+                <p class="mt-4 text-lg reveal" style="color: var(--text-secondary);">
+                    <span class="zh-content">macOS 與 Windows 跨平台支援。免費下載。</span>
+                    <span class="en-content">Cross-platform. macOS & Windows. Free.</span>
                 </p>
             </div>
 
@@ -1482,15 +1695,15 @@
                         <span class="en-content">Universal (Intel + Apple Silicon)</span>
                     </p>
                     <div class="mt-6">
-                        <a href="https://github.com/g1ahsia/panlo-releases/releases/download/v1.2.2/Panlo-1.2.2-universal.dmg" download class="btn-download">
+                        <a href="https://github.com/g1ahsia/panlo-releases/releases/latest/download/Panlo.dmg" download class="btn-download">
                             <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
                             <span class="zh-content">下載 macOS 版</span>
                             <span class="en-content">Download for macOS</span>
                         </a>
                     </div>
                     <p class="mt-3 text-xs" style="color: var(--text-secondary);">
-                        <span class="zh-content">版本 1.2.2 | macOS 10.15+</span>
-                        <span class="en-content">Version 1.2.2 | macOS 10.15+</span>
+                        <span class="zh-content">macOS 10.15+</span>
+                        <span class="en-content">macOS 10.15+</span>
                     </p>
                 </div>
 
@@ -1503,15 +1716,15 @@
                         <span class="en-content">64-bit Installer</span>
                     </p>
                     <div class="mt-6">
-                        <a href="https://github.com/g1ahsia/panlo-releases/releases/download/v1.2.2/Panlo-Setup-1.2.2.exe" download class="btn-download">
+                        <a href="https://github.com/g1ahsia/panlo-releases/releases/latest/download/Panlo-Setup.exe" download class="btn-download">
                             <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
                             <span class="zh-content">下載 Windows 版</span>
                             <span class="en-content">Download for Windows</span>
                         </a>
                     </div>
                     <p class="mt-3 text-xs" style="color: var(--text-secondary);">
-                        <span class="zh-content">版本 1.2.2 | Windows 10+</span>
-                        <span class="en-content">Version 1.2.2 | Windows 10+</span>
+                        <span class="zh-content">Windows 10+</span>
+                        <span class="en-content">Windows 10+</span>
                     </p>
                 </div>
             </div>
@@ -1721,7 +1934,7 @@
 
             // Typed.js
             new Typed('#typing-zh', {
-                strings: ['AI 智能文件助理', '語意搜尋，理解文件語境', '多步驟推理，深度分析', '團隊協作知識庫'],
+                strings: ['將文件轉化為智慧', '企業 AI 知識管理平台', '智能代理，自主完成工作流', '從小團隊到大型企業'],
                 typeSpeed: 45,
                 backSpeed: 25,
                 backDelay: 2500,
@@ -1731,7 +1944,7 @@
             });
 
             new Typed('#typing-en', {
-                strings: ['AI-Powered Document Intelligence', 'Semantic Search That Understands Context', 'Multi-Step Reasoning & Deep Analysis', 'Collaborative Knowledge Base for Teams'],
+                strings: ['Turn Documents Into Intelligence', 'Enterprise AI Knowledge Platform', 'Agentic Workflows That Scale', 'From Small Teams to Large Enterprises'],
                 typeSpeed: 40,
                 backSpeed: 20,
                 backDelay: 2500,
